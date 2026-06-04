@@ -7,13 +7,13 @@ export function ExperiencePreview() {
   return (
     <section
       id="experience"
-      className="scroll-mt-24 space-y-5 rounded-[1.75rem] border border-border bg-surface px-6 py-6 sm:px-8"
+      className="scroll-mt-24 space-y-5 rounded-[1.75rem] border border-border bg-surface/86 px-6 py-6 shadow-[0_14px_36px_rgba(18,23,34,0.07)] sm:px-8"
     >
       <SectionHeading eyebrow="Experience">
         Industrial experience
       </SectionHeading>
       <div className="grid gap-4 md:grid-cols-2">
-        <article className="rounded-[1.5rem] border border-border bg-background p-5">
+        <article className="rounded-[1.5rem] border border-border bg-background/92 p-5 shadow-[0_10px_26px_rgba(18,23,34,0.06)]">
           <p className="text-xs font-medium uppercase tracking-[0.2em] text-secondary-accent">
             {juniorEngineer.role}
           </p>
@@ -25,7 +25,7 @@ export function ExperiencePreview() {
             automation, PFDs, and P&amp;IDs.
           </p>
         </article>
-        <article className="rounded-[1.5rem] border border-border bg-background p-5">
+        <article className="rounded-[1.5rem] border border-border bg-background/92 p-5 shadow-[0_10px_26px_rgba(18,23,34,0.06)]">
           <p className="text-xs font-medium uppercase tracking-[0.2em] text-secondary-accent">
             {internship.role}
           </p>

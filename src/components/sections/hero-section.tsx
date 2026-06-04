@@ -20,10 +20,10 @@ export function HeroSection() {
   return (
     <section
       id="home"
-      className="hero-surface scroll-mt-24 overflow-hidden rounded-[2rem] border border-border shadow-[0_24px_70px_rgba(87,62,47,0.10)]"
+      className="hero-surface scroll-mt-24 overflow-hidden rounded-[2rem] border border-white/20 shadow-[0_32px_90px_rgba(18,23,34,0.18)]"
     >
-      <div className="grid gap-8 px-6 py-8 sm:px-8 sm:py-10 lg:grid-cols-[minmax(0,1fr)_19rem] lg:items-center lg:gap-10">
-        <div className="space-y-6 lg:space-y-7">
+      <div className="relative grid gap-6 px-6 py-8 sm:px-8 sm:py-10 lg:grid-cols-[minmax(0,1fr)_10.5rem] lg:items-start lg:gap-8">
+        <div className="relative z-10 space-y-6 lg:space-y-7">
           <div className="space-y-3">
             <h1 className="prose-balanced max-w-3xl text-4xl font-semibold tracking-tight text-text sm:text-5xl">
               {siteConfig.name}
@@ -62,7 +62,7 @@ export function HeroSection() {
                 target="_blank"
                 rel="noreferrer noopener"
                 aria-label={action.ariaLabel}
-                className="inline-flex min-h-11 items-center rounded-full border border-border bg-surface/92 px-5 py-3 text-sm font-medium text-text shadow-[0_8px_20px_rgba(87,62,47,0.06)] hover:border-accent hover:text-accent"
+                className="inline-flex min-h-11 items-center rounded-full border border-border bg-surface/78 px-5 py-3 text-sm font-medium text-text shadow-[0_10px_24px_rgba(18,23,34,0.08)] backdrop-blur-sm hover:border-accent hover:text-accent motion-safe:hover:-translate-y-0.5"
               >
                 {action.label} <span aria-hidden="true">&nbsp;&#8599;</span>
               </a>
@@ -80,15 +80,15 @@ export function HeroSection() {
           </p>
         </div>
 
-        <div className="mx-auto w-full max-w-[18rem] lg:max-w-none">
-          <div className="relative aspect-[4/5] overflow-hidden rounded-[1.75rem] border border-border bg-surface-muted shadow-[0_20px_50px_rgba(87,62,47,0.14)]">
+        <div className="order-4 mx-auto w-full max-w-[7.25rem] sm:max-w-[8.25rem] lg:order-none lg:mx-0 lg:justify-self-end lg:max-w-[10rem]">
+          <div className="relative aspect-[4/5] overflow-hidden rounded-[1.2rem] border border-border/80 bg-surface-muted shadow-[0_12px_28px_rgba(18,23,34,0.10)]">
             <Image
-              src="/images/profile/profile-photo.jpg"
+              src="/images/profile/profile-photo-v2.jpg"
               alt="Portrait of Saiankith Reddy Kolli"
               fill
               priority
-              sizes="(max-width: 767px) 70vw, (max-width: 1279px) 38vw, 288px"
-              className="object-cover object-center"
+              sizes="(max-width: 767px) 116px, (max-width: 1279px) 132px, 160px"
+              className="object-cover object-top"
             />
           </div>
         </div>

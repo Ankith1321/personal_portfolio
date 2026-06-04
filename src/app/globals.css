@@ -1,27 +1,31 @@
 @import "tailwindcss";
 
 :root {
-  --background: #f7f1e8;
+  --background: #f4eee5;
   --surface: #fffaf2;
-  --surface-muted: #f1e7d8;
-  --text: #3f362f;
-  --text-muted: #6c6056;
-  --border: #ddcfbf;
-  --accent: #b86e53;
-  --accent-hover: #a15f47;
-  --secondary-accent: #80937c;
+  --surface-muted: #f4ece0;
+  --text: #312a2e;
+  --text-muted: #645c63;
+  --border: #d8c9c3;
+  --accent: #bc7359;
+  --accent-hover: #a7624b;
+  --secondary-accent: #7f9788;
+  --depth-indigo: #8a8ec4;
+  --depth-navy: #223147;
 }
 
 .dark {
-  --background: #2c2521;
-  --surface: #362e29;
-  --surface-muted: #433832;
-  --text: #f0e6da;
-  --text-muted: #cdbdad;
-  --border: #5f5148;
-  --accent: #cf896b;
-  --accent-hover: #df9878;
-  --secondary-accent: #9db198;
+  --background: #101723;
+  --surface: #182130;
+  --surface-muted: #1f2938;
+  --text: #f2eadf;
+  --text-muted: #c3bdba;
+  --border: #334053;
+  --accent: #d48a6d;
+  --accent-hover: #e29a7b;
+  --secondary-accent: #92a997;
+  --depth-indigo: #6f75b4;
+  --depth-navy: #0e1522;
 }
 
 @theme inline {
@@ -55,12 +59,50 @@ html {
 
 body {
   background: var(--background);
-  background-image:
-    radial-gradient(circle at top left, color-mix(in srgb, var(--accent) 12%, transparent) 0, transparent 28rem),
-    radial-gradient(circle at top right, color-mix(in srgb, var(--secondary-accent) 12%, transparent) 0, transparent 24rem),
-    linear-gradient(180deg, color-mix(in srgb, var(--surface) 32%, transparent), transparent 24rem);
   color: var(--text);
   font-family: var(--font-geist-sans), sans-serif;
+  position: relative;
+}
+
+body::before,
+body::after {
+  content: "";
+  inset: 0;
+  pointer-events: none;
+  position: fixed;
+  z-index: -1;
+}
+
+body::before {
+  background:
+    radial-gradient(circle at 14% 10%, color-mix(in srgb, var(--depth-indigo) 16%, transparent), transparent 26rem),
+    radial-gradient(circle at 84% 12%, color-mix(in srgb, var(--accent) 14%, transparent), transparent 22rem),
+    radial-gradient(circle at 78% 32%, color-mix(in srgb, var(--secondary-accent) 12%, transparent), transparent 20rem),
+    radial-gradient(circle at 50% 120%, color-mix(in srgb, var(--depth-navy) 12%, transparent), transparent 34rem),
+    linear-gradient(180deg, color-mix(in srgb, var(--background) 82%, var(--surface) 18%), var(--background));
+}
+
+body::after {
+  background-image:
+    linear-gradient(color-mix(in srgb, var(--border) 18%, transparent) 1px, transparent 1px),
+    linear-gradient(90deg, color-mix(in srgb, var(--border) 18%, transparent) 1px, transparent 1px),
+    radial-gradient(circle at 22% 24%, color-mix(in srgb, var(--depth-indigo) 16%, transparent) 0.12rem, transparent 0.13rem),
+    radial-gradient(circle at 74% 18%, color-mix(in srgb, var(--secondary-accent) 18%, transparent) 0.12rem, transparent 0.13rem),
+    linear-gradient(125deg, transparent 49.3%, color-mix(in srgb, var(--border) 12%, transparent) 49.7%, color-mix(in srgb, var(--border) 12%, transparent) 50.3%, transparent 50.7%);
+  background-position:
+    center center,
+    center center,
+    12rem 18rem,
+    calc(100% - 16rem) 10rem,
+    calc(100% - 22rem) 11rem;
+  background-size:
+    36px 36px,
+    36px 36px,
+    22rem 22rem,
+    18rem 18rem,
+    20rem 20rem;
+  opacity: 0.24;
+  mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.24));
 }
 
 a,
@@ -101,7 +143,73 @@ summary {
 
 .hero-surface {
   background:
-    radial-gradient(circle at 18% 20%, color-mix(in srgb, var(--accent) 12%, transparent), transparent 20rem),
-    radial-gradient(circle at 84% 22%, color-mix(in srgb, var(--secondary-accent) 12%, transparent), transparent 18rem),
-    linear-gradient(180deg, color-mix(in srgb, var(--surface) 92%, white 8%), var(--surface));
+    radial-gradient(circle at 16% 18%, color-mix(in srgb, var(--depth-indigo) 14%, transparent), transparent 21rem),
+    radial-gradient(circle at 82% 20%, color-mix(in srgb, var(--accent) 12%, transparent), transparent 18rem),
+    radial-gradient(circle at 76% 72%, color-mix(in srgb, var(--secondary-accent) 10%, transparent), transparent 15rem),
+    linear-gradient(140deg, color-mix(in srgb, var(--surface) 82%, white 18%), color-mix(in srgb, var(--surface) 92%, transparent));
+  box-shadow:
+    inset 0 1px 0 color-mix(in srgb, white 46%, transparent),
+    inset 0 -1px 0 color-mix(in srgb, black 8%, transparent),
+    0 24px 70px rgba(18, 23, 34, 0.14);
+  position: relative;
+}
+
+.hero-surface::before {
+  content: "";
+  inset: 0;
+  position: absolute;
+  pointer-events: none;
+  background:
+    linear-gradient(115deg, color-mix(in srgb, white 18%, transparent), transparent 42%),
+    linear-gradient(180deg, color-mix(in srgb, var(--depth-navy) 5%, transparent), transparent 30%);
+  opacity: 0.9;
+}
+
+.section-depth {
+  background:
+    radial-gradient(circle at top right, color-mix(in srgb, var(--depth-indigo) 10%, transparent), transparent 16rem),
+    linear-gradient(180deg, color-mix(in srgb, var(--surface) 88%, transparent), var(--surface));
+  box-shadow:
+    inset 0 1px 0 color-mix(in srgb, white 28%, transparent),
+    0 14px 36px rgba(18, 23, 34, 0.08);
+  position: relative;
+}
+
+.section-depth::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border-radius: inherit;
+  background:
+    linear-gradient(180deg, color-mix(in srgb, white 10%, transparent), transparent 20%),
+    linear-gradient(90deg, transparent, color-mix(in srgb, var(--border) 8%, transparent), transparent);
+}
+
+.tech-divider {
+  position: relative;
+}
+
+.tech-divider::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -0.85rem;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    color-mix(in srgb, var(--depth-indigo) 24%, transparent),
+    color-mix(in srgb, var(--accent) 28%, transparent),
+    color-mix(in srgb, var(--secondary-accent) 24%, transparent),
+    transparent
+  );
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-surface,
+  .section-depth {
+    transform: none !important;
+  }
 }
