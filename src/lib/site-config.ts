@@ -1,6 +1,6 @@
 export const siteConfig = {
   name: "Saiankith Reddy Kolli",
-  headline: "Applied AI / Machine Learning Engineer",
+  headline: "Machine Learning Engineer",
   location: "Amberg, Germany",
   navigation: [
     { label: "Home", href: "/#home" },
@@ -13,7 +13,8 @@ export const siteConfig = {
   social: {
     github: "https://github.com/Ankith1321",
     linkedin: "https://www.linkedin.com/in/saiankithreddyk",
-    email: null,
+    email: "mailto:ankithreddy580@gmail.com",
+    emailAddress: "ankithreddy580@gmail.com",
     resumeUrl: null,
   },
 } as const;

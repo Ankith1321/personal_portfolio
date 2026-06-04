@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { SiteHeader } from "@/components/layout/site-header";
+import { CursorSensorField } from "@/components/ui/cursor-sensor-field";
 import { ScrollDepth } from "@/components/ui/scroll-depth";
 import { getDictionary } from "@/lib/dictionaries";
 import { fontVariables } from "@/lib/fonts";
@@ -45,13 +46,14 @@ export default async function LocaleLayout({
       className={`${fontVariables} h-full antialiased`}
     >
       <body className="min-h-full bg-background text-text">
+        <CursorSensorField />
         <a
           href="#main-content"
           className="skip-link sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-full focus:bg-surface focus:px-4 focus:py-2 focus:text-sm focus:font-medium focus:text-text"
         >
           {dictionary.common.skipToContent}
         </a>
-        <div className="flex min-h-screen flex-col">
+        <div className="relative z-10 flex min-h-screen flex-col">
           <ScrollDepth />
           <SiteHeader locale={locale} dictionary={dictionary} />
           <main id="main-content" className="flex-1">

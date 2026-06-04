@@ -14,6 +14,7 @@ export function SiteFooter({ locale, dictionary }: SiteFooterProps) {
   const socialLinks = [
     { label: dictionary.footer.linkedin, href: siteConfig.social.linkedin },
     { label: dictionary.footer.github, href: siteConfig.social.github },
+    { label: dictionary.contact.actions.email, href: siteConfig.social.email },
   ];
   const verifiedLinks = socialLinks.filter((item) => isVerifiedLink(item.href));
 
@@ -33,8 +34,8 @@ export function SiteFooter({ locale, dictionary }: SiteFooterProps) {
               <a
                 key={item.label}
                 href={item.href}
-                target="_blank"
-                rel="noreferrer noopener"
+                target={item.href.startsWith("mailto:") ? undefined : "_blank"}
+                rel={item.href.startsWith("mailto:") ? undefined : "noreferrer noopener"}
                 className="text-text-muted hover:text-accent"
               >
                 {item.label}

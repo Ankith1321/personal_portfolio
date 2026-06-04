@@ -42,7 +42,8 @@ const publishedProjectLinks: Record<
   "lane-detection-ebike": {},
   "drug-feedback-analytics": {
     demoHref: "https://drug-performance.streamlit.app/",
-    githubTodo: "TODO: ADD VERIFIED GITHUB REPOSITORY URL",
+    githubHref: "https://github.com/Ankith1321/Drug-Preformance-Evaluation",
+    githubTodo: "TODO: CLEAN UP REPOSITORY NAMING BEFORE FINAL POLISH",
   },
 };
 

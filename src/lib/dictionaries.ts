@@ -95,6 +95,13 @@ type DrugFeedbackDictionary = {
     eyebrow: string;
     title: string;
     text: string;
+    metricLabel: string;
+    metricValue: string;
+  };
+  experimental: {
+    eyebrow: string;
+    title: string;
+    text: string;
   };
   disclaimer: {
     eyebrow: string;
@@ -259,9 +266,9 @@ export type Dictionary = {
 const dictionaries = {
   de: {
     metadata: {
-      title: "Saiankith Reddy Kolli | Applied AI und Machine Learning",
+      title: "Saiankith Reddy Kolli | Machine Learning Engineer",
       description:
-        "Portfolio von Saiankith Reddy Kolli. Applied AI, Computer Vision, Smart Sensors, Edge Systems und industrielle Anwendungen.",
+        "Portfolio von Saiankith Reddy Kolli. Machine Learning, Computer Vision, Smart Sensors, Edge Systems, Datenanalyse und industrielle Anwendungen.",
     },
     common: {
       skipToContent: "Zum Inhalt springen",
@@ -289,7 +296,7 @@ const dictionaries = {
       ],
     },
     hero: {
-      title: "Applied AI / Machine Learning Engineer",
+      title: "Machine Learning Engineer",
       description:
         "Ich studiere AI für Smart Sensors and Actuators. Ich entwickle praktische Lösungen für Computer Vision, Smart Sensors, Edge Systems und industrielle Anwendungen.",
       location: "Amberg, Deutschland",
@@ -299,7 +306,7 @@ const dictionaries = {
         "Computer Vision",
         "Machine Learning",
         "Smart Sensors",
-        "Industrial AI",
+        "Data Analytics",
       ],
       actions: {
         projects: "Projekte ansehen",
@@ -315,15 +322,15 @@ const dictionaries = {
     },
     about: {
       heading: "Über mich",
-      title: "AI-Systeme für die reale Welt",
-      text: "Ich verbinde industrielle Erfahrung mit Applied AI. Durch mein Studium im Chemieingenieurwesen und meine Arbeit in der Pharmaindustrie kenne ich Prozesse, Monitoring, Sensoren, Aktoren, Automatisierung, PFDs und P&IDs. Heute studiere ich AI für Smart Sensors and Actuators und arbeite an Projekten mit Computer Vision, Smart Sensors und Edge Systems.",
-      pageTitle: "Ein interdisziplinärer Weg in Applied AI",
+      title: "Masterstudium und Projektpraxis",
+      text: "Ich studiere AI für Smart Sensors and Actuators an der Deggendorf Institute of Technology. In meinen Projekten entwickle ich praktische Kenntnisse in Machine Learning, Computer Vision, Smart Sensors, Edge Systems, Datenanalyse und interaktiven ML-Anwendungen. Meine Erfahrung aus der Pharmaindustrie hilft mir zusätzlich beim Verständnis von Prozessen, Monitoring, Sensoren, Aktoren und Automatisierung.",
+      pageTitle: "Masterstudium und Projektpraxis",
       pageDescription:
         "Diese Übersicht zeigt nur geprüfte öffentliche Informationen. Weitere Ausbildungsdetails werden noch geprüft.",
       narrative: [
         "Chemieingenieurwesen hat mein Systemdenken und mein Prozessverständnis aufgebaut.",
         "Die Arbeit in der Pharmaindustrie brachte mir Monitoring, Sensoren, Aktoren und Automatisierung näher.",
-        "Das M.Eng.-Studium erweitert mein Wissen in Applied AI, Computer Vision, Smart Sensors und Edge Systems.",
+        "Das M.Eng.-Studium erweitert mein Wissen in Machine Learning, Computer Vision, Smart Sensors und Edge Systems.",
         "Projekte zeigen praktische Arbeit in diesem Bereich.",
       ],
       verificationNote:
@@ -339,7 +346,7 @@ const dictionaries = {
         tryLiveDemo: "Live-Demo testen",
         github: "GitHub",
         liveDemoOpensInNewTab: "Live-Demo öffnet in einem neuen Tab",
-        githubDisabled: "TODO: VERIFY GitHub Repository",
+        githubDisabled: "GitHub",
       },
       cards: [
         {
@@ -348,7 +355,7 @@ const dictionaries = {
           summary:
             "Kamerabasierte Lane Detection mit Bildvorverarbeitung und Deep-Learning-Training für ein E-Bike-Perception-Projekt.",
           tags: ["Computer Vision", "OpenCV", "Deep Learning"],
-          status: "Status: TODO: VERIFY",
+          status: "Abgeschlossen",
           imageAlt:
             "Abstrakte Illustration von Lane Detection, Wahrnehmung und Ausgabefluss",
           slug: "lane-detection-ebike",
@@ -370,7 +377,7 @@ const dictionaries = {
           summary:
             "Smart-Sensor-Projekt mit UV-Monitoring, Bluetooth-Kommunikation, Edge-Device-Architektur und automatischer Rollladensteuerung.",
           tags: ["Smart Sensors", "Bluetooth", "Edge Systems"],
-          status: "Status: TODO: VERIFY",
+          status: "Abgeschlossen",
           imageAlt:
             "Abstrakte Illustration von UV-Sensorik und automatischer Rollladensteuerung",
           detailsState: "Details folgen bald",
@@ -386,7 +393,7 @@ const dictionaries = {
           summary:
             "Kamerabasierte Lane Detection mit Bildvorverarbeitung und Deep-Learning-Training für ein E-Bike-Perception-Projekt.",
           tags: ["Computer Vision", "OpenCV", "Deep Learning"],
-          status: "Status: TODO: VERIFY",
+          status: "Abgeschlossen",
           imageAlt:
             "Abstrakte Illustration von Lane Detection, Wahrnehmung und Ausgabefluss",
           slug: "lane-detection-ebike",
@@ -408,7 +415,7 @@ const dictionaries = {
           summary:
             "Smart-Sensor-Projekt mit UV-Monitoring, Bluetooth-Kommunikation, Edge-Device-Architektur und automatischer Rollladensteuerung.",
           tags: ["Smart Sensors", "Bluetooth", "Edge Systems"],
-          status: "Status: TODO: VERIFY",
+          status: "Abgeschlossen",
           imageAlt:
             "Abstrakte Illustration von UV-Sensorik und automatischer Rollladensteuerung",
           detailsState: "Details folgen bald",
@@ -447,13 +454,14 @@ const dictionaries = {
           role: "Junior Engineer",
           company: "Hetero Labs Ltd.",
           description:
-            "Erfahrung mit Pharma-Prozessen, Monitoring, Sensoren, Aktoren, Automatisierung, PFDs und P&IDs.",
+            "Arbeit mit Pharma-Prozessen, Monitoring, Sensoren, Aktoren, Automatisierung, PFDs und P&IDs. Diese Erfahrung stärkte mein Verständnis für reale technische Systeme.",
         },
         {
           id: "internship",
           role: "Praktikant",
           company: "Aurobindo Pharma Ltd.",
-          description: "Praktikum in der Pharmaindustrie.",
+          description:
+            "Praktische Einblicke in Abläufe und Prozessumgebungen der Pharmaindustrie. Das Praktikum half mir beim Verständnis industrieller Prozesse.",
         },
       ],
       pageTitle: "Industrielle Erfahrung als praktischer Kontext",
@@ -552,7 +560,7 @@ const dictionaries = {
     contact: {
       heading: "Kontakt",
       title: "Lassen Sie uns sprechen",
-      text: "Ich suche Werkstudentenstellen, Praktika, Forschungsprojekte und Masterarbeitsthemen im Bereich Applied AI, Computer Vision, Smart Sensors und industrielle Systeme.",
+      text: "Ich suche Werkstudentenstellen, Praktika, Forschungsprojekte und Masterarbeitsthemen im Bereich Machine Learning, Computer Vision, Smart Sensors und industrielle Systeme.",
       location: "Amberg, Deutschland",
       actions: {
         linkedin: "LinkedIn",
@@ -560,7 +568,7 @@ const dictionaries = {
         email: "E-Mail",
         resume: "Lebenslauf",
       },
-      disabledEmail: "E-Mail folgt bald",
+      disabledEmail: "E-Mail",
       disabledResume: "Lebenslauf folgt bald",
       pageTitle: "Kontaktstatus und Fokus",
       pageDescription:
@@ -568,7 +576,7 @@ const dictionaries = {
       locationCardTitle: "Ort und Fokus",
       linksCardTitle: "Kontaktlinks",
       verificationNote:
-        "Prüfhinweis: Professionelle E-Mail und Lebenslauf-Download bleiben TODO: VERIFY, bis die öffentlichen Werte bestätigt sind.",
+        "Prüfhinweis: Der Lebenslauf-Download bleibt TODO: VERIFY, bis der öffentliche Dateiname bestätigt ist.",
     },
     footer: {
       location: "Amberg, Deutschland",
@@ -579,7 +587,7 @@ const dictionaries = {
     laneDetection: {
       backLabel: "Zurück zu den Projekten",
       category: "Computer Vision",
-      status: "Status: TODO: VERIFY",
+      status: "Abgeschlossen",
       title: "Lane Detection für E-Bike Perception",
       summary:
         "Kamerabasierte Lane Detection mit Bildvorverarbeitung und Deep-Learning-Training für ein E-Bike-Perception-Projekt.",
@@ -630,7 +638,7 @@ const dictionaries = {
         liveDemo: "Live-Demo öffnen",
         tryPredictions: "Prediction testen",
         viewGithub: "GitHub ansehen",
-        githubDisabled: "TODO: VERIFY GitHub Repository",
+        githubDisabled: "GitHub",
       },
       snapshot: {
         eyebrow: "Projekt-Snapshot",
@@ -681,7 +689,7 @@ const dictionaries = {
         eyebrow: "Bedeutung",
         title: "Warum dieses Projekt wichtig ist",
         text:
-          "Dieses Projekt verbindet meine Erfahrung aus der Pharmaindustrie mit meiner Applied-AI-Richtung. Es zeigt einen End-to-End-Workflow von Datenladung und Vorverarbeitung bis zu ML-Modellierung, Evaluation, Deployment und interaktiver Nutzung.",
+          "Dieses Projekt verbindet meine Erfahrung aus der Pharmaindustrie mit meiner Machine-Learning-Richtung. Es zeigt einen End-to-End-Workflow von Datenladung und Vorverarbeitung bis zu ML-Modellierung, Evaluation, Deployment und interaktiver Nutzung.",
       },
       contribution: {
         eyebrow: "Beitrag",
@@ -746,7 +754,15 @@ const dictionaries = {
         eyebrow: "Ergebnis",
         title: "Aktueller veröffentlichbarer Stand",
         text:
-          "Die Anwendung unterstützt interaktive Analyse und Live-Prediction über eine deployte Streamlit-Oberfläche. Genaue Evaluationsmetriken sollten erst nach finaler Prüfung veröffentlicht werden.",
+          "Die Anwendung unterstützt interaktive Analyse und Live-Prediction über eine deployte Streamlit-Oberfläche.",
+        metricLabel: "Verifizierte Metrik",
+        metricValue: "69,14 % Classification Test Accuracy",
+      },
+      experimental: {
+        eyebrow: "Experimentelle Workflows",
+        title: "Weitere Experimente im Projekt",
+        text:
+          "Die Anwendung enthält auch Clustering- und Regression-Experimente. Diese Workflows werden geprüft und verbessert, bevor ihre Metriken als Portfolio-Ergebnisse gezeigt werden.",
       },
       disclaimer: {
         eyebrow: "Hinweis",
@@ -763,15 +779,15 @@ const dictionaries = {
       links: {
         eyebrow: "Repository",
         title: "GitHub-Status",
-        githubTodo: "TODO: VERIFY GitHub Repository",
+        githubTodo: "TODO: CLEAN UP REPOSITORY NAMING BEFORE FINAL POLISH",
       },
     },
   },
   en: {
     metadata: {
-      title: "Saiankith Reddy Kolli | Applied AI and Machine Learning",
+      title: "Saiankith Reddy Kolli | Machine Learning Engineer",
       description:
-        "Portfolio of Saiankith Reddy Kolli. Applied AI, computer vision, smart sensors, edge systems, and industrial applications.",
+        "Portfolio of Saiankith Reddy Kolli. Machine learning, computer vision, smart sensors, edge systems, data analytics, and industrial applications.",
     },
     common: {
       skipToContent: "Skip to content",
@@ -799,7 +815,7 @@ const dictionaries = {
       ],
     },
     hero: {
-      title: "Applied AI / Machine Learning Engineer",
+      title: "Machine Learning Engineer",
       description:
         "M.Eng. student building practical solutions for computer vision, smart sensors, edge systems, and industrial applications.",
       location: "Amberg, Germany",
@@ -809,7 +825,7 @@ const dictionaries = {
         "Computer Vision",
         "Machine Learning",
         "Smart Sensors",
-        "Industrial AI",
+        "Data Analytics",
       ],
       actions: {
         projects: "View Projects",
@@ -825,15 +841,15 @@ const dictionaries = {
     },
     about: {
       heading: "About",
-      title: "AI systems for the physical world",
-      text: "I combine an industrial-engineering foundation with applied-AI project work. My pharmaceutical-industry experience introduced me to process monitoring, sensors, actuators, automation, PFDs, and P&IDs. I am now pursuing an M.Eng. in AI for Smart Sensors and Actuators at Deggendorf Institute of Technology.",
-      pageTitle: "An interdisciplinary path into applied AI",
+      title: "M.Eng. focus and project-based learning",
+      text: "I am pursuing an M.Eng. in AI for Smart Sensors and Actuators at Deggendorf Institute of Technology. Through my projects, I am building practical skills in machine learning, computer vision, smart sensors, edge systems, data analytics, and interactive ML applications. My previous pharmaceutical-industry experience gives me an additional understanding of industrial processes, monitoring, sensors, actuators, and automation.",
+      pageTitle: "M.Eng. focus and project-based learning",
       pageDescription:
         "This overview keeps to verified public information while fuller education details continue to be checked.",
       narrative: [
         "Chemical engineering developed systems thinking and process understanding.",
         "Pharmaceutical-industry experience introduced industrial monitoring, sensors, actuators, and automation.",
-        "The M.Eng. degree develops applied-AI, computer-vision, smart-sensor, and edge-system knowledge.",
+        "The M.Eng. degree develops machine-learning, computer-vision, smart-sensor, and edge-system knowledge.",
         "Projects provide practical evidence.",
       ],
       verificationNote:
@@ -849,7 +865,7 @@ const dictionaries = {
         tryLiveDemo: "Try Live Demo",
         github: "GitHub",
         liveDemoOpensInNewTab: "Live demo opens in a new tab",
-        githubDisabled: "TODO: VERIFY GitHub repository",
+        githubDisabled: "GitHub",
       },
       cards: [
         {
@@ -858,7 +874,7 @@ const dictionaries = {
           summary:
             "Camera-based lane detection using image preprocessing and deep-learning training for an e-bike perception use case.",
           tags: ["Computer Vision", "OpenCV", "Deep Learning"],
-          status: "Status: TODO: VERIFY",
+          status: "Completed",
           imageAlt:
             "Abstract illustration of lane-detection perception and output flow",
           slug: "lane-detection-ebike",
@@ -880,7 +896,7 @@ const dictionaries = {
           summary:
             "Smart-sensor project involving UV monitoring, Bluetooth communication, edge-device architecture, and automated roller-blind control.",
           tags: ["Smart Sensors", "Bluetooth", "Edge Systems"],
-          status: "Status: TODO: VERIFY",
+          status: "Completed",
           imageAlt:
             "Abstract illustration of UV sensing and automated blind control",
           detailsState: "Details coming soon",
@@ -896,7 +912,7 @@ const dictionaries = {
           summary:
             "Camera-based lane detection using image preprocessing and deep-learning training for an e-bike perception use case.",
           tags: ["Computer Vision", "OpenCV", "Deep Learning"],
-          status: "Status: TODO: VERIFY",
+          status: "Completed",
           imageAlt:
             "Abstract illustration of lane-detection perception and output flow",
           slug: "lane-detection-ebike",
@@ -918,7 +934,7 @@ const dictionaries = {
           summary:
             "Smart-sensor project involving UV monitoring, Bluetooth communication, edge-device architecture, and automated roller-blind control.",
           tags: ["Smart Sensors", "Bluetooth", "Edge Systems"],
-          status: "Status: TODO: VERIFY",
+          status: "Completed",
           imageAlt:
             "Abstract illustration of UV sensing and automated blind control",
           detailsState: "Details coming soon",
@@ -957,13 +973,14 @@ const dictionaries = {
           role: "Junior Engineer",
           company: "Hetero Labs Ltd.",
           description:
-            "Experience with pharmaceutical-industry processes, monitoring, sensors, actuators, automation, PFDs, and P&IDs.",
+            "Worked with pharmaceutical processes, industrial monitoring, sensors, actuators, automation, PFDs, and P&IDs. This experience strengthened my understanding of real-world engineering systems.",
         },
         {
           id: "internship",
           role: "Intern",
           company: "Aurobindo Pharma Ltd.",
-          description: "Pharmaceutical-industry internship experience.",
+          description:
+            "Gained practical exposure to pharmaceutical-industry workflows and process environments. The internship developed my understanding of industrial operations.",
         },
       ],
       pageTitle: "Industrial exposure shaping practical engineering context",
@@ -1062,7 +1079,7 @@ const dictionaries = {
     contact: {
       heading: "Contact",
       title: "Let's connect",
-      text: "I am open to working-student, internship, research-assistant, and master's-thesis opportunities involving applied AI, computer vision, smart sensors, and industrial systems.",
+      text: "I am open to working-student, internship, research-assistant, and master's-thesis opportunities involving machine learning, computer vision, smart sensors, and industrial systems.",
       location: "Amberg, Germany",
       actions: {
         linkedin: "LinkedIn",
@@ -1070,7 +1087,7 @@ const dictionaries = {
         email: "Email",
         resume: "Download Resume",
       },
-      disabledEmail: "Email coming soon",
+      disabledEmail: "Email",
       disabledResume: "Resume coming soon",
       pageTitle: "Opportunity overview and verified contact status",
       pageDescription:
@@ -1078,7 +1095,7 @@ const dictionaries = {
       locationCardTitle: "Location and Opportunity Focus",
       linksCardTitle: "Contact Links",
       verificationNote:
-        "Verification note: professional email and resume download remain in TODO: VERIFY state until their public values are confirmed.",
+        "Verification note: the resume download remains in TODO: VERIFY state until its public filename is confirmed.",
     },
     footer: {
       location: "Amberg, Germany",
@@ -1089,7 +1106,7 @@ const dictionaries = {
     laneDetection: {
       backLabel: "Back to Projects",
       category: "Computer Vision",
-      status: "Status: TODO: VERIFY",
+      status: "Completed",
       title: "Lane Detection for E-Bike Perception",
       summary:
         "Camera-based lane-detection project involving image preprocessing and deep-learning training for an e-bike perception use case.",
@@ -1140,7 +1157,7 @@ const dictionaries = {
         liveDemo: "View Live Demo",
         tryPredictions: "Try Predictions",
         viewGithub: "View GitHub",
-        githubDisabled: "TODO: VERIFY GitHub repository",
+        githubDisabled: "GitHub",
       },
       snapshot: {
         eyebrow: "Project Snapshot",
@@ -1189,9 +1206,9 @@ const dictionaries = {
       },
       impact: {
         eyebrow: "Why It Matters",
-        title: "Applied AI with domain context",
+        title: "Domain context and end-to-end ML",
         text:
-          "This project connects my pharmaceutical-industry exposure with my applied-AI direction. It demonstrates an end-to-end workflow from data loading and preprocessing to ML modeling, evaluation, deployment, and interactive user testing.",
+          "This project connects my pharmaceutical-industry exposure with my machine-learning direction. It demonstrates an end-to-end workflow from data loading and preprocessing to ML modeling, evaluation, deployment, and interactive user testing.",
       },
       contribution: {
         eyebrow: "My Contribution",
@@ -1256,7 +1273,15 @@ const dictionaries = {
         eyebrow: "Results",
         title: "Current publishable outcome",
         text:
-          "The application supports interactive exploration and live prediction through a deployed Streamlit interface. Exact published evaluation metrics should be added only after final verification.",
+          "The application supports interactive exploration and live prediction through a deployed Streamlit interface.",
+        metricLabel: "Verified metric",
+        metricValue: "69.14% classification test accuracy",
+      },
+      experimental: {
+        eyebrow: "Experimental workflows",
+        title: "Additional workflows under review",
+        text:
+          "The application also contains clustering and regression explorations. These workflows are being reviewed and refined before their metrics are presented as portfolio results.",
       },
       disclaimer: {
         eyebrow: "Disclaimer",
@@ -1273,7 +1298,7 @@ const dictionaries = {
       links: {
         eyebrow: "Repository",
         title: "GitHub status",
-        githubTodo: "TODO: VERIFY GitHub repository",
+        githubTodo: "TODO: CLEAN UP REPOSITORY NAMING BEFORE FINAL POLISH",
       },
     },
   },

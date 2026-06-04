@@ -15,7 +15,7 @@ const variantClasses = {
   secondary:
     "border-border bg-surface text-text hover:border-accent hover:text-accent",
   ghost:
-    "border-border/70 bg-background/70 text-text-muted hover:border-accent hover:text-accent",
+    "border-panel-border bg-panel-surface/88 text-panel-text-muted hover:border-accent hover:text-accent",
 } as const;
 
 export function ProjectActionLink({
@@ -41,7 +41,7 @@ export function ProjectActionLink({
         title={disabledReason}
         className={[
           classes,
-          "cursor-not-allowed border-dashed text-text-muted opacity-70 hover:translate-y-0",
+          "cursor-not-allowed border-dashed text-panel-text-muted opacity-100 hover:translate-y-0",
         ].join(" ")}
       >
         {label}
@@ -54,7 +54,7 @@ export function ProjectActionLink({
       <a
         href={href}
         target="_blank"
-        rel="noreferrer"
+        rel="noreferrer noopener"
         className={classes}
       >
         {label}

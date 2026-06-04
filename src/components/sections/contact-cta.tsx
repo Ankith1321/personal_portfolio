@@ -13,6 +13,10 @@ export function ContactCta({ dictionary }: { dictionary: Dictionary }) {
       label: dictionary.contact.actions.github,
       href: siteConfig.social.github,
     },
+    {
+      label: dictionary.contact.actions.email,
+      href: siteConfig.social.email,
+    },
   ] as const;
 
   return (
@@ -32,19 +36,21 @@ export function ContactCta({ dictionary }: { dictionary: Dictionary }) {
           <a
             key={action.label}
             href={action.href}
-            target="_blank"
-            rel="noreferrer noopener"
-            aria-label={`${action.label} ${dictionary.common.opensInNewTab}`}
+            target={action.href.startsWith("mailto:") ? undefined : "_blank"}
+            rel={action.href.startsWith("mailto:") ? undefined : "noreferrer noopener"}
+            aria-label={
+              action.href.startsWith("mailto:")
+                ? action.label
+                : `${action.label} ${dictionary.common.opensInNewTab}`
+            }
             className="inline-flex min-h-11 items-center rounded-full border border-border bg-surface/78 px-4 py-2.5 text-sm font-medium text-text shadow-[0_10px_24px_rgba(18,23,34,0.08)] backdrop-blur-sm hover:border-accent hover:text-accent motion-safe:hover:-translate-y-0.5"
           >
-            {action.label} <span aria-hidden="true">&nbsp;&#8599;</span>
+            {action.label}
+            {action.href.startsWith("mailto:") ? null : (
+              <span aria-hidden="true">&nbsp;&#8599;</span>
+            )}
           </a>
         ))}
-        <ButtonLink href={siteConfig.social.email} variant="secondary">
-          {isVerifiedLink(siteConfig.social.email)
-            ? dictionary.contact.actions.email
-            : dictionary.contact.disabledEmail}
-        </ButtonLink>
         <ButtonLink href={siteConfig.social.resumeUrl} variant="secondary">
           {isVerifiedLink(siteConfig.social.resumeUrl)
             ? dictionary.contact.actions.resume

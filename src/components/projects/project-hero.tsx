@@ -35,10 +35,10 @@ export function ProjectHero({
   imageAlt,
 }: ProjectHeroProps) {
   return (
-    <section className="overflow-hidden rounded-[2rem] border border-border bg-[linear-gradient(145deg,rgba(184,110,83,0.10),rgba(255,250,242,0.96)_45%,rgba(128,147,124,0.10))] px-6 py-8 shadow-[0_20px_60px_rgba(87,62,47,0.08)] sm:px-8 sm:py-10">
+    <section className="panel-surface overflow-hidden rounded-[2rem] border bg-[linear-gradient(145deg,rgba(184,110,83,0.10),rgba(255,250,242,0.96)_45%,rgba(128,147,124,0.10))] px-6 py-8 shadow-[0_20px_60px_rgba(87,62,47,0.08)] sm:px-8 sm:py-10 dark:bg-[linear-gradient(145deg,rgba(111,117,180,0.18),rgba(23,33,47,0.95)_45%,rgba(127,151,136,0.12))]">
       <Link
         href={backHref}
-        className="inline-flex text-sm font-medium text-text-muted hover:text-accent"
+        className="panel-text-muted inline-flex text-sm font-medium hover:text-accent"
       >
         {backLabel}
       </Link>
@@ -49,10 +49,10 @@ export function ProjectHero({
               <p className="text-sm font-medium uppercase tracking-[0.24em] text-secondary-accent">
                 {category}
               </p>
-              <h1 className="mt-3 text-4xl font-semibold tracking-tight text-text sm:text-5xl">
+              <h1 className="panel-text mt-3 text-4xl font-semibold tracking-tight sm:text-5xl">
                 {title}
               </h1>
-              <p className="mt-4 text-base leading-8 text-text-muted sm:text-lg">
+              <p className="panel-text-muted mt-4 text-base leading-8 sm:text-lg">
                 {summary}
               </p>
             </div>

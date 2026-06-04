@@ -27,7 +27,7 @@ export function HeroSection({ locale, dictionary }: HeroSectionProps) {
       id="home"
       className="hero-surface scroll-mt-24 overflow-hidden rounded-[2rem] border border-white/20 shadow-[0_32px_90px_rgba(18,23,34,0.18)]"
     >
-      <div className="relative grid gap-6 px-6 py-8 sm:px-8 sm:py-10 lg:grid-cols-[minmax(0,1fr)_10.5rem] lg:items-start lg:gap-8">
+      <div className="relative grid gap-6 px-6 py-8 sm:px-8 sm:py-10 lg:grid-cols-[minmax(0,1fr)_13rem] lg:items-start lg:gap-8">
         <div className="relative z-10 space-y-6 lg:space-y-7">
           <div className="space-y-3">
             <h1 className="prose-balanced max-w-3xl text-4xl font-semibold tracking-tight text-text sm:text-5xl">
@@ -89,14 +89,14 @@ export function HeroSection({ locale, dictionary }: HeroSectionProps) {
           </p>
         </div>
 
-        <div className="order-4 mx-auto w-full max-w-[7.25rem] sm:max-w-[8.25rem] lg:order-none lg:mx-0 lg:justify-self-end lg:max-w-[10rem]">
-          <div className="relative aspect-[4/5] overflow-hidden rounded-[1.2rem] border border-border/80 bg-surface-muted shadow-[0_12px_28px_rgba(18,23,34,0.10)]">
+        <div className="order-4 mx-auto w-full max-w-[8.75rem] sm:max-w-[10.25rem] lg:order-none lg:mx-0 lg:justify-self-end lg:max-w-[12.5rem]">
+          <div className="relative aspect-[4/5] overflow-hidden rounded-[1.2rem] border border-border/80 bg-surface/88 shadow-[0_12px_28px_rgba(18,23,34,0.10)]">
             <Image
-              src="/images/profile/profile-photo-v2.jpg"
+              src="/images/profile/profile-photo.jpg"
               alt={dictionary.hero.portraitAlt}
               fill
               priority
-              sizes="(max-width: 767px) 116px, (max-width: 1279px) 132px, 160px"
+              sizes="(max-width: 767px) 140px, (max-width: 1279px) 170px, 200px"
               className="object-cover object-top"
             />
           </div>

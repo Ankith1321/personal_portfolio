@@ -18,20 +18,24 @@ export default async function LocalizedContactPage({
   const contactItems = [
     {
       label: dictionary.contact.actions.email,
+      href: siteConfig.social.email,
       value: isVerifiedLink(siteConfig.social.email)
-        ? siteConfig.social.email
+        ? siteConfig.social.emailAddress
         : dictionary.contact.disabledEmail,
     },
     {
       label: dictionary.contact.actions.linkedin,
+      href: siteConfig.social.linkedin,
       value: siteConfig.social.linkedin,
     },
     {
       label: dictionary.contact.actions.github,
+      href: siteConfig.social.github,
       value: siteConfig.social.github,
     },
     {
       label: dictionary.contact.actions.resume,
+      href: siteConfig.social.resumeUrl,
       value: isVerifiedLink(siteConfig.social.resumeUrl)
         ? siteConfig.social.resumeUrl
         : dictionary.contact.disabledResume,
@@ -71,7 +75,18 @@ export default async function LocalizedContactPage({
                 className="rounded-2xl border border-dashed border-border bg-background px-4 py-3"
               >
                 <span className="font-medium text-text">{item.label}:</span>{" "}
-                {item.value}
+                {isVerifiedLink(item.href) ? (
+                  <a
+                    href={item.href}
+                    target={item.href.startsWith("mailto:") ? undefined : "_blank"}
+                    rel={item.href.startsWith("mailto:") ? undefined : "noreferrer noopener"}
+                    className="text-text-muted underline decoration-border underline-offset-4 hover:text-accent"
+                  >
+                    {item.value}
+                  </a>
+                ) : (
+                  item.value
+                )}
               </li>
             ))}
           </ul>

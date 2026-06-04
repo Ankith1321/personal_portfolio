@@ -31,7 +31,7 @@ export function ButtonLink({
         aria-disabled="true"
         className={[
           sharedClassName,
-          "cursor-not-allowed opacity-70 hover:border-border hover:text-text",
+          "cursor-not-allowed opacity-100 hover:border-border hover:text-text",
           variant === "primary" ? "bg-accent/80" : "",
         ]
           .filter(Boolean)

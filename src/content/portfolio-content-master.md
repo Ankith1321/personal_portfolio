@@ -11,12 +11,12 @@
 
 ### Primary positioning
 
-Applied AI / Machine Learning Engineer with industrial engineering experience and project work in computer vision, smart sensors, and edge systems.
+Machine Learning Engineer with industrial engineering experience and project work in computer vision, smart sensors, edge systems, data analytics, and interactive ML applications.
 
 ### Homepage hero draft
 
 **Saiankith Reddy Kolli**  
-Applied AI / Machine Learning Engineer
+Machine Learning Engineer
 
 Building practical solutions for computer vision, smart sensors, edge systems, and industrial applications.
 
@@ -302,7 +302,6 @@ Do not feature this project on the first launch unless at least one end-to-end w
 ## 8. Public Links and Assets
 
 ### `TODO: VERIFY`
-- Professional email
 - Resume PDF filename
 - Portfolio domain
 - Portrait-photo decision
@@ -313,6 +312,7 @@ Do not feature this project on the first launch unless at least one end-to-end w
 
 LinkedIn: https://www.linkedin.com/in/saiankithreddyk
 GitHub: https://github.com/Ankith1321
+Public email: ankithreddy580@gmail.com
 
 ---
 

@@ -29,7 +29,7 @@ export function ExperiencePreview({ dictionary }: { dictionary: Dictionary }) {
           <h3 className="mt-2 text-lg font-semibold text-text">
             {juniorEngineer.company}
           </h3>
-          <p className="mt-3 text-sm leading-7 text-text-muted">
+          <p className="mt-3 text-sm leading-6 text-text-muted">
             {juniorEngineer.description}
           </p>
         </article>
@@ -40,7 +40,7 @@ export function ExperiencePreview({ dictionary }: { dictionary: Dictionary }) {
           <h3 className="mt-2 text-lg font-semibold text-text">
             {internship.company}
           </h3>
-          <p className="mt-3 text-sm leading-7 text-text-muted">
+          <p className="mt-3 text-sm leading-6 text-text-muted">
             {"description" in internship ? internship.description : null}
           </p>
         </article>
