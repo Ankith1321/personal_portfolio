@@ -12,6 +12,8 @@
   --secondary-accent: #7f9788;
   --depth-indigo: #8a8ec4;
   --depth-navy: #223147;
+  --scroll-depth: 0;
+  --scroll-depth-soft: 0;
 }
 
 .dark {
@@ -70,24 +72,40 @@ body::after {
   inset: 0;
   pointer-events: none;
   position: fixed;
+  will-change: transform;
   z-index: -1;
 }
 
 body::before {
   background:
+    /* Upper-left indigo atmosphere */
     radial-gradient(circle at 14% 10%, color-mix(in srgb, var(--depth-indigo) 16%, transparent), transparent 26rem),
+    /* Upper-right terracotta warmth */
     radial-gradient(circle at 84% 12%, color-mix(in srgb, var(--accent) 14%, transparent), transparent 22rem),
+    /* Mid-right sage accent */
     radial-gradient(circle at 78% 32%, color-mix(in srgb, var(--secondary-accent) 12%, transparent), transparent 20rem),
+    /* Lower-page navy depth */
     radial-gradient(circle at 50% 120%, color-mix(in srgb, var(--depth-navy) 12%, transparent), transparent 34rem),
+    /* Main page surface blend */
     linear-gradient(180deg, color-mix(in srgb, var(--background) 82%, var(--surface) 18%), var(--background));
+  transform:
+    translate3d(
+      0,
+      calc(var(--scroll-depth-soft) * -2.5rem),
+      0
+    )
+    scale(1.02);
 }
 
 body::after {
   background-image:
+    /* Faint sensor-grid texture */
     linear-gradient(color-mix(in srgb, var(--border) 18%, transparent) 1px, transparent 1px),
     linear-gradient(90deg, color-mix(in srgb, var(--border) 18%, transparent) 1px, transparent 1px),
+    /* Sparse node accents */
     radial-gradient(circle at 22% 24%, color-mix(in srgb, var(--depth-indigo) 16%, transparent) 0.12rem, transparent 0.13rem),
     radial-gradient(circle at 74% 18%, color-mix(in srgb, var(--secondary-accent) 18%, transparent) 0.12rem, transparent 0.13rem),
+    /* Soft connector line detail */
     linear-gradient(125deg, transparent 49.3%, color-mix(in srgb, var(--border) 12%, transparent) 49.7%, color-mix(in srgb, var(--border) 12%, transparent) 50.3%, transparent 50.7%);
   background-position:
     center center,
@@ -103,6 +121,12 @@ body::after {
     20rem 20rem;
   opacity: 0.24;
   mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.24));
+  transform:
+    translate3d(
+      calc(var(--scroll-depth) * 0.65rem),
+      calc(var(--scroll-depth) * -1.5rem),
+      0
+    );
 }
 
 a,
@@ -186,6 +210,15 @@ summary {
     linear-gradient(90deg, transparent, color-mix(in srgb, var(--border) 8%, transparent), transparent);
 }
 
+.project-showcase {
+  background:
+    radial-gradient(circle at top right, color-mix(in srgb, var(--depth-indigo) 12%, transparent), transparent 14rem),
+    linear-gradient(180deg, color-mix(in srgb, var(--surface) 88%, transparent), color-mix(in srgb, var(--surface-muted) 72%, transparent));
+  box-shadow:
+    inset 0 1px 0 color-mix(in srgb, white 20%, transparent),
+    0 14px 32px rgba(18, 23, 34, 0.1);
+}
+
 .tech-divider {
   position: relative;
 }
@@ -208,6 +241,8 @@ summary {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  body::before,
+  body::after,
   .hero-surface,
   .section-depth {
     transform: none !important;

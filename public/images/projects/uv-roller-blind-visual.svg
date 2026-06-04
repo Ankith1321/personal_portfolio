@@ -1,0 +1,40 @@
+<svg width="1200" height="800" viewBox="0 0 1200 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="800" rx="40" fill="#141E2A"/>
+  <rect x="24" y="24" width="1152" height="752" rx="28" fill="url(#bg)"/>
+  <circle cx="934" cy="166" r="132" fill="url(#sunGlow)"/>
+  <circle cx="934" cy="166" r="72" fill="#D48A6D"/>
+  <path d="M934 54V98" stroke="#F7F1E8" stroke-width="6" stroke-linecap="round"/>
+  <path d="M934 234V278" stroke="#F7F1E8" stroke-width="6" stroke-linecap="round"/>
+  <path d="M1042 166H1086" stroke="#F7F1E8" stroke-width="6" stroke-linecap="round"/>
+  <path d="M782 166H826" stroke="#F7F1E8" stroke-width="6" stroke-linecap="round"/>
+  <path d="M1010 90L1042 58" stroke="#F7F1E8" stroke-width="6" stroke-linecap="round"/>
+  <path d="M858 242L826 274" stroke="#F7F1E8" stroke-width="6" stroke-linecap="round"/>
+  <rect x="164" y="132" width="642" height="460" rx="28" fill="#EFF3F6" fill-opacity="0.95"/>
+  <rect x="220" y="186" width="530" height="38" rx="19" fill="#182130"/>
+  <rect x="220" y="224" width="530" height="218" rx="0" fill="url(#blind)"/>
+  <path d="M220 438H750" stroke="#A7B3BB" stroke-width="2" stroke-dasharray="6 10"/>
+  <rect x="228" y="454" width="514" height="112" rx="18" fill="#F7F1E8"/>
+  <circle cx="298" cy="510" r="36" fill="#172436"/>
+  <circle cx="298" cy="510" r="14" fill="#92A997"/>
+  <text x="350" y="500" fill="#172436" font-family="Arial, sans-serif" font-size="28" font-weight="600">UV Sensor</text>
+  <text x="350" y="540" fill="#5D6670" font-family="Arial, sans-serif" font-size="20">Monitor and control</text>
+  <rect x="838" y="386" width="182" height="164" rx="24" fill="#162131" stroke="#8A8EC4" stroke-opacity="0.45"/>
+  <text x="874" y="438" fill="#F7F1E8" font-family="Arial, sans-serif" font-size="28" font-weight="600">Bluetooth</text>
+  <text x="882" y="476" fill="#C7BDC0" font-family="Arial, sans-serif" font-size="20">Edge link</text>
+  <path d="M904 510L950 540L904 570V510Z" fill="#92A997"/>
+  <defs>
+    <linearGradient id="bg" x1="184" y1="70" x2="1020" y2="760" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#172233"/>
+      <stop offset="0.55" stop-color="#121A25"/>
+      <stop offset="1" stop-color="#1D2431"/>
+    </linearGradient>
+    <radialGradient id="sunGlow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(934 166) rotate(90) scale(132)">
+      <stop stop-color="#D48A6D" stop-opacity="0.34"/>
+      <stop offset="1" stop-color="#D48A6D" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="blind" x1="220" y1="224" x2="750" y2="442" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F5EFE7"/>
+      <stop offset="1" stop-color="#D7C4B9"/>
+    </linearGradient>
+  </defs>
+</svg>

@@ -1,22 +1,27 @@
 import Image from "next/image";
 import { ButtonLink } from "@/components/ui/button-link";
-import { homepageHero } from "@/lib/portfolio-data";
+import type { Dictionary } from "@/lib/dictionaries";
+import type { Locale } from "@/lib/i18n";
+import { getHomeSectionHref } from "@/lib/i18n";
 import { siteConfig } from "@/lib/site-config";
 
-const externalActions = [
-  {
-    label: "LinkedIn",
-    href: siteConfig.social.linkedin,
-    ariaLabel: "Open LinkedIn profile in a new tab",
-  },
-  {
-    label: "GitHub",
-    href: siteConfig.social.github,
-    ariaLabel: "Open GitHub profile in a new tab",
-  },
-] as const;
+type HeroSectionProps = {
+  locale: Locale;
+  dictionary: Dictionary;
+};
 
-export function HeroSection() {
+export function HeroSection({ locale, dictionary }: HeroSectionProps) {
+  const externalActions = [
+    {
+      label: dictionary.hero.actions.linkedin,
+      href: siteConfig.social.linkedin,
+    },
+    {
+      label: dictionary.hero.actions.github,
+      href: siteConfig.social.github,
+    },
+  ] as const;
+
   return (
     <section
       id="home"
@@ -29,21 +34,21 @@ export function HeroSection() {
               {siteConfig.name}
             </h1>
             <p className="text-xl font-semibold tracking-tight text-text sm:text-2xl">
-              {homepageHero.title}
+              {dictionary.hero.title}
             </p>
             <p className="max-w-3xl text-base leading-7 text-text-muted sm:text-lg">
-              {homepageHero.positioning}
+              {dictionary.hero.description}
             </p>
           </div>
 
           <div className="grid gap-2 text-sm leading-6 text-text-muted sm:text-base">
-            <p>{siteConfig.location}</p>
-            <p>{homepageHero.education}</p>
-            <p>{homepageHero.institution}</p>
+            <p>{dictionary.hero.location}</p>
+            <p>{dictionary.hero.education}</p>
+            <p>{dictionary.hero.institution}</p>
           </div>
 
           <div className="flex flex-wrap gap-2">
-            {homepageHero.chips.map((chip) => (
+            {dictionary.hero.chips.map((chip) => (
               <span
                 key={chip}
                 className="rounded-full border border-border bg-background/88 px-3 py-1.5 text-sm text-text-muted"
@@ -54,29 +59,33 @@ export function HeroSection() {
           </div>
 
           <div className="flex flex-wrap gap-3">
-            <ButtonLink href="/#projects">View Projects</ButtonLink>
+            <ButtonLink href={getHomeSectionHref(locale, "projects")}>
+              {dictionary.hero.actions.projects}
+            </ButtonLink>
             {externalActions.map((action) => (
               <a
                 key={action.label}
                 href={action.href}
                 target="_blank"
                 rel="noreferrer noopener"
-                aria-label={action.ariaLabel}
+                aria-label={`${action.label} ${dictionary.common.opensInNewTab}`}
                 className="inline-flex min-h-11 items-center rounded-full border border-border bg-surface/78 px-5 py-3 text-sm font-medium text-text shadow-[0_10px_24px_rgba(18,23,34,0.08)] backdrop-blur-sm hover:border-accent hover:text-accent motion-safe:hover:-translate-y-0.5"
               >
                 {action.label} <span aria-hidden="true">&nbsp;&#8599;</span>
               </a>
             ))}
-            <ButtonLink href="/#contact" variant="secondary">
-              Contact
+            <ButtonLink href={getHomeSectionHref(locale, "contact")} variant="secondary">
+              {dictionary.hero.actions.contact}
             </ButtonLink>
             <ButtonLink href={siteConfig.social.resumeUrl} variant="secondary">
-              Download Resume
+              {siteConfig.social.resumeUrl
+                ? dictionary.hero.actions.resume
+                : dictionary.hero.disabledResume}
             </ButtonLink>
           </div>
 
           <p className="text-sm font-medium text-secondary-accent">
-            {homepageHero.availability}
+            {dictionary.hero.availability}
           </p>
         </div>
 
@@ -84,7 +93,7 @@ export function HeroSection() {
           <div className="relative aspect-[4/5] overflow-hidden rounded-[1.2rem] border border-border/80 bg-surface-muted shadow-[0_12px_28px_rgba(18,23,34,0.10)]">
             <Image
               src="/images/profile/profile-photo-v2.jpg"
-              alt="Portrait of Saiankith Reddy Kolli"
+              alt={dictionary.hero.portraitAlt}
               fill
               priority
               sizes="(max-width: 767px) 116px, (max-width: 1279px) 132px, 160px"

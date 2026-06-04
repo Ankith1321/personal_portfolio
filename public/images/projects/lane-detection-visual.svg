@@ -1,0 +1,37 @@
+<svg width="1200" height="800" viewBox="0 0 1200 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="800" rx="40" fill="#121B29"/>
+  <rect x="24" y="24" width="1152" height="752" rx="28" fill="url(#bg)"/>
+  <circle cx="958" cy="176" r="170" fill="url(#glow1)" fill-opacity="0.9"/>
+  <circle cx="248" cy="648" r="184" fill="url(#glow2)" fill-opacity="0.7"/>
+  <rect x="140" y="116" width="920" height="540" rx="30" fill="#0D1420" stroke="#8096A5" stroke-opacity="0.32" stroke-width="2"/>
+  <path d="M284 658L468 410L572 410L388 658H284Z" fill="#F4E9DE"/>
+  <path d="M812 658L628 410L732 410L916 658H812Z" fill="#F4E9DE"/>
+  <path d="M600 238V566" stroke="#D98B68" stroke-width="10" stroke-dasharray="24 22" stroke-linecap="round"/>
+  <path d="M256 160H944" stroke="#A6B6C0" stroke-opacity="0.24" stroke-width="2" stroke-dasharray="8 12"/>
+  <path d="M256 614H944" stroke="#A6B6C0" stroke-opacity="0.24" stroke-width="2" stroke-dasharray="8 12"/>
+  <rect x="214" y="180" width="190" height="110" rx="18" fill="#172436" stroke="#92A997" stroke-opacity="0.45"/>
+  <text x="242" y="226" fill="#F7F1E8" font-family="Arial, sans-serif" font-size="28" font-weight="600">Camera Input</text>
+  <text x="242" y="264" fill="#C7BDC0" font-family="Arial, sans-serif" font-size="20">Perception frame</text>
+  <rect x="796" y="494" width="192" height="112" rx="18" fill="#172436" stroke="#D48A6D" stroke-opacity="0.55"/>
+  <text x="828" y="540" fill="#F7F1E8" font-family="Arial, sans-serif" font-size="28" font-weight="600">Lane Output</text>
+  <text x="834" y="578" fill="#C7BDC0" font-family="Arial, sans-serif" font-size="20">Vision path</text>
+  <circle cx="600" cy="410" r="94" fill="#1B2637" stroke="#8A8EC4" stroke-opacity="0.55" stroke-width="3"/>
+  <circle cx="600" cy="410" r="62" fill="#1F2D40" stroke="#D48A6D" stroke-opacity="0.55" stroke-width="2"/>
+  <path d="M556 410H644" stroke="#F7F1E8" stroke-width="4" stroke-linecap="round"/>
+  <path d="M600 366V454" stroke="#F7F1E8" stroke-width="4" stroke-linecap="round"/>
+  <defs>
+    <linearGradient id="bg" x1="180" y1="72" x2="992" y2="760" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#192435"/>
+      <stop offset="0.55" stop-color="#101925"/>
+      <stop offset="1" stop-color="#1B2230"/>
+    </linearGradient>
+    <radialGradient id="glow1" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(958 176) rotate(90) scale(170)">
+      <stop stop-color="#D48A6D" stop-opacity="0.34"/>
+      <stop offset="1" stop-color="#D48A6D" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glow2" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(248 648) rotate(90) scale(184)">
+      <stop stop-color="#92A997" stop-opacity="0.28"/>
+      <stop offset="1" stop-color="#92A997" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+</svg>

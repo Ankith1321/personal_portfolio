@@ -4,6 +4,11 @@ import { useSyncExternalStore } from "react";
 
 type Theme = "light" | "dark";
 
+type ThemeToggleLabels = {
+  toDark: string;
+  toLight: string;
+};
+
 const STORAGE_KEY = "saiankith-portfolio-theme";
 const THEME_EVENT = "portfolio-theme-change";
 
@@ -49,7 +54,7 @@ function subscribe(callback: () => void) {
   };
 }
 
-export function ThemeToggle() {
+export function ThemeToggle({ labels }: { labels: ThemeToggleLabels }) {
   const theme = useSyncExternalStore(subscribe, getThemeSnapshot, () => "light");
 
   function toggleTheme() {
@@ -62,9 +67,7 @@ export function ThemeToggle() {
   return (
     <button
       type="button"
-      aria-label={
-        theme === "dark" ? "Switch to light theme" : "Switch to dark theme"
-      }
+      aria-label={theme === "dark" ? labels.toLight : labels.toDark}
       className="inline-flex h-10 min-w-10 items-center justify-center rounded-full border border-border bg-surface px-3 text-sm font-medium text-text hover:border-accent hover:text-accent"
       onClick={toggleTheme}
     >

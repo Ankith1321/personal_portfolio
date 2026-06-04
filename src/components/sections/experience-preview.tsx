@@ -1,19 +1,28 @@
 import { SectionHeading } from "@/components/ui/section-heading";
-import { experienceEntries } from "@/lib/portfolio-data";
+import type { Dictionary } from "@/lib/dictionaries";
 
-export function ExperiencePreview() {
-  const [juniorEngineer, internship] = experienceEntries;
+export function ExperiencePreview({ dictionary }: { dictionary: Dictionary }) {
+  const juniorEngineer = dictionary.experience.entries.find(
+    (entry) => entry.id === "junior-engineer",
+  );
+  const internship = dictionary.experience.entries.find(
+    (entry) => entry.id === "internship",
+  );
+
+  if (!juniorEngineer || !internship) {
+    return null;
+  }
 
   return (
     <section
       id="experience"
-      className="scroll-mt-24 space-y-5 rounded-[1.75rem] border border-border bg-surface/86 px-6 py-6 shadow-[0_14px_36px_rgba(18,23,34,0.07)] sm:px-8"
+      className="scroll-mt-24 space-y-5 rounded-[1.75rem] border border-border bg-surface/85 px-6 py-6 shadow-[0_14px_36px_rgba(18,23,34,0.07)] sm:px-8"
     >
-      <SectionHeading eyebrow="Experience">
-        Industrial experience
+      <SectionHeading eyebrow={dictionary.experience.heading}>
+        {dictionary.experience.title}
       </SectionHeading>
       <div className="grid gap-4 md:grid-cols-2">
-        <article className="rounded-[1.5rem] border border-border bg-background/92 p-5 shadow-[0_10px_26px_rgba(18,23,34,0.06)]">
+        <article className="rounded-[1.5rem] border border-border bg-background/90 p-5 shadow-[0_10px_26px_rgba(18,23,34,0.06)]">
           <p className="text-xs font-medium uppercase tracking-[0.2em] text-secondary-accent">
             {juniorEngineer.role}
           </p>
@@ -21,11 +30,10 @@ export function ExperiencePreview() {
             {juniorEngineer.company}
           </h3>
           <p className="mt-3 text-sm leading-7 text-text-muted">
-            Pharmaceutical-industry processes, monitoring, sensors, actuators,
-            automation, PFDs, and P&amp;IDs.
+            {juniorEngineer.description}
           </p>
         </article>
-        <article className="rounded-[1.5rem] border border-border bg-background/92 p-5 shadow-[0_10px_26px_rgba(18,23,34,0.06)]">
+        <article className="rounded-[1.5rem] border border-border bg-background/90 p-5 shadow-[0_10px_26px_rgba(18,23,34,0.06)]">
           <p className="text-xs font-medium uppercase tracking-[0.2em] text-secondary-accent">
             {internship.role}
           </p>

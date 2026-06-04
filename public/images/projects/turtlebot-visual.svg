@@ -1,0 +1,39 @@
+<svg width="1200" height="800" viewBox="0 0 1200 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="800" rx="40" fill="#111924"/>
+  <rect x="24" y="24" width="1152" height="752" rx="28" fill="url(#bg)"/>
+  <circle cx="934" cy="194" r="172" fill="url(#glow1)"/>
+  <circle cx="288" cy="680" r="160" fill="url(#glow2)"/>
+  <path d="M182 626C314 530 398 456 508 468C614 480 674 584 778 594C872 604 946 534 1018 448" stroke="#D48A6D" stroke-width="12" stroke-linecap="round"/>
+  <path d="M182 626C314 530 398 456 508 468C614 480 674 584 778 594C872 604 946 534 1018 448" stroke="#F7F1E8" stroke-width="3" stroke-dasharray="18 14" stroke-linecap="round"/>
+  <circle cx="602" cy="454" r="88" fill="#162131" stroke="#8A8EC4" stroke-width="3" stroke-opacity="0.45"/>
+  <circle cx="602" cy="454" r="44" fill="#203047"/>
+  <path d="M562 454H642" stroke="#F7F1E8" stroke-width="4" stroke-linecap="round"/>
+  <path d="M602 414V494" stroke="#F7F1E8" stroke-width="4" stroke-linecap="round"/>
+  <path d="M692 454C736 426 768 402 804 362" stroke="#92A997" stroke-width="3" stroke-dasharray="10 10"/>
+  <path d="M716 414C768 370 822 340 884 332" stroke="#92A997" stroke-width="3" stroke-dasharray="10 10"/>
+  <path d="M734 490C792 474 860 474 922 494" stroke="#92A997" stroke-width="3" stroke-dasharray="10 10"/>
+  <circle cx="918" cy="494" r="18" fill="#D48A6D"/>
+  <circle cx="886" cy="332" r="18" fill="#D48A6D"/>
+  <circle cx="804" cy="362" r="18" fill="#D48A6D"/>
+  <rect x="150" y="114" width="232" height="126" rx="22" fill="#162131" stroke="#92A997" stroke-opacity="0.5"/>
+  <text x="186" y="170" fill="#F7F1E8" font-family="Arial, sans-serif" font-size="28" font-weight="600">Camera + LiDAR</text>
+  <text x="192" y="210" fill="#C7BDC0" font-family="Arial, sans-serif" font-size="20">Tracking and sensing</text>
+  <rect x="794" y="108" width="230" height="116" rx="22" fill="#162131" stroke="#8A8EC4" stroke-opacity="0.5"/>
+  <text x="836" y="164" fill="#F7F1E8" font-family="Arial, sans-serif" font-size="28" font-weight="600">ROS2 Logic</text>
+  <text x="842" y="204" fill="#C7BDC0" font-family="Arial, sans-serif" font-size="20">Navigation control</text>
+  <defs>
+    <linearGradient id="bg" x1="168" y1="72" x2="1034" y2="760" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#182131"/>
+      <stop offset="0.55" stop-color="#0F1722"/>
+      <stop offset="1" stop-color="#1C2433"/>
+    </linearGradient>
+    <radialGradient id="glow1" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(934 194) rotate(90) scale(172)">
+      <stop stop-color="#8A8EC4" stop-opacity="0.30"/>
+      <stop offset="1" stop-color="#8A8EC4" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glow2" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(288 680) rotate(90) scale(160)">
+      <stop stop-color="#92A997" stop-opacity="0.24"/>
+      <stop offset="1" stop-color="#92A997" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+</svg>

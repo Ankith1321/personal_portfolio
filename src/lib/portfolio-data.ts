@@ -36,6 +36,8 @@ export const featuredProjects = [
     status: "Status: TODO: VERIFY",
     detailsState: "View Details",
     href: "/projects/lane-detection-ebike",
+    imageSrc: "/images/projects/lane-detection-visual.svg",
+    imageAlt: "Abstract illustration of lane-detection perception and output flow",
   },
   {
     title: "UV Measurement and Automated Roller-Blind Steering",
@@ -45,6 +47,8 @@ export const featuredProjects = [
     status: "Status: TODO: VERIFY",
     detailsState: "Details coming soon",
     href: undefined,
+    imageSrc: "/images/projects/uv-roller-blind-visual.svg",
+    imageAlt: "Abstract illustration of UV sensing and automated blind control",
   },
 ] as const;
 
@@ -59,6 +63,8 @@ export const homepageProjects = [
     status: "In progress",
     detailsState: "Details coming soon",
     href: undefined,
+    imageSrc: "/images/projects/turtlebot-visual.svg",
+    imageAlt: "Abstract illustration of TurtleBot line following and obstacle avoidance",
   },
 ] as const;
 
@@ -72,6 +78,8 @@ export const projectOverview = [
     status: "In progress",
     detailsState: "Publication deferred until implementation is verified",
     href: undefined,
+    imageSrc: undefined,
+    imageAlt: undefined,
   },
 ] as const;
 
@@ -107,17 +115,14 @@ export const laneDetectionProject = {
 
 export const experienceEntries = [
   {
+    id: "junior-engineer",
     role: "Junior Engineer",
     company: "Hetero Labs Ltd.",
-    bullets: [
-      "Pharmaceutical-industry processes",
-      "Industrial monitoring",
-      "Sensors and actuators",
-      "Automation",
-      "PFDs and P&IDs",
-    ],
+    description:
+      "Pharmaceutical-industry processes, monitoring, sensors, actuators, automation, PFDs, and P&IDs.",
   },
   {
+    id: "internship",
     role: "Intern",
     company: "Aurobindo Pharma Ltd.",
     description: "Pharmaceutical-industry internship experience.",
