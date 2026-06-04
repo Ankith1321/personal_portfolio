@@ -22,7 +22,7 @@ export function ContactCta({ dictionary }: { dictionary: Dictionary }) {
   return (
     <section
       id="contact"
-      className="section-depth scroll-mt-24 rounded-[1.75rem] border border-border/80 px-6 py-6 sm:px-8"
+      className="home-scroll-section section-depth scroll-mt-24 rounded-[1.75rem] border border-border/80 px-6 py-6 sm:px-8"
     >
       <SectionHeading eyebrow={dictionary.contact.heading}>
         {dictionary.contact.title}

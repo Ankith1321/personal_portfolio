@@ -11,8 +11,6 @@ type ProjectHeroAction = {
 };
 
 type ProjectHeroProps = {
-  backHref: string;
-  backLabel: string;
   category: string;
   status: string;
   summary: string;
@@ -23,8 +21,6 @@ type ProjectHeroProps = {
 };
 
 export function ProjectHero({
-  backHref,
-  backLabel,
   category,
   status,
   summary,
@@ -35,13 +31,7 @@ export function ProjectHero({
 }: ProjectHeroProps) {
   return (
     <section className="panel-surface overflow-hidden rounded-[2rem] border bg-[linear-gradient(145deg,rgba(184,110,83,0.10),rgba(255,250,242,0.96)_45%,rgba(128,147,124,0.10))] px-6 py-8 shadow-[0_20px_60px_rgba(87,62,47,0.08)] sm:px-8 sm:py-10 dark:bg-[linear-gradient(145deg,rgba(111,117,180,0.18),rgba(23,33,47,0.95)_45%,rgba(127,151,136,0.12))]">
-      <ProjectActionLink
-        label={backLabel}
-        href={backHref}
-        variant="secondary"
-        className="mb-5 shadow-[0_10px_22px_rgba(18,23,34,0.08)]"
-      />
-      <div className="mt-0 grid gap-8 xl:grid-cols-[minmax(0,1.2fr)_minmax(320px,0.8fr)] xl:items-center">
+      <div className="grid gap-8 xl:grid-cols-[minmax(0,1.2fr)_minmax(320px,0.8fr)] xl:items-center">
         <div>
           <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
             <div className="max-w-3xl">

@@ -1,4 +1,5 @@
 import { Container } from "@/components/layout/container";
+import { ProjectActionLink } from "@/components/projects/project-action-link";
 import { ProjectHero } from "@/components/projects/project-hero";
 import { ProjectSection } from "@/components/projects/project-section";
 import { getDictionary } from "@/lib/dictionaries";
@@ -17,11 +18,7 @@ export default async function LocalizedLaneDetectionProjectPage({
   const locale = await resolveLocale(params);
   const dictionary = getDictionary(locale);
   const content = dictionary.laneDetection;
-  const laneCard = dictionary.projects.cards.find(
-    (project) => project.id === "lane-detection-ebike",
-  );
-  const isGerman = locale === "de";
-  const snapshotItems = isGerman
+  const snapshotItems = locale === "de"
     ? [
         { label: "Bereich", value: "Computer Vision" },
         { label: "Anwendung", value: "E-Bike Perception" },
@@ -47,18 +44,19 @@ export default async function LocalizedLaneDetectionProjectPage({
 
   return (
     <Container className="space-y-6 py-10 sm:space-y-8 sm:py-14">
+      <ProjectActionLink
+        label={content.backLabel}
+        href={getLocalizedPath(locale, "/projects")}
+        variant="secondary"
+        className="inline-flex shadow-[0_10px_22px_rgba(18,23,34,0.08)]"
+      />
       <ProjectHero
-        backHref={getLocalizedPath(locale, "/projects")}
-        backLabel={content.backLabel}
         category={content.category}
         status={content.status}
         summary={content.summary}
         title={content.title}
         imageSrc={getProjectAsset("lane-detection-ebike").imageSrc}
-        imageAlt={
-          laneCard?.imageAlt ??
-          "Cyclist on an urban bike lane representing the e-bike perception use case"
-        }
+        imageAlt="Cyclist on an urban bike lane representing the e-bike perception use case"
       />
 
       <ProjectSection
@@ -107,12 +105,6 @@ export default async function LocalizedLaneDetectionProjectPage({
             </div>
           ))}
         </div>
-      </ProjectSection>
-
-      <ProjectSection eyebrow={content.sourcesHeading} title={content.sourcesHeading}>
-        <p className="max-w-3xl text-sm leading-7 text-text-muted sm:text-base">
-          {content.sourcesText}
-        </p>
       </ProjectSection>
     </Container>
   );

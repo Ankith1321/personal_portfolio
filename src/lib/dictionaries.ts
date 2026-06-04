@@ -29,7 +29,7 @@ type ExperienceEntry = {
   id: "junior-engineer" | "internship";
   role: string;
   company: string;
-  description: string;
+  bullets: readonly string[];
 };
 
 type ProjectSnapshotItem = {
@@ -95,19 +95,6 @@ type DrugFeedbackDictionary = {
       description: string;
     }[];
     closing: string;
-    text: string;
-    metricLabel: string;
-    metricValue: string;
-  };
-  disclaimer: {
-    eyebrow: string;
-    title: string;
-    text: string;
-  };
-  links: {
-    eyebrow: string;
-    title: string;
-    githubTodo: string;
   };
 };
 
@@ -137,9 +124,8 @@ export type Dictionary = {
   hero: {
     title: string;
     summaryLines: readonly [string, string];
+    metadataRow: string;
     location: string;
-    education: string;
-    institution: string;
     chips: readonly string[];
     actions: {
       projects: string;
@@ -241,8 +227,6 @@ export type Dictionary = {
     datasetSize: string;
     evaluationTitle: string;
     evaluationNote: string;
-    sourcesHeading: string;
-    sourcesText: string;
   };
   drugFeedback: DrugFeedbackDictionary;
 };
@@ -250,7 +234,7 @@ export type Dictionary = {
 const dictionaries = {
   de: {
     metadata: {
-      title: "Saiankith Reddy Kolli | Machine Learning Engineer",
+      title: "Saiankith Reddy Kolli | LLM Engineer | AI / ML Engineer",
       description:
         "Portfolio von Saiankith Reddy Kolli. Machine Learning, Computer Vision, Smart Sensors, Edge Systems, Datenanalyse und industrielle Anwendungen.",
     },
@@ -280,18 +264,18 @@ const dictionaries = {
       ],
     },
     hero: {
-      title: "Machine Learning Engineer",
+      title: "LLM Engineer | AI / ML Engineer",
       summaryLines: [
-        "Ich studiere im M.Eng. mit Fokus auf Machine Learning, Computer Vision und Data Analytics.",
-        "Ich entwickle praktische Projekte für reale technische Anwendungen.",
+        "M.Eng.-Student mit Projekten in Machine Learning, Computer Vision, Data Analytics und LLM-Anwendungen.",
+        "Ich entwickle intelligente Software für reale Anwendungen.",
       ],
+      metadataRow:
+        "Amberg, Deutschland · M.Eng. AI für Smart Sensors and Actuators · Deggendorf Institute of Technology",
       location: "Amberg, Deutschland",
-      education: "M.Eng. AI für Smart Sensors and Actuators",
-      institution: "Deggendorf Institute of Technology",
       chips: [
         "Computer Vision",
         "Machine Learning",
-        "Data Analytics",
+        "LLM Applications",
       ],
       actions: {
         projects: "Projekte ansehen",
@@ -305,10 +289,10 @@ const dictionaries = {
         "Offen für Werkstudentenstellen, Praktika, Forschungsprojekte und Masterarbeitsthemen.",
       portraitAlt: "Porträt von Saiankith Reddy Kolli",
     },
-    about: {
+      about: {
       heading: "Über mich",
       title: "Über mich",
-      text: "Ich studiere AI für Smart Sensors and Actuators an der Deggendorf Institute of Technology. In meinen Masterprojekten entwickle ich praktische Kenntnisse in Machine Learning, Computer Vision, Data Analytics, Smart Sensors, Edge Systems und interaktiven ML-Anwendungen. Meine Erfahrung aus der Pharmaindustrie hilft mir zusätzlich beim Verständnis von Prozessen, Monitoring, Sensoren, Aktoren und Automatisierung.",
+      text: "Ich studiere AI für Smart Sensors and Actuators an der Deggendorf Institute of Technology. Mein Fokus liegt auf AI/ML, Computer Vision, Data Analytics, LLM-Anwendungen und interaktiven Softwareprojekten. Meine Erfahrung aus der Pharmaindustrie hilft mir beim Verständnis von Monitoring, Sensoren, Automatisierung und realen Prozessumgebungen.",
       pageTitle: "Über mich",
       pageDescription:
         "Diese Übersicht zeigt nur geprüfte öffentliche Informationen. Weitere Ausbildungsdetails werden noch geprüft.",
@@ -327,7 +311,7 @@ const dictionaries = {
         "Ausgewählte Projekte aus Computer Vision, Smart Sensors und intelligenten Systemen.",
       intro: "Ausgewählte Projekte aus Computer Vision, Smart Sensors und intelligenten Systemen.",
       actions: {
-        viewCaseStudy: "Case Study ansehen",
+        viewCaseStudy: "Projektdetails ansehen",
         tryLiveDemo: "Live-Demo testen",
         github: "GitHub",
         liveDemoOpensInNewTab: "Live-Demo öffnet in einem neuen Tab",
@@ -430,23 +414,27 @@ const dictionaries = {
       verificationNote:
         "Prüfhinweis: Die Zahl von 95 % Accuracy wird hier nicht hervorgehoben, weil ihre genaue Bedeutung und Evaluation noch TODO: VERIFY ist.",
     },
-    experience: {
-      heading: "Erfahrung",
-      title: "Industrielle Erfahrung",
-      entries: [
+      experience: {
+        heading: "Erfahrung",
+        title: "Industrielle Erfahrung",
+        entries: [
         {
           id: "junior-engineer",
           role: "Junior Engineer",
           company: "Hetero Labs Ltd.",
-          description:
-            "Arbeit mit Pharma-Prozessen, Monitoring, Sensoren, Aktoren, Automatisierung, PFDs und P&IDs. Diese Erfahrung stärkte mein Verständnis für reale technische Systeme.",
+          bullets: [
+            "Arbeit mit Pharma-Prozessen, Monitoring, Sensoren, Aktoren, Automatisierung, PFDs und P&IDs.",
+            "Praktisches Verständnis für reale technische Systeme und Prozessumgebungen entwickelt.",
+          ],
         },
         {
           id: "internship",
           role: "Praktikant",
           company: "Aurobindo Pharma Ltd.",
-          description:
-            "Praktische Einblicke in Abläufe und Prozessumgebungen der Pharmaindustrie. Das Praktikum half mir beim Verständnis industrieller Prozesse.",
+          bullets: [
+            "Einblicke in Abläufe und Prozessumgebungen der Pharmaindustrie erhalten.",
+            "Grundlagen für Monitoring und industrielle Prozessabläufe aufgebaut.",
+          ],
         },
       ],
       pageTitle: "Industrielle Erfahrung als praktischer Kontext",
@@ -455,37 +443,68 @@ const dictionaries = {
       verificationNote:
         "Prüfhinweis: Beschäftigungsdaten, Abteilungen, Städte und Erfolgsbullets bleiben TODO: VERIFY.",
     },
-    skills: {
-      heading: "Kenntnisse",
-      title: "Zentrale Kompetenzbereiche",
-      groups: [
+      skills: {
+        heading: "Kenntnisse",
+        title: "Zentrale Kompetenzbereiche",
+        groups: [
         {
-          title: "AI / Computer Vision",
+          title: "AI / ML and Data",
           items: [
             "Python",
-            "OpenCV",
-            "Computer Vision",
-            "Bildvorverarbeitung",
+            "Pandas",
+            "NumPy",
+            "Scikit-learn",
+            "Sentence Transformers",
+            "Matplotlib",
+            "Seaborn",
+            "Machine Learning",
             "Deep Learning",
           ],
         },
         {
-          title: "Smart Sensors / Edge Systems",
+          title: "Computer Vision and Robotics",
           items: [
-            "Smart Sensors",
-            "Edge-System-Konzepte",
-            "Bluetooth-Kommunikation",
-            "Sensoren und Aktoren",
+            "OpenCV",
+            "Computer Vision",
+            "Image Preprocessing",
+            "ROS2",
+            "Gazebo",
+            "RViz2",
+            "LiDAR",
           ],
         },
         {
-          title: "Industrielles Engineering",
+          title: "LLM Applications",
           items: [
-            "Prozess-Monitoring",
-            "Automatisierung",
-            "PFDs",
-            "P&IDs",
-            "Pharma-Prozesse",
+            "LLM Applications",
+            "RAG Assistant — In Progress",
+          ],
+        },
+        {
+          title: "Frontend and Web",
+          items: [
+            "Next.js",
+            "React",
+            "TypeScript",
+            "Tailwind CSS",
+          ],
+        },
+        {
+          title: "Backend, Deployment, and Developer Tools",
+          items: [
+            "Python",
+            "Streamlit",
+            "Docker",
+            "Git",
+            "GitHub",
+            "Vercel",
+          ],
+        },
+        {
+          title: "Smart Sensors",
+          items: [
+            "Sensors and Actuators",
+            "Bluetooth Communication",
           ],
         },
       ],
@@ -523,19 +542,6 @@ const dictionaries = {
       ],
       verificationGroupTitle: "Vor Veröffentlichung prüfen",
       verificationGroupItems: [
-        "Genaue ML-Frameworks",
-        "NumPy",
-        "Pandas",
-        "Matplotlib",
-        "SQL",
-        "Git und GitHub",
-        "Linux",
-        "Docker",
-        "APIs",
-        "FastAPI",
-        "Cloud-Services",
-        "Mikrocontroller",
-        "Embedded-Sprachen",
         "Deutsch-Niveau",
         "Englisch-Niveau",
       ],
@@ -597,9 +603,6 @@ const dictionaries = {
       evaluationTitle: "Evaluation",
       evaluationNote:
         "Die genaue Definition der früher genannten Accuracy muss vor der Veröffentlichung noch geprüft werden.",
-      sourcesHeading: "Quellen",
-      sourcesText:
-        "Projektbericht und technische Quellen werden nach der Prüfung ergänzt.",
     },
     drugFeedback: {
       backLabel: "← Zurück zu den Projekten",
@@ -658,24 +661,22 @@ const dictionaries = {
         eyebrow: "Problem",
         title: "Warum dieses Projekt gebaut wurde",
         text:
-          "Patientenbasiertes Drug Feedback enthält Signale wie Effectiveness, Satisfaction, Ease of Use, Drug Name und textuelle Informationen. Ziel dieses Projekts war eine interaktive Analytics-Anwendung für Datenanalyse und Condition-Classification.",
+          "Interaktive ML-Anwendung zur Analyse von patientenbasiertem Drug Feedback und zur Condition-Classification.",
       },
       impact: {
         eyebrow: "Bedeutung",
-        title: "Warum dieses Projekt wichtig ist",
+        title: "Warum das wichtig ist",
         text:
-          "Dieses Projekt verbindet meine Erfahrung aus der Pharmaindustrie mit meiner Machine-Learning-Richtung. Es zeigt einen End-to-End-Workflow von Datenladung und Vorverarbeitung bis zu ML-Modellierung, Evaluation, Deployment und interaktiver Nutzung.",
+          "Dieses Projekt verbindet meine Erfahrung aus der Pharmaindustrie mit praktischer Machine-Learning-Arbeit und einer deployten, interaktiven Anwendung.",
       },
       contribution: {
         eyebrow: "Beitrag",
         title: "Was ich entwickelt habe",
         items: [
-          "Eine interaktive Streamlit-Anwendung für die Analyse von patientenbasiertem Drug Feedback und für direkte Prediction-Tests im Browser entwickelt.",
-          "EDA-Ansichten für Verteilungen, Korrelationen und Zusammenhänge zwischen Drug-Feedback-Features erstellt.",
-          "Numerische, kategorische und textbasierte Features für Machine-Learning-Workflows vorbereitet und transformiert.",
-          "Einen Condition-Classification-Workflow umgesetzt und eine Live-Prediction-Oberfläche für Benutzer integriert.",
-          "Clustering- und Regression-Seiten ergänzt, um verschiedene Analyseaufgaben in einer Anwendung zu vergleichen.",
-          "Die abgeschlossene Anwendung öffentlich über Streamlit deployt, damit Recruiter und Benutzer den Workflow direkt testen können.",
+          "Streamlit-Anwendung für Drug-Feedback-Analyse und Live-Prediction entwickelt.",
+          "EDA-Ansichten für Verteilungen, Korrelationen und Feature-Zusammenhänge erstellt.",
+          "Numerische, kategorische und textbasierte Features für ML-Workflows vorbereitet.",
+          "Classification-, Clustering- und Regression-Workflows in einer Oberfläche umgesetzt.",
         ],
       },
       workflow: {
@@ -684,13 +685,9 @@ const dictionaries = {
         stepLabel: "Schritt",
         steps: [
           "Datensatz",
-          "Datenladung",
-          "EDA",
-          "Vorverarbeitung",
+          "EDA und Vorverarbeitung",
           "Feature Engineering",
-          "Classification",
-          "Evaluation",
-          "Live-Prediction-Oberfläche",
+          "Modelle und Live-Prediction",
         ],
       },
       demo: {
@@ -738,27 +735,12 @@ const dictionaries = {
         ],
         closing:
           "Classification ist der zentrale Portfolio-Workflow. Clustering und Regression sind zusätzliche explorative Komponenten der Anwendung.",
-        text:
-          "Die Werte oben sind die aktuell in der Anwendung angezeigten Ergebnisse. Classification ist der zentrale Portfolio-Workflow. Clustering und Regression sind zusätzliche Analyse-Experimente.",
-        metricLabel: "Classification",
-        metricValue: "Test Accuracy: 69,14 %",
-      },
-      disclaimer: {
-        eyebrow: "Hinweis",
-        title: "Wichtiger Kontext",
-        text:
-          "ML-Lernprojekt auf Basis von patientenbasiertem Feedback. Kein medizinisches, diagnostisches oder klinisches Entscheidungssystem.",
-      },
-      links: {
-        eyebrow: "Repository",
-        title: "Links",
-        githubTodo: "",
       },
     },
   },
   en: {
     metadata: {
-      title: "Saiankith Reddy Kolli | Machine Learning Engineer",
+      title: "Saiankith Reddy Kolli | LLM Engineer | AI / ML Engineer",
       description:
         "Portfolio of Saiankith Reddy Kolli. Machine learning, computer vision, smart sensors, edge systems, data analytics, and industrial applications.",
     },
@@ -788,18 +770,18 @@ const dictionaries = {
       ],
     },
     hero: {
-      title: "Machine Learning Engineer",
+      title: "LLM Engineer | AI / ML Engineer",
       summaryLines: [
-        "M.Eng. student focused on machine learning, computer vision, and data analytics.",
-        "Building practical projects for real-world engineering applications.",
+        "M.Eng. student building practical AI systems through machine learning, computer vision, data analytics, and LLM applications.",
+        "Developing projects that connect intelligent software with real-world use cases.",
       ],
+      metadataRow:
+        "Amberg, Germany · M.Eng. AI for Smart Sensors and Actuators · Deggendorf Institute of Technology",
       location: "Amberg, Germany",
-      education: "M.Eng. in AI for Smart Sensors and Actuators",
-      institution: "Deggendorf Institute of Technology",
       chips: [
         "Computer Vision",
         "Machine Learning",
-        "Data Analytics",
+        "LLM Applications",
       ],
       actions: {
         projects: "View Projects",
@@ -816,7 +798,7 @@ const dictionaries = {
     about: {
       heading: "About",
       title: "About",
-      text: "I am pursuing an M.Eng. in AI for Smart Sensors and Actuators at Deggendorf Institute of Technology. Through my master’s projects, I am building practical skills in machine learning, computer vision, data analytics, smart sensors, edge systems, and interactive ML applications. My previous pharmaceutical-industry experience gives me an additional understanding of industrial processes, monitoring, sensors, actuators, and automation.",
+      text: "I am pursuing an M.Eng. in AI for Smart Sensors and Actuators at Deggendorf Institute of Technology. My work focuses on AI/ML, computer vision, data analytics, LLM applications, and interactive software projects. My previous pharmaceutical-industry experience adds practical understanding of monitoring, sensors, automation, and real-world process environments.",
       pageTitle: "About",
       pageDescription:
         "This overview keeps to verified public information while fuller education details continue to be checked.",
@@ -835,7 +817,7 @@ const dictionaries = {
       intro:
         "Selected projects from computer vision, smart sensors, and intelligent systems.",
       actions: {
-        viewCaseStudy: "View Case Study",
+        viewCaseStudy: "View Project Details",
         tryLiveDemo: "Try Live Demo",
         github: "GitHub",
         liveDemoOpensInNewTab: "Live demo opens in a new tab",
@@ -938,23 +920,27 @@ const dictionaries = {
       verificationNote:
         "Verification note: the lane-detection accuracy figure is not promoted here because its evaluation meaning still requires TODO: VERIFY.",
     },
-    experience: {
-      heading: "Experience",
-      title: "Industrial experience",
-      entries: [
+      experience: {
+        heading: "Experience",
+        title: "Industrial experience",
+        entries: [
         {
           id: "junior-engineer",
           role: "Junior Engineer",
           company: "Hetero Labs Ltd.",
-          description:
-            "Worked with pharmaceutical processes, industrial monitoring, sensors, actuators, automation, PFDs, and P&IDs. This experience strengthened my understanding of real-world engineering systems.",
+          bullets: [
+            "Worked with pharmaceutical processes, monitoring, sensors, actuators, automation, PFDs, and P&IDs.",
+            "Developed practical understanding of real-world engineering systems and process environments.",
+          ],
         },
         {
           id: "internship",
           role: "Intern",
           company: "Aurobindo Pharma Ltd.",
-          description:
-            "Gained practical exposure to pharmaceutical-industry workflows and process environments. The internship developed my understanding of industrial operations.",
+          bullets: [
+            "Gained exposure to pharmaceutical-industry workflows and operational process environments.",
+            "Built foundational understanding of industrial monitoring and process operations.",
+          ],
         },
       ],
       pageTitle: "Industrial exposure shaping practical engineering context",
@@ -963,37 +949,68 @@ const dictionaries = {
       verificationNote:
         "Verification note: employment dates, departments, cities, and achievement bullets remain TODO: VERIFY.",
     },
-    skills: {
-      heading: "Skills",
-      title: "Core skill areas",
-      groups: [
+      skills: {
+        heading: "Skills",
+        title: "Core skill areas",
+        groups: [
         {
-          title: "AI / Computer Vision",
+          title: "AI / ML and Data",
           items: [
             "Python",
-            "OpenCV",
-            "Computer Vision",
-            "Image Preprocessing",
+            "Pandas",
+            "NumPy",
+            "Scikit-learn",
+            "Sentence Transformers",
+            "Matplotlib",
+            "Seaborn",
+            "Machine Learning",
             "Deep Learning",
           ],
         },
         {
-          title: "Smart Sensors / Edge Systems",
+          title: "Computer Vision and Robotics",
           items: [
-            "Smart Sensors",
-            "Edge-System Concepts",
-            "Bluetooth Communication",
-            "Sensors and Actuators",
+            "OpenCV",
+            "Computer Vision",
+            "Image Preprocessing",
+            "ROS2",
+            "Gazebo",
+            "RViz2",
+            "LiDAR",
           ],
         },
         {
-          title: "Industrial Engineering",
+          title: "LLM Applications",
           items: [
-            "Process Monitoring",
-            "Automation",
-            "PFDs",
-            "P&IDs",
-            "Pharmaceutical Processes",
+            "LLM Applications",
+            "RAG Assistant — In Progress",
+          ],
+        },
+        {
+          title: "Frontend and Web",
+          items: [
+            "Next.js",
+            "React",
+            "TypeScript",
+            "Tailwind CSS",
+          ],
+        },
+        {
+          title: "Backend, Deployment, and Developer Tools",
+          items: [
+            "Python",
+            "Streamlit",
+            "Docker",
+            "Git",
+            "GitHub",
+            "Vercel",
+          ],
+        },
+        {
+          title: "Smart Sensors",
+          items: [
+            "Sensors and Actuators",
+            "Bluetooth Communication",
           ],
         },
       ],
@@ -1031,19 +1048,6 @@ const dictionaries = {
       ],
       verificationGroupTitle: "TODO: VERIFY before adding",
       verificationGroupItems: [
-        "Exact ML frameworks",
-        "NumPy",
-        "Pandas",
-        "Matplotlib",
-        "SQL",
-        "Git and GitHub",
-        "Linux",
-        "Docker",
-        "APIs",
-        "FastAPI",
-        "Cloud services",
-        "Microcontrollers",
-        "Embedded programming languages",
         "German-language level",
         "English-language level",
       ],
@@ -1105,9 +1109,6 @@ const dictionaries = {
       evaluationTitle: "Evaluation",
       evaluationNote:
         "The exact evaluation definition for the previously stated accuracy value remains to be verified before publication.",
-      sourcesHeading: "Sources",
-      sourcesText:
-        "Project paper and technical sources will be added after verification.",
     },
     drugFeedback: {
       backLabel: "← Back to Projects",
@@ -1166,24 +1167,22 @@ const dictionaries = {
         eyebrow: "Problem Statement",
         title: "Why this project exists",
         text:
-          "Patient-reported drug-feedback datasets contain signals such as effectiveness, satisfaction, ease of use, drug identity, and textual drug information. The goal of this project was to build an interactive analytics application that supports data exploration and condition classification.",
+          "Built an interactive ML application to analyze patient-reported drug feedback and support condition classification.",
       },
       impact: {
         eyebrow: "Why It Matters",
-        title: "Domain context and end-to-end ML",
+        title: "Why This Matters",
         text:
-          "This project connects my pharmaceutical-industry exposure with my machine-learning direction. It demonstrates an end-to-end workflow from data loading and preprocessing to ML modeling, evaluation, deployment, and interactive user testing.",
+          "This project connects my pharmaceutical-industry exposure with practical machine-learning work and a deployed interactive application.",
       },
       contribution: {
         eyebrow: "My Contribution",
         title: "What I built",
         items: [
-          "Built an interactive Streamlit application for exploring patient-reported drug-feedback data and testing prediction workflows directly in the browser.",
-          "Created exploratory-data-analysis views for rating distributions, correlations, and relationships between drug-feedback features.",
-          "Prepared numerical, categorical, and text-based features for machine-learning workflows using preprocessing and feature-transformation steps.",
-          "Implemented a medical-condition classification workflow and exposed a live prediction interface for user-driven testing.",
-          "Added clustering and regression exploration pages to compare different analytical tasks inside one application.",
-          "Deployed the completed application publicly through Streamlit so recruiters and users can test the workflow directly.",
+          "Built a Streamlit application for drug-feedback analysis and live prediction.",
+          "Created EDA views for distributions, correlations, and feature relationships.",
+          "Prepared numerical, categorical, and text-based features for ML workflows.",
+          "Implemented classification, clustering, and regression workflows in one interface.",
         ],
       },
       workflow: {
@@ -1192,13 +1191,9 @@ const dictionaries = {
         stepLabel: "Step",
         steps: [
           "Dataset",
-          "Data Loading",
-          "EDA",
-          "Preprocessing",
-          "Feature Engineering",
-          "Classification",
-          "Evaluation",
-          "Live Prediction Interface",
+          "EDA and preprocessing",
+          "Feature engineering",
+          "Models and live prediction",
         ],
       },
       demo: {
@@ -1246,21 +1241,6 @@ const dictionaries = {
         ],
         closing:
           "Classification is the main portfolio workflow. Clustering and regression are supporting exploratory components of the application.",
-        text:
-          "The values below are the current app-reported results. Classification is the main portfolio workflow. Clustering and regression are included as additional analytical explorations.",
-        metricLabel: "Classification",
-        metricValue: "Test accuracy: 69.14%",
-      },
-      disclaimer: {
-        eyebrow: "Disclaimer",
-        title: "Important scope note",
-        text:
-          "Educational ML project based on patient-reported feedback. Not a medical, diagnostic, or clinical decision-support tool.",
-      },
-      links: {
-        eyebrow: "Repository",
-        title: "Links",
-        githubTodo: "",
       },
     },
   },

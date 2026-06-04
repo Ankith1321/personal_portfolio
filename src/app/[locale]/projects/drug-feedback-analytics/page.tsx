@@ -30,9 +30,13 @@ export default async function LocalizedDrugFeedbackProjectPage({
 
   return (
     <Container className="space-y-6 py-10 sm:space-y-8 sm:py-14">
+      <ProjectActionLink
+        label={content.backLabel}
+        href={getLocalizedPath(locale, "/projects")}
+        variant="secondary"
+        className="inline-flex shadow-[0_10px_22px_rgba(18,23,34,0.08)]"
+      />
       <ProjectHero
-        backHref={getLocalizedPath(locale, "/projects")}
-        backLabel={content.backLabel}
         category={content.snapshot.items[0]?.value ?? ""}
         status={content.status}
         summary={content.summary}
@@ -51,12 +55,6 @@ export default async function LocalizedDrugFeedbackProjectPage({
             href: projectLinks.demoHref,
             external: true,
             variant: "secondary",
-          },
-          {
-            label: content.actions.viewGithub,
-            href: projectLinks.githubHref,
-            external: true,
-            variant: "ghost",
           },
         ]}
       />
@@ -203,20 +201,14 @@ export default async function LocalizedDrugFeedbackProjectPage({
         </p>
       </ProjectSection>
 
-      <ProjectSection eyebrow={content.links.eyebrow} title={content.links.title}>
-        <div className="flex flex-wrap gap-3">
-          <ProjectActionLink
-            label={content.actions.viewGithub}
-            href={projectLinks.githubHref}
-            external
-            variant="secondary"
-          />
-        </div>
-      </ProjectSection>
-
-      <p className="px-2 text-sm leading-7 text-text-muted sm:text-base">
-        {content.disclaimer.text}
-      </p>
+      <div className="flex flex-wrap gap-3 px-2">
+        <ProjectActionLink
+          label={content.actions.viewGithub}
+          href={projectLinks.githubHref}
+          external
+          variant="secondary"
+        />
+      </div>
     </Container>
   );
 }

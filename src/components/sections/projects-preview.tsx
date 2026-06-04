@@ -15,7 +15,7 @@ type ProjectsPreviewProps = {
 
 export function ProjectsPreview({ locale, dictionary }: ProjectsPreviewProps) {
   return (
-    <section id="projects" className="tech-divider scroll-mt-24 space-y-5">
+    <section id="projects" className="home-scroll-section tech-divider scroll-mt-24 space-y-5">
       <SectionHeading eyebrow={dictionary.projects.heading}>
         {dictionary.projects.title}
       </SectionHeading>

@@ -37,9 +37,14 @@ export default async function LocalizedExperiencePage({
             <h2 className="mt-2 text-2xl font-semibold tracking-tight text-text">
               {entry.company}
             </h2>
-            <p className="mt-5 text-sm leading-7 text-text-muted sm:text-base">
-              {entry.description}
-            </p>
+            <ul className="mt-5 space-y-2 text-sm leading-7 text-text-muted sm:text-base">
+              {entry.bullets.map((bullet) => (
+                <li key={bullet} className="flex gap-2">
+                  <span aria-hidden="true">•</span>
+                  <span>{bullet}</span>
+                </li>
+              ))}
+            </ul>
           </article>
         ))}
       </section>

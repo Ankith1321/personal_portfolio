@@ -1,6 +1,6 @@
 export const siteConfig = {
   name: "Saiankith Reddy Kolli",
-  headline: "Machine Learning Engineer",
+  headline: "LLM Engineer | AI / ML Engineer",
   location: "Amberg, Germany",
   navigation: [
     { label: "Home", href: "/#home" },

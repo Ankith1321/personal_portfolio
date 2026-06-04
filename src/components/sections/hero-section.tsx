@@ -25,7 +25,7 @@ export function HeroSection({ locale, dictionary }: HeroSectionProps) {
   return (
     <section
       id="home"
-      className="hero-surface scroll-mt-24 overflow-hidden rounded-[2rem] border border-white/20 shadow-[0_32px_90px_rgba(18,23,34,0.18)]"
+      className="home-scroll-section hero-surface scroll-mt-24 overflow-hidden rounded-[2rem] border border-white/20 shadow-[0_32px_90px_rgba(18,23,34,0.18)]"
     >
       <div className="relative grid gap-6 px-6 py-8 sm:px-8 sm:py-10 lg:grid-cols-[minmax(0,1fr)_13rem] lg:items-start lg:gap-8">
         <div className="relative z-10 space-y-6 lg:space-y-7">
@@ -44,10 +44,7 @@ export function HeroSection({ locale, dictionary }: HeroSectionProps) {
           </div>
 
           <div className="grid gap-1 text-sm leading-6 text-text-muted sm:text-base">
-            <p>{dictionary.hero.location}</p>
-            <p>
-              {dictionary.hero.education} · {dictionary.hero.institution}
-            </p>
+            <p>{dictionary.hero.metadataRow}</p>
           </div>
 
           <div className="flex flex-wrap gap-2">

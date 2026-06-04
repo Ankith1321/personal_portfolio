@@ -21,7 +21,7 @@ export default async function LocalizedHomePage({
   const dictionary = getDictionary(locale);
 
   return (
-    <Container className="space-y-6 py-8 sm:space-y-8 sm:py-10 lg:space-y-10 lg:py-12">
+    <Container className="home-scroll-container space-y-6 py-8 sm:space-y-8 sm:py-10 lg:space-y-10 lg:py-12">
       <HeroSection locale={locale} dictionary={dictionary} />
       <AboutPreview dictionary={dictionary} />
       <ProjectsPreview locale={locale} dictionary={dictionary} />

@@ -213,6 +213,15 @@ summary {
   opacity: 0.9;
 }
 
+.home-scroll-container {
+  scroll-snap-type: y proximity;
+}
+
+.home-scroll-section {
+  scroll-snap-align: start;
+  scroll-snap-stop: normal;
+}
+
 .section-depth {
   background:
     radial-gradient(circle at top right, color-mix(in srgb, var(--depth-indigo) 10%, transparent), transparent 16rem),
@@ -283,5 +292,21 @@ summary {
   .hero-surface,
   .section-depth {
     transform: none !important;
+  }
+
+  .home-scroll-container {
+    scroll-snap-type: none;
+  }
+}
+
+@media (max-width: 767px) {
+  .home-scroll-container {
+    scroll-snap-type: none;
+  }
+}
+
+@media (pointer: coarse) {
+  .home-scroll-container {
+    scroll-snap-type: none;
   }
 }
