@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Link from "next/link";
+import { ProjectActionLink } from "@/components/projects/project-action-link";
 import { StatusBadge } from "@/components/ui/status-badge";
 
 type ProjectCardProps = {
@@ -7,8 +7,14 @@ type ProjectCardProps = {
   summary: string;
   tags: readonly string[];
   status: string;
-  detailsState: string;
+  caseStudyLabel: string;
+  liveDemoLabel: string;
+  githubLabel: string;
+  disabledGithubReason?: string;
+  detailsState?: string;
   href?: string;
+  liveDemoHref?: string;
+  githubHref?: string;
   imageSrc?: string;
   imageAlt?: string;
 };
@@ -18,8 +24,14 @@ export function ProjectCard({
   summary,
   tags,
   status,
+  caseStudyLabel,
+  liveDemoLabel,
+  githubLabel,
+  disabledGithubReason,
   detailsState,
   href,
+  liveDemoHref,
+  githubHref,
   imageSrc,
   imageAlt,
 }: ProjectCardProps) {
@@ -62,18 +74,42 @@ export function ProjectCard({
         ))}
       </ul>
       <div className="relative z-10 mt-6 border-t border-border/80 pt-4">
-        {href ? (
-          <Link
-            href={href}
-            className="inline-flex rounded-full border border-border bg-surface/74 px-3 py-2 text-sm font-medium text-text backdrop-blur-sm hover:border-accent hover:text-accent motion-safe:hover:-translate-y-0.5"
-          >
-            {detailsState}
-          </Link>
-        ) : (
-          <span className="inline-flex rounded-full border border-dashed border-border px-3 py-2 text-sm text-text-muted">
-            {detailsState}
-          </span>
-        )}
+        <div className="flex flex-wrap gap-2">
+          {href ? (
+            <ProjectActionLink
+              href={href}
+              label={caseStudyLabel}
+              variant="secondary"
+              className="backdrop-blur-sm"
+            />
+          ) : detailsState ? (
+            <span className="inline-flex rounded-full border border-dashed border-border px-3 py-2 text-sm text-text-muted">
+              {detailsState}
+            </span>
+          ) : null}
+          {liveDemoHref ? (
+            <ProjectActionLink
+              href={liveDemoHref}
+              label={liveDemoLabel}
+              external
+              variant="primary"
+            />
+          ) : null}
+          {githubHref ? (
+            <ProjectActionLink
+              href={githubHref}
+              label={githubLabel}
+              external
+              variant="ghost"
+            />
+          ) : disabledGithubReason ? (
+            <ProjectActionLink
+              label={githubLabel}
+              disabledReason={disabledGithubReason}
+              variant="ghost"
+            />
+          ) : null}
+        </div>
       </div>
     </article>
   );

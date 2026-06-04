@@ -1,4 +1,8 @@
 import type { Locale } from "@/lib/i18n";
+import type {
+  ProjectCardId,
+  PublishedProjectSlug,
+} from "@/lib/portfolio-data";
 
 type NavItem = {
   label: string;
@@ -6,12 +10,14 @@ type NavItem = {
 };
 
 type ProjectCardDictionary = {
+  id: ProjectCardId;
   title: string;
   summary: string;
   tags: readonly string[];
   status: string;
-  detailsState: string;
-  slug?: "lane-detection-ebike";
+  imageAlt: string;
+  detailsState?: string;
+  slug?: PublishedProjectSlug;
 };
 
 type SkillGroup = {
@@ -24,6 +30,87 @@ type ExperienceEntry = {
   role: string;
   company: string;
   description: string;
+};
+
+type ProjectSnapshotItem = {
+  label: string;
+  value: string;
+};
+
+type DrugFeedbackDictionary = {
+  backLabel: string;
+  status: string;
+  title: string;
+  summary: string;
+  heroImageAlt: string;
+  actions: {
+    liveDemo: string;
+    tryPredictions: string;
+    viewGithub: string;
+    githubDisabled: string;
+  };
+  snapshot: {
+    eyebrow: string;
+    title: string;
+    items: readonly ProjectSnapshotItem[];
+  };
+  problem: {
+    eyebrow: string;
+    title: string;
+    text: string;
+  };
+  impact: {
+    eyebrow: string;
+    title: string;
+    text: string;
+  };
+  contribution: {
+    eyebrow: string;
+    title: string;
+    items: readonly string[];
+  };
+  workflow: {
+    eyebrow: string;
+    title: string;
+    stepLabel: string;
+    steps: readonly string[];
+  };
+  demo: {
+    eyebrow: string;
+    title: string;
+    text: string;
+    steps: readonly string[];
+    actions: {
+      openDemo: string;
+      tryPredictions: string;
+    };
+  };
+  screenshots: {
+    eyebrow: string;
+    title: string;
+    items: readonly string[];
+    placeholder: string;
+  };
+  results: {
+    eyebrow: string;
+    title: string;
+    text: string;
+  };
+  disclaimer: {
+    eyebrow: string;
+    title: string;
+    text: string;
+  };
+  reflection: {
+    eyebrow: string;
+    title: string;
+    text: string;
+  };
+  links: {
+    eyebrow: string;
+    title: string;
+    githubTodo: string;
+  };
 };
 
 export type Dictionary = {
@@ -80,6 +167,13 @@ export type Dictionary = {
     heading: string;
     title: string;
     intro: string;
+    actions: {
+      viewCaseStudy: string;
+      tryLiveDemo: string;
+      github: string;
+      liveDemoOpensInNewTab: string;
+      githubDisabled: string;
+    };
     cards: readonly ProjectCardDictionary[];
     pageTitle: string;
     pageDescription: string;
@@ -159,6 +253,7 @@ export type Dictionary = {
     githubPlaceholder: string;
     demoPlaceholder: string;
   };
+  drugFeedback: DrugFeedbackDictionary;
 };
 
 const dictionaries = {
@@ -239,68 +334,104 @@ const dictionaries = {
       title:
         "Ausgewählte Projekte aus Computer Vision, Smart Sensors und intelligenten Systemen.",
       intro: "Ausgewählte Projekte aus Computer Vision, Smart Sensors und intelligenten Systemen.",
+      actions: {
+        viewCaseStudy: "Case Study ansehen",
+        tryLiveDemo: "Live-Demo testen",
+        github: "GitHub",
+        liveDemoOpensInNewTab: "Live-Demo öffnet in einem neuen Tab",
+        githubDisabled: "TODO: VERIFY GitHub Repository",
+      },
       cards: [
         {
+          id: "lane-detection-ebike",
           title: "Lane Detection für E-Bike Perception",
           summary:
             "Kamerabasierte Lane Detection mit Bildvorverarbeitung und Deep-Learning-Training für ein E-Bike-Perception-Projekt.",
           tags: ["Computer Vision", "OpenCV", "Deep Learning"],
           status: "Status: TODO: VERIFY",
-          detailsState: "Details ansehen",
+          imageAlt:
+            "Abstrakte Illustration von Lane Detection, Wahrnehmung und Ausgabefluss",
           slug: "lane-detection-ebike",
         },
         {
+          id: "drug-feedback-analytics",
+          title: "Drug Feedback Analytics und Condition Classification",
+          summary:
+            "Interaktive Streamlit-Anwendung zur Analyse von patientenbasiertem Drug Feedback und zum Testen einer ML-basierten Condition-Classification.",
+          tags: ["Python", "Scikit-learn", "Streamlit"],
+          status: "Abgeschlossen",
+          imageAlt:
+            "Abstrakte Illustration von Pharma-Analytics, Charts und Prediction-Workflow",
+          slug: "drug-feedback-analytics",
+        },
+        {
+          id: "uv-roller-blind",
           title: "UV-Messung und automatische Rollladensteuerung",
           summary:
             "Smart-Sensor-Projekt mit UV-Monitoring, Bluetooth-Kommunikation, Edge-Device-Architektur und automatischer Rollladensteuerung.",
           tags: ["Smart Sensors", "Bluetooth", "Edge Systems"],
           status: "Status: TODO: VERIFY",
-          detailsState: "Details folgen bald",
-        },
-        {
-          title: "TurtleBot3 Linienverfolgung und Hinderniserkennung",
-          summary:
-            "ROS2-Hochschulprojekt mit kamerabasierter Linienverfolgung, LiDAR-Hinderniserkennung und Steuerlogik.",
-          tags: ["ROS2", "OpenCV", "LiDAR"],
-          status: "In Arbeit",
+          imageAlt:
+            "Abstrakte Illustration von UV-Sensorik und automatischer Rollladensteuerung",
           detailsState: "Details folgen bald",
         },
       ],
       pageTitle: "Projektrichtung und Nachweisstatus",
       pageDescription:
-        "Diese Projektübersicht nutzt nur geprüfte Aussagen aus dem Master-Dokument. Das Lane-Detection-Projekt hat bereits eine erste Detailseite. Andere Detailseiten bleiben noch geschlossen, bis die Nachweise geprüft sind.",
+        "Diese Projektübersicht nutzt nur geprüfte Aussagen aus dem Master-Dokument. Das Lane-Detection-Projekt und das Drug-Feedback-Projekt haben veröffentlichte Case Studies. Weitere Detailseiten bleiben geschlossen, bis ihre Nachweise geprüft sind.",
       pageCards: [
         {
+          id: "lane-detection-ebike",
           title: "Lane Detection für E-Bike Perception",
           summary:
             "Kamerabasierte Lane Detection mit Bildvorverarbeitung und Deep-Learning-Training für ein E-Bike-Perception-Projekt.",
           tags: ["Computer Vision", "OpenCV", "Deep Learning"],
           status: "Status: TODO: VERIFY",
-          detailsState: "Details ansehen",
+          imageAlt:
+            "Abstrakte Illustration von Lane Detection, Wahrnehmung und Ausgabefluss",
           slug: "lane-detection-ebike",
         },
         {
+          id: "drug-feedback-analytics",
+          title: "Drug Feedback Analytics und Condition Classification",
+          summary:
+            "Interaktive Streamlit-Anwendung zur Analyse von patientenbasiertem Drug Feedback und zum Testen einer ML-basierten Condition-Classification.",
+          tags: ["Python", "Scikit-learn", "Streamlit"],
+          status: "Abgeschlossen",
+          imageAlt:
+            "Abstrakte Illustration von Pharma-Analytics, Charts und Prediction-Workflow",
+          slug: "drug-feedback-analytics",
+        },
+        {
+          id: "uv-roller-blind",
           title: "UV-Messung und automatische Rollladensteuerung",
           summary:
             "Smart-Sensor-Projekt mit UV-Monitoring, Bluetooth-Kommunikation, Edge-Device-Architektur und automatischer Rollladensteuerung.",
           tags: ["Smart Sensors", "Bluetooth", "Edge Systems"],
           status: "Status: TODO: VERIFY",
+          imageAlt:
+            "Abstrakte Illustration von UV-Sensorik und automatischer Rollladensteuerung",
           detailsState: "Details folgen bald",
         },
         {
+          id: "turtlebot3-line-following",
           title: "TurtleBot3 Linienverfolgung und Hinderniserkennung",
           summary:
             "ROS2-Hochschulprojekt mit kamerabasierter Linienverfolgung, LiDAR-Hinderniserkennung und Steuerlogik.",
           tags: ["ROS2", "OpenCV", "LiDAR"],
           status: "In Arbeit",
+          imageAlt:
+            "Abstrakte Illustration von TurtleBot-Linienverfolgung und Hinderniserkennung",
           detailsState: "Details folgen bald",
         },
         {
+          id: "sentinel-rag-assistant",
           title: "Sentinel Enterprise RAG Assistant",
           summary:
             "Enterprise-RAG-Assistent ist noch in Arbeit. Nur wirklich umgesetzte Teile werden später veröffentlicht. Geplante Funktionen bleiben getrennt.",
           tags: ["In Progress", "Enterprise RAG"],
           status: "In Arbeit",
+          imageAlt: "Abstrakte Illustration eines Enterprise-RAG-Assistenten",
           detailsState: "Veröffentlichung nach Prüfung",
         },
       ],
@@ -487,6 +618,154 @@ const dictionaries = {
       githubPlaceholder: "TODO: VERIFY GitHub Repository",
       demoPlaceholder: "TODO: VERIFY Demo",
     },
+    drugFeedback: {
+      backLabel: "Zurück zu den Projekten",
+      status: "Abgeschlossen",
+      title: "Drug Feedback Analytics und Condition Classification",
+      summary:
+        "Interaktive Machine-Learning-Anwendung zur Analyse von patientenbasiertem Drug Feedback und zum Testen einer Condition-Classification über eine deployte Streamlit-Oberfläche.",
+      heroImageAlt:
+        "Abstrakte Hero-Illustration zu Pharma-Analytics, Dashboards und ML-Prediction",
+      actions: {
+        liveDemo: "Live-Demo öffnen",
+        tryPredictions: "Prediction testen",
+        viewGithub: "GitHub ansehen",
+        githubDisabled: "TODO: VERIFY GitHub Repository",
+      },
+      snapshot: {
+        eyebrow: "Projekt-Snapshot",
+        title: "Kompakter Überblick",
+        items: [
+          {
+            label: "Bereich",
+            value: "Pharma-Analytics und Analyse von Patient-Feedback",
+          },
+          {
+            label: "Projekttyp",
+            value: "Persönliches Applied-ML-Projekt",
+          },
+          {
+            label: "Oberfläche",
+            value: "Streamlit-Webanwendung",
+          },
+          {
+            label: "Zentrale ML-Aufgabe",
+            value: "Condition-Classification",
+          },
+          {
+            label: "Datensatz",
+            value: "Drug-Feedback-Datensatz",
+          },
+          {
+            label: "Technologien",
+            value:
+              "Python, Pandas, Scikit-learn, Streamlit, Sentence Transformers, Matplotlib, Seaborn",
+          },
+          {
+            label: "Deployment",
+            value: "Streamlit",
+          },
+          {
+            label: "Status",
+            value: "Abgeschlossen",
+          },
+        ],
+      },
+      problem: {
+        eyebrow: "Problem",
+        title: "Warum dieses Projekt gebaut wurde",
+        text:
+          "Patientenbasiertes Drug Feedback enthält Signale wie Effectiveness, Satisfaction, Ease of Use, Drug Name und textuelle Informationen. Ziel dieses Projekts war eine interaktive Analytics-Anwendung für Datenanalyse und Condition-Classification.",
+      },
+      impact: {
+        eyebrow: "Bedeutung",
+        title: "Warum dieses Projekt wichtig ist",
+        text:
+          "Dieses Projekt verbindet meine Erfahrung aus der Pharmaindustrie mit meiner Applied-AI-Richtung. Es zeigt einen End-to-End-Workflow von Datenladung und Vorverarbeitung bis zu ML-Modellierung, Evaluation, Deployment und interaktiver Nutzung.",
+      },
+      contribution: {
+        eyebrow: "Beitrag",
+        title: "Mein Beitrag",
+        items: [
+          "Den Drug-Feedback-Datensatz geladen und untersucht",
+          "Visuelle Analysen für Verteilungen und Zusammenhänge erstellt",
+          "Vorverarbeitung und Feature-Vorbereitung umgesetzt",
+          "Einen Classification-Workflow entwickelt",
+          "Textbasierte Feature-Repräsentation integriert",
+          "Eine interaktive Streamlit-Oberfläche erstellt",
+          "Eine Live-Prediction-Funktion eingebaut",
+          "Die Anwendung öffentlich deployt",
+        ],
+      },
+      workflow: {
+        eyebrow: "Workflow",
+        title: "Vom Datensatz bis zur Prediction",
+        stepLabel: "Schritt",
+        steps: [
+          "Datensatz",
+          "Datenladung",
+          "EDA",
+          "Vorverarbeitung",
+          "Feature Engineering",
+          "Classification",
+          "Evaluation",
+          "Live-Prediction-Oberfläche",
+        ],
+      },
+      demo: {
+        eyebrow: "Demo",
+        title: "Live-Demo testen",
+        text:
+          "Öffnen Sie die deployte Streamlit-Anwendung und testen Sie den Prediction-Workflow direkt.",
+        steps: [
+          "App öffnen",
+          "Überblick ansehen",
+          "EDA-Seite prüfen",
+          "Classification-Bereich öffnen",
+          "Prediction-Formular nutzen",
+          "Prediction testen",
+        ],
+        actions: {
+          openDemo: "Demo öffnen",
+          tryPredictions: "Prediction testen",
+        },
+      },
+      screenshots: {
+        eyebrow: "Screenshots",
+        title: "Platz für verifizierte Ansichten",
+        items: [
+          "Overview-Seite",
+          "EDA-Dashboard",
+          "Classification-Seite",
+          "Prediction-Formular",
+          "Optionales Prediction-Ergebnis",
+        ],
+        placeholder: "TODO: VERIFIED SCREENSHOT HINZUFÜGEN",
+      },
+      results: {
+        eyebrow: "Ergebnis",
+        title: "Aktueller veröffentlichbarer Stand",
+        text:
+          "Die Anwendung unterstützt interaktive Analyse und Live-Prediction über eine deployte Streamlit-Oberfläche. Genaue Evaluationsmetriken sollten erst nach finaler Prüfung veröffentlicht werden.",
+      },
+      disclaimer: {
+        eyebrow: "Hinweis",
+        title: "Wichtiger Kontext",
+        text:
+          "Dies ist ein Lernprojekt im Bereich Machine Learning auf Basis von patientenbasiertem Drug Feedback. Es ist kein medizinisches, diagnostisches oder klinisches Entscheidungssystem.",
+      },
+      reflection: {
+        eyebrow: "Weiterentwicklung",
+        title: "Nächste Verbesserungen",
+        text:
+          "Zukünftige Verbesserungen können eine stärkere Pipeline-Struktur, bessere Reproduzierbarkeit und weitere Modellverbesserung umfassen.",
+      },
+      links: {
+        eyebrow: "Repository",
+        title: "GitHub-Status",
+        githubTodo: "TODO: VERIFY GitHub Repository",
+      },
+    },
   },
   en: {
     metadata: {
@@ -565,68 +844,104 @@ const dictionaries = {
       title: "Selected projects at a glance",
       intro:
         "Selected projects from computer vision, smart sensors, and intelligent systems.",
+      actions: {
+        viewCaseStudy: "View Case Study",
+        tryLiveDemo: "Try Live Demo",
+        github: "GitHub",
+        liveDemoOpensInNewTab: "Live demo opens in a new tab",
+        githubDisabled: "TODO: VERIFY GitHub repository",
+      },
       cards: [
         {
+          id: "lane-detection-ebike",
           title: "Lane Detection for E-Bike Perception",
           summary:
             "Camera-based lane detection using image preprocessing and deep-learning training for an e-bike perception use case.",
           tags: ["Computer Vision", "OpenCV", "Deep Learning"],
           status: "Status: TODO: VERIFY",
-          detailsState: "View Details",
+          imageAlt:
+            "Abstract illustration of lane-detection perception and output flow",
           slug: "lane-detection-ebike",
         },
         {
+          id: "drug-feedback-analytics",
+          title: "Drug Feedback Analytics and Condition Classification",
+          summary:
+            "Interactive Streamlit application for exploring patient-reported drug feedback and testing an ML-based medical-condition classification workflow.",
+          tags: ["Python", "Scikit-learn", "Streamlit"],
+          status: "Completed",
+          imageAlt:
+            "Abstract illustration of pharma analytics, charts, and prediction workflow",
+          slug: "drug-feedback-analytics",
+        },
+        {
+          id: "uv-roller-blind",
           title: "UV Measurement and Automated Roller-Blind Steering",
           summary:
             "Smart-sensor project involving UV monitoring, Bluetooth communication, edge-device architecture, and automated roller-blind control.",
           tags: ["Smart Sensors", "Bluetooth", "Edge Systems"],
           status: "Status: TODO: VERIFY",
-          detailsState: "Details coming soon",
-        },
-        {
-          title: "TurtleBot3 Line Following and Obstacle Avoidance",
-          summary:
-            "ROS2 academic project combining camera-based line tracking with LiDAR-based static-obstacle detection and control logic.",
-          tags: ["ROS2", "OpenCV", "LiDAR"],
-          status: "In progress",
+          imageAlt:
+            "Abstract illustration of UV sensing and automated blind control",
           detailsState: "Details coming soon",
         },
       ],
       pageTitle: "Project directions and evidence status",
       pageDescription:
-        "These project summaries use only verified claims from the master content document. The lane-detection project now has an initial case study page, while the remaining project detail views stay unavailable until their evidence is reviewed.",
+        "These project summaries use only verified claims from the master content document. The lane-detection project and the drug-feedback project now have published case studies, while the remaining detail views stay unavailable until their evidence is reviewed.",
       pageCards: [
         {
+          id: "lane-detection-ebike",
           title: "Lane Detection for E-Bike Perception",
           summary:
             "Camera-based lane detection using image preprocessing and deep-learning training for an e-bike perception use case.",
           tags: ["Computer Vision", "OpenCV", "Deep Learning"],
           status: "Status: TODO: VERIFY",
-          detailsState: "View Details",
+          imageAlt:
+            "Abstract illustration of lane-detection perception and output flow",
           slug: "lane-detection-ebike",
         },
         {
+          id: "drug-feedback-analytics",
+          title: "Drug Feedback Analytics and Condition Classification",
+          summary:
+            "Interactive Streamlit application for exploring patient-reported drug feedback and testing an ML-based medical-condition classification workflow.",
+          tags: ["Python", "Scikit-learn", "Streamlit"],
+          status: "Completed",
+          imageAlt:
+            "Abstract illustration of pharma analytics, charts, and prediction workflow",
+          slug: "drug-feedback-analytics",
+        },
+        {
+          id: "uv-roller-blind",
           title: "UV Measurement and Automated Roller-Blind Steering",
           summary:
             "Smart-sensor project involving UV monitoring, Bluetooth communication, edge-device architecture, and automated roller-blind control.",
           tags: ["Smart Sensors", "Bluetooth", "Edge Systems"],
           status: "Status: TODO: VERIFY",
+          imageAlt:
+            "Abstract illustration of UV sensing and automated blind control",
           detailsState: "Details coming soon",
         },
         {
+          id: "turtlebot3-line-following",
           title: "TurtleBot3 Line Following and Obstacle Avoidance",
           summary:
             "ROS2 academic project combining camera-based line tracking with LiDAR-based static-obstacle detection and control logic.",
           tags: ["ROS2", "OpenCV", "LiDAR"],
           status: "In progress",
+          imageAlt:
+            "Abstract illustration of TurtleBot line following and obstacle avoidance",
           detailsState: "Details coming soon",
         },
         {
+          id: "sentinel-rag-assistant",
           title: "Sentinel Enterprise RAG Assistant",
           summary:
             "Enterprise RAG assistant concept in progress. Only implemented components will be published later, with planned functionality kept separate.",
           tags: ["In Progress", "Enterprise RAG"],
           status: "In progress",
+          imageAlt: "Abstract illustration of an enterprise RAG assistant concept",
           detailsState: "Publication deferred until implementation is verified",
         },
       ],
@@ -812,6 +1127,154 @@ const dictionaries = {
       linksHeading: "Links",
       githubPlaceholder: "TODO: VERIFY GitHub repository",
       demoPlaceholder: "TODO: VERIFY demo",
+    },
+    drugFeedback: {
+      backLabel: "Back to Projects",
+      status: "Completed",
+      title: "Drug Feedback Analytics and Condition Classification",
+      summary:
+        "Interactive machine-learning application for analyzing patient-reported drug feedback and testing condition classification through a deployed Streamlit interface.",
+      heroImageAlt:
+        "Abstract hero illustration for pharma analytics, dashboards, and machine-learning prediction",
+      actions: {
+        liveDemo: "View Live Demo",
+        tryPredictions: "Try Predictions",
+        viewGithub: "View GitHub",
+        githubDisabled: "TODO: VERIFY GitHub repository",
+      },
+      snapshot: {
+        eyebrow: "Project Snapshot",
+        title: "Compact project view",
+        items: [
+          {
+            label: "Domain",
+            value: "Pharma analytics and patient-feedback analysis",
+          },
+          {
+            label: "Project Type",
+            value: "Personal applied-ML project",
+          },
+          {
+            label: "Interface",
+            value: "Streamlit web application",
+          },
+          {
+            label: "Core ML Task",
+            value: "Condition classification",
+          },
+          {
+            label: "Dataset",
+            value: "Drug-feedback dataset",
+          },
+          {
+            label: "Technologies",
+            value:
+              "Python, Pandas, Scikit-learn, Streamlit, Sentence Transformers, Matplotlib, Seaborn",
+          },
+          {
+            label: "Deployment",
+            value: "Streamlit",
+          },
+          {
+            label: "Status",
+            value: "Completed",
+          },
+        ],
+      },
+      problem: {
+        eyebrow: "Problem Statement",
+        title: "Why this project exists",
+        text:
+          "Patient-reported drug-feedback datasets contain signals such as effectiveness, satisfaction, ease of use, drug identity, and textual drug information. The goal of this project was to build an interactive analytics application that supports data exploration and condition classification.",
+      },
+      impact: {
+        eyebrow: "Why It Matters",
+        title: "Applied AI with domain context",
+        text:
+          "This project connects my pharmaceutical-industry exposure with my applied-AI direction. It demonstrates an end-to-end workflow from data loading and preprocessing to ML modeling, evaluation, deployment, and interactive user testing.",
+      },
+      contribution: {
+        eyebrow: "My Contribution",
+        title: "What I built",
+        items: [
+          "Loaded and explored the drug-feedback dataset",
+          "Built visual analyses for rating distributions and relationships",
+          "Implemented preprocessing and feature preparation",
+          "Developed a classification workflow",
+          "Integrated text-based feature representation",
+          "Built an interactive Streamlit interface",
+          "Added live prediction interaction",
+          "Deployed the application for public access",
+        ],
+      },
+      workflow: {
+        eyebrow: "Workflow",
+        title: "From dataset to live prediction",
+        stepLabel: "Step",
+        steps: [
+          "Dataset",
+          "Data Loading",
+          "EDA",
+          "Preprocessing",
+          "Feature Engineering",
+          "Classification",
+          "Evaluation",
+          "Live Prediction Interface",
+        ],
+      },
+      demo: {
+        eyebrow: "Demo",
+        title: "Try the Live Demo",
+        text:
+          "Open the deployed Streamlit application and test the prediction workflow directly.",
+        steps: [
+          "Open the app",
+          "Review the overview",
+          "Explore the EDA page",
+          "Open the classification section",
+          "Use the prediction form",
+          "Test a prediction",
+        ],
+        actions: {
+          openDemo: "Open Demo",
+          tryPredictions: "Try Predictions",
+        },
+      },
+      screenshots: {
+        eyebrow: "Screenshots",
+        title: "Prepared for verified visuals",
+        items: [
+          "Overview page",
+          "EDA dashboard",
+          "Classification page",
+          "Prediction form",
+          "Optional prediction result",
+        ],
+        placeholder: "TODO: ADD VERIFIED SCREENSHOT",
+      },
+      results: {
+        eyebrow: "Results",
+        title: "Current publishable outcome",
+        text:
+          "The application supports interactive exploration and live prediction through a deployed Streamlit interface. Exact published evaluation metrics should be added only after final verification.",
+      },
+      disclaimer: {
+        eyebrow: "Disclaimer",
+        title: "Important scope note",
+        text:
+          "This is an educational machine-learning project based on patient-reported drug feedback. It is not a medical, diagnostic, or clinical decision-support tool.",
+      },
+      reflection: {
+        eyebrow: "Reflection",
+        title: "Future improvements",
+        text:
+          "Future improvements can include stronger pipeline structuring, clearer reproducibility, and further model refinement.",
+      },
+      links: {
+        eyebrow: "Repository",
+        title: "GitHub status",
+        githubTodo: "TODO: VERIFY GitHub repository",
+      },
     },
   },
 } satisfies Record<Locale, Dictionary>;

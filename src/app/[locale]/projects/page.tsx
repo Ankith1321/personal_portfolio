@@ -3,21 +3,10 @@ import { ProjectCard } from "@/components/ui/project-card";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { getDictionary } from "@/lib/dictionaries";
 import { getLocaleStaticParams, getLocalizedPath, resolveLocale } from "@/lib/i18n";
-
-const projectImages = [
-  {
-    imageSrc: "/images/projects/lane-detection-visual.svg",
-    imageAlt: "Abstract illustration of lane-detection perception and output flow",
-  },
-  {
-    imageSrc: "/images/projects/uv-roller-blind-visual.svg",
-    imageAlt: "Abstract illustration of UV sensing and automated blind control",
-  },
-  {
-    imageSrc: "/images/projects/turtlebot-visual.svg",
-    imageAlt: "Abstract illustration of TurtleBot line following and obstacle avoidance",
-  },
-] as const;
+import {
+  getProjectAsset,
+  getPublishedProjectLinks,
+} from "@/lib/portfolio-data";
 
 export function generateStaticParams() {
   return getLocaleStaticParams();
@@ -42,17 +31,39 @@ export default async function LocalizedProjectsPage({
         </p>
       </section>
       <section className="grid gap-5 lg:grid-cols-2">
-        {dictionary.projects.pageCards.map((project, index) => (
+        {dictionary.projects.pageCards.map((project) => (
           <ProjectCard
             key={project.title}
-            {...project}
+            title={project.title}
+            summary={project.summary}
+            tags={project.tags}
+            status={project.status}
+            caseStudyLabel={dictionary.projects.actions.viewCaseStudy}
+            liveDemoLabel={dictionary.projects.actions.tryLiveDemo}
+            githubLabel={dictionary.projects.actions.github}
+            disabledGithubReason={
+              project.slug
+                ? getPublishedProjectLinks(project.slug).githubTodo
+                : undefined
+            }
+            detailsState={project.detailsState}
             href={
               project.slug
                 ? getLocalizedPath(locale, `/projects/${project.slug}`)
                 : undefined
             }
-            imageSrc={projectImages[index]?.imageSrc}
-            imageAlt={projectImages[index]?.imageAlt}
+            liveDemoHref={
+              project.slug
+                ? getPublishedProjectLinks(project.slug).demoHref
+                : undefined
+            }
+            githubHref={
+              project.slug
+                ? getPublishedProjectLinks(project.slug).githubHref
+                : undefined
+            }
+            imageSrc={getProjectAsset(project.id).imageSrc}
+            imageAlt={project.imageAlt}
           />
         ))}
       </section>

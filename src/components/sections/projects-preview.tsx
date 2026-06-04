@@ -3,26 +3,15 @@ import { SectionHeading } from "@/components/ui/section-heading";
 import type { Dictionary } from "@/lib/dictionaries";
 import type { Locale } from "@/lib/i18n";
 import { getLocalizedPath } from "@/lib/i18n";
+import {
+  getProjectAsset,
+  getPublishedProjectLinks,
+} from "@/lib/portfolio-data";
 
 type ProjectsPreviewProps = {
   locale: Locale;
   dictionary: Dictionary;
 };
-
-const projectImages = [
-  {
-    imageSrc: "/images/projects/lane-detection-visual.svg",
-    imageAlt: "Abstract illustration of lane-detection perception and output flow",
-  },
-  {
-    imageSrc: "/images/projects/uv-roller-blind-visual.svg",
-    imageAlt: "Abstract illustration of UV sensing and automated blind control",
-  },
-  {
-    imageSrc: "/images/projects/turtlebot-visual.svg",
-    imageAlt: "Abstract illustration of TurtleBot line following and obstacle avoidance",
-  },
-] as const;
 
 export function ProjectsPreview({ locale, dictionary }: ProjectsPreviewProps) {
   return (
@@ -31,17 +20,39 @@ export function ProjectsPreview({ locale, dictionary }: ProjectsPreviewProps) {
         {dictionary.projects.title}
       </SectionHeading>
       <div className="section-depth grid gap-4 rounded-[1.75rem] border border-border/80 p-4 sm:p-5 md:grid-cols-2 xl:grid-cols-3">
-        {dictionary.projects.cards.map((project, index) => (
+        {dictionary.projects.cards.map((project) => (
           <ProjectCard
             key={project.title}
-            {...project}
+            title={project.title}
+            summary={project.summary}
+            tags={project.tags}
+            status={project.status}
+            caseStudyLabel={dictionary.projects.actions.viewCaseStudy}
+            liveDemoLabel={dictionary.projects.actions.tryLiveDemo}
+            githubLabel={dictionary.projects.actions.github}
+            disabledGithubReason={
+              project.slug
+                ? getPublishedProjectLinks(project.slug).githubTodo
+                : undefined
+            }
+            detailsState={project.detailsState}
             href={
               project.slug
                 ? getLocalizedPath(locale, `/projects/${project.slug}`)
                 : undefined
             }
-            imageSrc={projectImages[index]?.imageSrc}
-            imageAlt={projectImages[index]?.imageAlt}
+            liveDemoHref={
+              project.slug
+                ? getPublishedProjectLinks(project.slug).demoHref
+                : undefined
+            }
+            githubHref={
+              project.slug
+                ? getPublishedProjectLinks(project.slug).githubHref
+                : undefined
+            }
+            imageSrc={getProjectAsset(project.id).imageSrc}
+            imageAlt={project.imageAlt}
           />
         ))}
       </div>
