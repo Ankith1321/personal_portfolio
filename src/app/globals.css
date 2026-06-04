@@ -1,6 +1,7 @@
 @import "tailwindcss";
 
 :root {
+  color-scheme: light;
   --background: #f4eee5;
   --surface: #fffaf2;
   --surface-muted: #f4ece0;
@@ -14,6 +15,16 @@
   --depth-navy: #223147;
   --scroll-depth: 0;
   --scroll-depth-soft: 0;
+}
+
+html.dark {
+  color-scheme: dark;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+  }
 }
 
 .dark {

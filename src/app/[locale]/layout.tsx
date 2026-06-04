@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Script from "next/script";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { SiteHeader } from "@/components/layout/site-header";
 import { ScrollDepth } from "@/components/ui/scroll-depth";
@@ -44,10 +43,8 @@ export default async function LocaleLayout({
       lang={locale}
       data-scroll-behavior="smooth"
       className={`${fontVariables} h-full antialiased`}
-      suppressHydrationWarning
     >
       <body className="min-h-full bg-background text-text">
-        <Script src="/theme-init.js" strategy="beforeInteractive" />
         <a
           href="#main-content"
           className="skip-link sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-full focus:bg-surface focus:px-4 focus:py-2 focus:text-sm focus:font-medium focus:text-text"
