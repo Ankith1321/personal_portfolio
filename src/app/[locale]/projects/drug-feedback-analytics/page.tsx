@@ -1,10 +1,6 @@
-import { existsSync } from "node:fs";
-import { join } from "node:path";
-import Image from "next/image";
 import { Container } from "@/components/layout/container";
 import { ProjectActionLink } from "@/components/projects/project-action-link";
 import { ProjectHero } from "@/components/projects/project-hero";
-import { ProjectPlaceholder } from "@/components/projects/project-placeholder";
 import { ProjectSection } from "@/components/projects/project-section";
 import { getDictionary } from "@/lib/dictionaries";
 import {
@@ -31,19 +27,6 @@ export default async function LocalizedDrugFeedbackProjectPage({
   const content = dictionary.drugFeedback;
   const projectLinks = getPublishedProjectLinks("drug-feedback-analytics");
   const projectAsset = getProjectAsset("drug-feedback-analytics");
-  const resultsScreenshotPath =
-    "/images/projects/drug-feedback-analytics/results-summary.png";
-  const resultsScreenshotFilePath = join(
-    process.cwd(),
-    "public",
-    "images",
-    "projects",
-    "drug-feedback-analytics",
-    "results-summary.png",
-  );
-  const hasResultsScreenshot = existsSync(
-    resultsScreenshotFilePath,
-  );
 
   return (
     <Container className="space-y-6 py-10 sm:space-y-8 sm:py-14">
@@ -72,7 +55,6 @@ export default async function LocalizedDrugFeedbackProjectPage({
           {
             label: content.actions.viewGithub,
             href: projectLinks.githubHref,
-            disabledReason: projectLinks.githubTodo ?? content.actions.githubDisabled,
             external: true,
             variant: "ghost",
           },
@@ -192,93 +174,49 @@ export default async function LocalizedDrugFeedbackProjectPage({
       </section>
 
       <ProjectSection
-        eyebrow={content.screenshots.eyebrow}
-        title={content.screenshots.title}
+        eyebrow={content.results.eyebrow}
+        title={content.results.title}
       >
-        <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
-          {content.screenshots.items.map((item) => (
+        <p className="max-w-3xl text-sm leading-7 text-text-muted sm:text-base">
+          {content.results.intro}
+        </p>
+        <div className="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+          {content.results.cards.map((card) => (
             <div
-              key={item}
-              className="rounded-[1.5rem] border border-border bg-background p-5"
+              key={card.title}
+              className="rounded-[1.5rem] border border-border bg-background p-5 shadow-[0_10px_26px_rgba(18,23,34,0.05)] dark:bg-surface/90"
             >
-              <p className="text-sm font-medium text-text">{item}</p>
-              <div className="mt-4">
-                {hasResultsScreenshot && item === content.screenshots.items[4] ? (
-                  <figure className="space-y-3">
-                    <div className="overflow-hidden rounded-[1.25rem] border border-border bg-surface">
-                      <Image
-                        src={resultsScreenshotPath}
-                        alt="Drug feedback analytics model-performance summary"
-                        width={1200}
-                        height={800}
-                        className="h-auto w-full object-cover"
-                      />
-                    </div>
-                    <figcaption className="text-sm text-text-muted">
-                      Current deployed application results summary
-                    </figcaption>
-                  </figure>
-                ) : (
-                  <ProjectPlaceholder label={content.screenshots.placeholder} />
-                )}
-              </div>
+              <p className="text-sm font-medium uppercase tracking-[0.2em] text-secondary-accent">
+                {card.title}
+              </p>
+              <p className="mt-3 text-2xl font-semibold text-emerald-700 dark:text-emerald-300">
+                {card.value}
+              </p>
+              <p className="mt-3 text-sm leading-7 text-text-muted sm:text-base">
+                {card.description}
+              </p>
             </div>
           ))}
         </div>
+        <p className="mt-6 max-w-3xl text-sm leading-7 text-text-muted sm:text-base">
+          {content.results.closing}
+        </p>
       </ProjectSection>
 
-      <section className="grid gap-6 lg:grid-cols-2">
-        <ProjectSection
-          eyebrow={content.results.eyebrow}
-          title={content.results.title}
-          description={content.results.text}
-        >
-          <div className="rounded-[1.5rem] border border-emerald-700/18 bg-emerald-600/10 px-5 py-5 dark:border-emerald-400/22 dark:bg-emerald-400/10">
-            <p className="text-sm font-medium uppercase tracking-[0.2em] text-emerald-800 dark:text-emerald-200">
-              {content.results.metricLabel}
-            </p>
-            <p className="mt-3 text-2xl font-semibold text-emerald-900 dark:text-emerald-100">
-              {content.results.metricValue}
-            </p>
-          </div>
-        </ProjectSection>
-        <ProjectSection
-          eyebrow={content.disclaimer.eyebrow}
-          title={content.disclaimer.title}
-          description={content.disclaimer.text}
-        />
-      </section>
+      <ProjectSection eyebrow={content.links.eyebrow} title={content.links.title}>
+        <div className="flex flex-wrap gap-3">
+          <ProjectActionLink
+            label={content.actions.viewGithub}
+            href={projectLinks.githubHref}
+            external
+            variant="secondary"
+          />
+        </div>
+      </ProjectSection>
 
-      <ProjectSection
-        eyebrow={content.experimental.eyebrow}
-        title={content.experimental.title}
-        description={content.experimental.text}
-      />
-
-      <section className="grid gap-6 lg:grid-cols-2">
-        <ProjectSection
-          eyebrow={content.reflection.eyebrow}
-          title={content.reflection.title}
-          description={content.reflection.text}
-        />
-        <ProjectSection
-          eyebrow={content.links.eyebrow}
-          title={content.links.title}
-        >
-          {projectLinks.githubHref ? (
-            <ProjectActionLink
-              label={content.actions.viewGithub}
-              href={projectLinks.githubHref}
-              external
-              variant="secondary"
-            />
-          ) : (
-            <ProjectPlaceholder
-              label={projectLinks.githubTodo ?? content.links.githubTodo}
-            />
-          )}
-        </ProjectSection>
-      </section>
+      <p className="px-2 text-sm leading-7 text-text-muted sm:text-base">
+        {content.disclaimer.text}
+      </p>
     </Container>
   );
 }

@@ -9,6 +9,10 @@ type Particle = {
   vy: number;
 };
 
+function rgba(rgb: string, alpha: number) {
+  return `rgba(${rgb}, ${alpha})`;
+}
+
 export function CursorSensorField() {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
 
@@ -91,14 +95,14 @@ export function CursorSensorField() {
 
       return isDark
         ? {
-            dot: "rgba(208, 203, 197, 0.38)",
-            line: "rgba(132, 160, 190, 0.16)",
-            glow: "rgba(146, 169, 151, 0.18)",
+            dotRgb: "208, 203, 197",
+            lineRgb: "132, 160, 190",
+            glowRgb: "146, 169, 151",
           }
         : {
-            dot: "rgba(81, 74, 80, 0.26)",
-            line: "rgba(126, 142, 166, 0.18)",
-            glow: "rgba(127, 151, 136, 0.14)",
+            dotRgb: "81, 74, 80",
+            lineRgb: "126, 142, 166",
+            glowRgb: "127, 151, 136",
           };
     }
 
@@ -174,8 +178,8 @@ export function CursorSensorField() {
           pointer.y,
           cursorRadius,
         );
-        glow.addColorStop(0, `${colors.glow}33`);
-        glow.addColorStop(1, `${colors.glow}00`);
+        glow.addColorStop(0, rgba(colors.glowRgb, 0.18));
+        glow.addColorStop(1, rgba(colors.glowRgb, 0));
         drawingContext.fillStyle = glow;
         drawingContext.beginPath();
         drawingContext.arc(pointer.x, pointer.y, cursorRadius, 0, Math.PI * 2);
@@ -194,7 +198,7 @@ export function CursorSensorField() {
 
           if (distance < connectionDistance) {
             const opacity = 1 - distance / connectionDistance;
-            drawingContext.strokeStyle = colors.line;
+            drawingContext.strokeStyle = rgba(colors.lineRgb, 0.16);
             drawingContext.globalAlpha = opacity;
             drawingContext.lineWidth = 1;
             drawingContext.beginPath();
@@ -206,7 +210,7 @@ export function CursorSensorField() {
         }
       }
 
-      drawingContext.fillStyle = `${colors.dot}66`;
+      drawingContext.fillStyle = rgba(colors.dotRgb, 0.4);
 
       for (const particle of particles) {
         drawingContext.beginPath();

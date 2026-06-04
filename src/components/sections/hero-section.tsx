@@ -36,15 +36,18 @@ export function HeroSection({ locale, dictionary }: HeroSectionProps) {
             <p className="text-xl font-semibold tracking-tight text-text sm:text-2xl">
               {dictionary.hero.title}
             </p>
-            <p className="max-w-3xl text-base leading-7 text-text-muted sm:text-lg">
-              {dictionary.hero.description}
-            </p>
+            <div className="max-w-3xl space-y-2 text-base leading-7 text-text-muted sm:text-lg">
+              {dictionary.hero.summaryLines.map((line) => (
+                <p key={line}>{line}</p>
+              ))}
+            </div>
           </div>
 
-          <div className="grid gap-2 text-sm leading-6 text-text-muted sm:text-base">
+          <div className="grid gap-1 text-sm leading-6 text-text-muted sm:text-base">
             <p>{dictionary.hero.location}</p>
-            <p>{dictionary.hero.education}</p>
-            <p>{dictionary.hero.institution}</p>
+            <p>
+              {dictionary.hero.education} · {dictionary.hero.institution}
+            </p>
           </div>
 
           <div className="flex flex-wrap gap-2">
@@ -84,7 +87,7 @@ export function HeroSection({ locale, dictionary }: HeroSectionProps) {
             </ButtonLink>
           </div>
 
-          <p className="text-sm font-medium text-secondary-accent">
+          <p className="text-base font-medium text-text sm:text-lg">
             {dictionary.hero.availability}
           </p>
         </div>

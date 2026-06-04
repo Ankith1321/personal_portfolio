@@ -128,7 +128,7 @@ Do not publish the 95% metric prominently until its meaning and evaluation metho
 - Evaluation method
 - Individual contribution
 - GitHub repository
-- Screenshots
+- Visuals
 - Architecture diagram
 - Demo link
 - Limitations
@@ -201,7 +201,7 @@ ROS2-based TurtleBot3 project combining camera-based coloured-line tracking with
 - Current implementation status
 - Which behaviours work reliably
 - Whether the final system avoids an obstacle or stops safely
-- Screenshots or screen recording
+- Visuals or screen recording
 - Final architecture diagram
 - Test cases and results
 - Lessons learned
@@ -229,7 +229,7 @@ Enterprise RAG assistant concept. Publish only implemented components and keep p
 - Interface
 - Evaluation method
 - Repository
-- Screenshots
+- Visuals
 - Architecture diagram
 - Deployment status
 

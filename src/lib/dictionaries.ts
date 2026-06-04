@@ -85,30 +85,21 @@ type DrugFeedbackDictionary = {
       tryPredictions: string;
     };
   };
-  screenshots: {
-    eyebrow: string;
-    title: string;
-    items: readonly string[];
-    placeholder: string;
-  };
   results: {
     eyebrow: string;
     title: string;
+    intro: string;
+    cards: readonly {
+      title: string;
+      value: string;
+      description: string;
+    }[];
+    closing: string;
     text: string;
     metricLabel: string;
     metricValue: string;
   };
-  experimental: {
-    eyebrow: string;
-    title: string;
-    text: string;
-  };
   disclaimer: {
-    eyebrow: string;
-    title: string;
-    text: string;
-  };
-  reflection: {
     eyebrow: string;
     title: string;
     text: string;
@@ -145,7 +136,7 @@ export type Dictionary = {
   };
   hero: {
     title: string;
-    description: string;
+    summaryLines: readonly [string, string];
     location: string;
     education: string;
     institution: string;
@@ -246,19 +237,12 @@ export type Dictionary = {
     snapshotTitle: string;
     technologiesTitle: string;
     technologies: string;
-    frameworkPlaceholder: string;
     datasetTitle: string;
     datasetSize: string;
-    datasetPlaceholder: string;
     evaluationTitle: string;
     evaluationNote: string;
-    evaluationPlaceholder: string;
-    evidenceHeading: string;
-    evidenceItems: readonly string[];
-    evidencePlaceholder: string;
-    linksHeading: string;
-    githubPlaceholder: string;
-    demoPlaceholder: string;
+    sourcesHeading: string;
+    sourcesText: string;
   };
   drugFeedback: DrugFeedbackDictionary;
 };
@@ -297,15 +281,16 @@ const dictionaries = {
     },
     hero: {
       title: "Machine Learning Engineer",
-      description:
-        "Ich studiere AI für Smart Sensors and Actuators. Ich entwickle praktische Lösungen für Computer Vision, Smart Sensors, Edge Systems und industrielle Anwendungen.",
+      summaryLines: [
+        "Ich studiere im M.Eng. mit Fokus auf Machine Learning, Computer Vision und Data Analytics.",
+        "Ich entwickle praktische Projekte für reale technische Anwendungen.",
+      ],
       location: "Amberg, Deutschland",
       education: "M.Eng. AI für Smart Sensors and Actuators",
       institution: "Deggendorf Institute of Technology",
       chips: [
         "Computer Vision",
         "Machine Learning",
-        "Smart Sensors",
         "Data Analytics",
       ],
       actions: {
@@ -317,14 +302,14 @@ const dictionaries = {
       },
       disabledResume: "Lebenslauf folgt bald",
       availability:
-        "Ich suche Werkstudentenstellen, Praktika, Forschungsprojekte und Masterarbeitsthemen.",
+        "Offen für Werkstudentenstellen, Praktika, Forschungsprojekte und Masterarbeitsthemen.",
       portraitAlt: "Porträt von Saiankith Reddy Kolli",
     },
     about: {
       heading: "Über mich",
-      title: "Masterstudium und Projektpraxis",
-      text: "Ich studiere AI für Smart Sensors and Actuators an der Deggendorf Institute of Technology. In meinen Projekten entwickle ich praktische Kenntnisse in Machine Learning, Computer Vision, Smart Sensors, Edge Systems, Datenanalyse und interaktiven ML-Anwendungen. Meine Erfahrung aus der Pharmaindustrie hilft mir zusätzlich beim Verständnis von Prozessen, Monitoring, Sensoren, Aktoren und Automatisierung.",
-      pageTitle: "Masterstudium und Projektpraxis",
+      title: "Über mich",
+      text: "Ich studiere AI für Smart Sensors and Actuators an der Deggendorf Institute of Technology. In meinen Masterprojekten entwickle ich praktische Kenntnisse in Machine Learning, Computer Vision, Data Analytics, Smart Sensors, Edge Systems und interaktiven ML-Anwendungen. Meine Erfahrung aus der Pharmaindustrie hilft mir zusätzlich beim Verständnis von Prozessen, Monitoring, Sensoren, Aktoren und Automatisierung.",
+      pageTitle: "Über mich",
       pageDescription:
         "Diese Übersicht zeigt nur geprüfte öffentliche Informationen. Weitere Ausbildungsdetails werden noch geprüft.",
       narrative: [
@@ -357,7 +342,7 @@ const dictionaries = {
           tags: ["Computer Vision", "OpenCV", "Deep Learning"],
           status: "Abgeschlossen",
           imageAlt:
-            "Abstrakte Illustration von Lane Detection, Wahrnehmung und Ausgabefluss",
+            "Cyclist on an urban bike lane representing the e-bike perception use case",
           slug: "lane-detection-ebike",
         },
         {
@@ -585,49 +570,39 @@ const dictionaries = {
       backToTop: "Nach oben",
     },
     laneDetection: {
-      backLabel: "Zurück zu den Projekten",
+      backLabel: "← Zurück zu den Projekten",
       category: "Computer Vision",
       status: "Abgeschlossen",
       title: "Lane Detection für E-Bike Perception",
       summary:
-        "Kamerabasierte Lane Detection mit Bildvorverarbeitung und Deep-Learning-Training für ein E-Bike-Perception-Projekt.",
+        "Dieses abgeschlossene Projekt untersucht kamerabasierte Lane Detection für ein E-Bike-Perception-System. Der Workflow umfasst Kamerabilder, Bildvorverarbeitung, Deep-Learning-Training und eine Lane-Detection-Ausgabe.",
       overviewHeading: "Überblick",
       overviewText:
-        "Das Projekt untersucht kamerabasierte Lane Detection für ein E-Bike. Der Workflow nutzt Kameraeingaben, Bildvorverarbeitung und Deep-Learning-Training.",
-      workflowHeading: "Workflow",
+        "Dieses abgeschlossene Projekt untersucht kamerabasierte Lane Detection für ein E-Bike-Perception-System. Der Workflow umfasst Kamerabilder, Bildvorverarbeitung, Deep-Learning-Training und eine Lane-Detection-Ausgabe.",
+      workflowHeading: "Projektablauf und Beitrag",
       workflowSteps: [
-        "Kameraeingabe",
-        "Bildvorverarbeitung",
-        "Deep-Learning-Workflow",
-        "Lane-Detection-Ausgabe",
+        "Situation — Das Projekt behandelte kamerabasierte Lane Detection für ein E-Bike-Perception-System.",
+        "Aufgabe — Einen Workflow für Kamerabilder, Bildvorverarbeitung und Deep-Learning-Training entwickeln.",
+        "Umsetzung — Bilddaten für den Lane-Detection-Workflow vorbereitet und vorverarbeitet.",
+        "Umsetzung — Mit einem Datensatz von ungefähr 35.000 Bildern gearbeitet und einen Deep-Learning-Ansatz trainiert.",
+        "Ergebnis — Einen funktionierenden Lane-Detection-Workflow abgeschlossen. Die genaue Definition der früher genannten Accuracy muss vor der Veröffentlichung noch geprüft werden.",
       ],
       stepLabel: "Schritt",
       snapshotEyebrow: "Snapshot",
       snapshotTitle: "Technischer Überblick",
       technologiesTitle: "Technologien",
       technologies: "Python · OpenCV · Deep Learning",
-      frameworkPlaceholder: "TODO: VERIFY Framework",
       datasetTitle: "Datensatz",
-      datasetSize: "Ca. 35.000 Bilder",
-      datasetPlaceholder: "TODO: VERIFY Quelle und genaue Aufteilung",
+      datasetSize: "Ungefähr 35.000 Bilder",
       evaluationTitle: "Evaluation",
       evaluationNote:
-        "Ein Ergebnis von 95 % Accuracy ist in den Projekt-Notizen vorhanden. Die Definition und die Evaluationsmethode müssen noch geprüft werden.",
-      evaluationPlaceholder: "TODO: VERIFY Metrik und Evaluationsmethode",
-      evidenceHeading: "Nachweise",
-      evidenceItems: [
-        "Eingabebild",
-        "Vorverarbeitetes Bild",
-        "Prediction Output",
-        "Training oder Evaluation",
-      ],
-      evidencePlaceholder: "TODO: VERIFIED SCREENSHOT HINZUFÜGEN",
-      linksHeading: "Links",
-      githubPlaceholder: "TODO: VERIFY GitHub Repository",
-      demoPlaceholder: "TODO: VERIFY Demo",
+        "Die genaue Definition der früher genannten Accuracy muss vor der Veröffentlichung noch geprüft werden.",
+      sourcesHeading: "Quellen",
+      sourcesText:
+        "Projektbericht und technische Quellen werden nach der Prüfung ergänzt.",
     },
     drugFeedback: {
-      backLabel: "Zurück zu den Projekten",
+      backLabel: "← Zurück zu den Projekten",
       status: "Abgeschlossen",
       title: "Drug Feedback Analytics und Condition Classification",
       summary:
@@ -693,16 +668,14 @@ const dictionaries = {
       },
       contribution: {
         eyebrow: "Beitrag",
-        title: "Mein Beitrag",
+        title: "Was ich entwickelt habe",
         items: [
-          "Den Drug-Feedback-Datensatz geladen und untersucht",
-          "Visuelle Analysen für Verteilungen und Zusammenhänge erstellt",
-          "Vorverarbeitung und Feature-Vorbereitung umgesetzt",
-          "Einen Classification-Workflow entwickelt",
-          "Textbasierte Feature-Repräsentation integriert",
-          "Eine interaktive Streamlit-Oberfläche erstellt",
-          "Eine Live-Prediction-Funktion eingebaut",
-          "Die Anwendung öffentlich deployt",
+          "Eine interaktive Streamlit-Anwendung für die Analyse von patientenbasiertem Drug Feedback und für direkte Prediction-Tests im Browser entwickelt.",
+          "EDA-Ansichten für Verteilungen, Korrelationen und Zusammenhänge zwischen Drug-Feedback-Features erstellt.",
+          "Numerische, kategorische und textbasierte Features für Machine-Learning-Workflows vorbereitet und transformiert.",
+          "Einen Condition-Classification-Workflow umgesetzt und eine Live-Prediction-Oberfläche für Benutzer integriert.",
+          "Clustering- und Regression-Seiten ergänzt, um verschiedene Analyseaufgaben in einer Anwendung zu vergleichen.",
+          "Die abgeschlossene Anwendung öffentlich über Streamlit deployt, damit Recruiter und Benutzer den Workflow direkt testen können.",
         ],
       },
       workflow: {
@@ -738,48 +711,48 @@ const dictionaries = {
           tryPredictions: "Prediction testen",
         },
       },
-      screenshots: {
-        eyebrow: "Screenshots",
-        title: "Platz für verifizierte Ansichten",
-        items: [
-          "Overview-Seite",
-          "EDA-Dashboard",
-          "Classification-Seite",
-          "Prediction-Formular",
-          "Optionales Prediction-Ergebnis",
-        ],
-        placeholder: "TODO: VERIFIED SCREENSHOT HINZUFÜGEN",
-      },
       results: {
         eyebrow: "Ergebnis",
-        title: "Aktueller veröffentlichbarer Stand",
+        title: "Aktuelle Ergebnisse der Anwendung",
+        intro:
+          "Die deployte Streamlit-Anwendung zeigt aktuell folgende Ergebnisse:",
+        cards: [
+          {
+            title: "Classification",
+            value: "Test Accuracy: 69,14 %",
+            description:
+              "Der Classification-Workflow sagt Medical-Condition-Kategorien auf Basis von patientenbasierten Drug-Feedback-Features voraus.",
+          },
+          {
+            title: "Clustering-Experiment",
+            value: "Adjusted Rand Index: 1,00",
+            description:
+              "Der Clustering-Workflow ist als zusätzliche Analyse-Exploration enthalten.",
+          },
+          {
+            title: "Regression-Experiment",
+            value: "Mean Absolute Error: 0,0148",
+            description:
+              "Der Regression-Workflow ist als zusätzliche Analyse-Exploration enthalten.",
+          },
+        ],
+        closing:
+          "Classification ist der zentrale Portfolio-Workflow. Clustering und Regression sind zusätzliche explorative Komponenten der Anwendung.",
         text:
-          "Die Anwendung unterstützt interaktive Analyse und Live-Prediction über eine deployte Streamlit-Oberfläche.",
-        metricLabel: "Verifizierte Metrik",
-        metricValue: "69,14 % Classification Test Accuracy",
-      },
-      experimental: {
-        eyebrow: "Experimentelle Workflows",
-        title: "Weitere Experimente im Projekt",
-        text:
-          "Die Anwendung enthält auch Clustering- und Regression-Experimente. Diese Workflows werden geprüft und verbessert, bevor ihre Metriken als Portfolio-Ergebnisse gezeigt werden.",
+          "Die Werte oben sind die aktuell in der Anwendung angezeigten Ergebnisse. Classification ist der zentrale Portfolio-Workflow. Clustering und Regression sind zusätzliche Analyse-Experimente.",
+        metricLabel: "Classification",
+        metricValue: "Test Accuracy: 69,14 %",
       },
       disclaimer: {
         eyebrow: "Hinweis",
         title: "Wichtiger Kontext",
         text:
-          "Dies ist ein Lernprojekt im Bereich Machine Learning auf Basis von patientenbasiertem Drug Feedback. Es ist kein medizinisches, diagnostisches oder klinisches Entscheidungssystem.",
-      },
-      reflection: {
-        eyebrow: "Weiterentwicklung",
-        title: "Nächste Verbesserungen",
-        text:
-          "Zukünftige Verbesserungen können eine stärkere Pipeline-Struktur, bessere Reproduzierbarkeit und weitere Modellverbesserung umfassen.",
+          "ML-Lernprojekt auf Basis von patientenbasiertem Feedback. Kein medizinisches, diagnostisches oder klinisches Entscheidungssystem.",
       },
       links: {
         eyebrow: "Repository",
-        title: "GitHub-Status",
-        githubTodo: "TODO: CLEAN UP REPOSITORY NAMING BEFORE FINAL POLISH",
+        title: "Links",
+        githubTodo: "",
       },
     },
   },
@@ -816,15 +789,16 @@ const dictionaries = {
     },
     hero: {
       title: "Machine Learning Engineer",
-      description:
-        "M.Eng. student building practical solutions for computer vision, smart sensors, edge systems, and industrial applications.",
+      summaryLines: [
+        "M.Eng. student focused on machine learning, computer vision, and data analytics.",
+        "Building practical projects for real-world engineering applications.",
+      ],
       location: "Amberg, Germany",
       education: "M.Eng. in AI for Smart Sensors and Actuators",
       institution: "Deggendorf Institute of Technology",
       chips: [
         "Computer Vision",
         "Machine Learning",
-        "Smart Sensors",
         "Data Analytics",
       ],
       actions: {
@@ -841,9 +815,9 @@ const dictionaries = {
     },
     about: {
       heading: "About",
-      title: "M.Eng. focus and project-based learning",
-      text: "I am pursuing an M.Eng. in AI for Smart Sensors and Actuators at Deggendorf Institute of Technology. Through my projects, I am building practical skills in machine learning, computer vision, smart sensors, edge systems, data analytics, and interactive ML applications. My previous pharmaceutical-industry experience gives me an additional understanding of industrial processes, monitoring, sensors, actuators, and automation.",
-      pageTitle: "M.Eng. focus and project-based learning",
+      title: "About",
+      text: "I am pursuing an M.Eng. in AI for Smart Sensors and Actuators at Deggendorf Institute of Technology. Through my master’s projects, I am building practical skills in machine learning, computer vision, data analytics, smart sensors, edge systems, and interactive ML applications. My previous pharmaceutical-industry experience gives me an additional understanding of industrial processes, monitoring, sensors, actuators, and automation.",
+      pageTitle: "About",
       pageDescription:
         "This overview keeps to verified public information while fuller education details continue to be checked.",
       narrative: [
@@ -876,7 +850,7 @@ const dictionaries = {
           tags: ["Computer Vision", "OpenCV", "Deep Learning"],
           status: "Completed",
           imageAlt:
-            "Abstract illustration of lane-detection perception and output flow",
+            "Cyclist on an urban bike lane representing the e-bike perception use case",
           slug: "lane-detection-ebike",
         },
         {
@@ -914,7 +888,7 @@ const dictionaries = {
           tags: ["Computer Vision", "OpenCV", "Deep Learning"],
           status: "Completed",
           imageAlt:
-            "Abstract illustration of lane-detection perception and output flow",
+            "Cyclist on an urban bike lane representing the e-bike perception use case",
           slug: "lane-detection-ebike",
         },
         {
@@ -1104,49 +1078,39 @@ const dictionaries = {
       backToTop: "Back to top",
     },
     laneDetection: {
-      backLabel: "Back to Projects",
+      backLabel: "← Back to Projects",
       category: "Computer Vision",
       status: "Completed",
       title: "Lane Detection for E-Bike Perception",
       summary:
-        "Camera-based lane-detection project involving image preprocessing and deep-learning training for an e-bike perception use case.",
+        "This completed project explores camera-based lane detection for an e-bike perception use case. The workflow includes camera-image processing, image preprocessing, deep-learning training, and lane-related visual output.",
       overviewHeading: "Overview",
       overviewText:
-        "This project explores camera-based lane detection for an e-bike perception use case, with image preprocessing and deep-learning training forming the current verified workflow.",
-      workflowHeading: "Workflow",
+        "This completed project explores camera-based lane detection for an e-bike perception use case. The workflow includes camera-image processing, image preprocessing, deep-learning training, and lane-related visual output.",
+      workflowHeading: "Project workflow and contribution",
       workflowSteps: [
-        "Camera Input",
-        "Image Preprocessing",
-        "Deep-Learning Workflow",
-        "Lane-Detection Output",
+        "Situation — The project addressed the need for camera-based lane-related perception in an e-bike use case.",
+        "Task — Build a workflow that processes camera images and supports lane detection through deep-learning training.",
+        "Action — Prepared and preprocessed image data for the lane-detection workflow.",
+        "Action — Worked with an image dataset of approximately 35,000 images and trained a deep-learning-based approach.",
+        "Result — Completed a working lane-detection workflow. The exact evaluation definition for the previously stated accuracy value remains to be verified before publication.",
       ],
       stepLabel: "Step",
       snapshotEyebrow: "Snapshot",
       snapshotTitle: "Technical snapshot",
       technologiesTitle: "Technologies",
       technologies: "Python · OpenCV · Deep Learning",
-      frameworkPlaceholder: "TODO: VERIFY framework",
       datasetTitle: "Dataset",
       datasetSize: "Approximately 35,000 images",
-      datasetPlaceholder: "TODO: VERIFY source and exact split",
       evaluationTitle: "Evaluation",
       evaluationNote:
-        "A stated 95% accuracy result requires verification before publication.",
-      evaluationPlaceholder: "TODO: VERIFY metric definition and evaluation method",
-      evidenceHeading: "Evidence",
-      evidenceItems: [
-        "Input image",
-        "Preprocessed image",
-        "Prediction output",
-        "Training or Evaluation Visual",
-      ],
-      evidencePlaceholder: "TODO: ADD VERIFIED SCREENSHOT",
-      linksHeading: "Links",
-      githubPlaceholder: "TODO: VERIFY GitHub repository",
-      demoPlaceholder: "TODO: VERIFY demo",
+        "The exact evaluation definition for the previously stated accuracy value remains to be verified before publication.",
+      sourcesHeading: "Sources",
+      sourcesText:
+        "Project paper and technical sources will be added after verification.",
     },
     drugFeedback: {
-      backLabel: "Back to Projects",
+      backLabel: "← Back to Projects",
       status: "Completed",
       title: "Drug Feedback Analytics and Condition Classification",
       summary:
@@ -1214,14 +1178,12 @@ const dictionaries = {
         eyebrow: "My Contribution",
         title: "What I built",
         items: [
-          "Loaded and explored the drug-feedback dataset",
-          "Built visual analyses for rating distributions and relationships",
-          "Implemented preprocessing and feature preparation",
-          "Developed a classification workflow",
-          "Integrated text-based feature representation",
-          "Built an interactive Streamlit interface",
-          "Added live prediction interaction",
-          "Deployed the application for public access",
+          "Built an interactive Streamlit application for exploring patient-reported drug-feedback data and testing prediction workflows directly in the browser.",
+          "Created exploratory-data-analysis views for rating distributions, correlations, and relationships between drug-feedback features.",
+          "Prepared numerical, categorical, and text-based features for machine-learning workflows using preprocessing and feature-transformation steps.",
+          "Implemented a medical-condition classification workflow and exposed a live prediction interface for user-driven testing.",
+          "Added clustering and regression exploration pages to compare different analytical tasks inside one application.",
+          "Deployed the completed application publicly through Streamlit so recruiters and users can test the workflow directly.",
         ],
       },
       workflow: {
@@ -1257,48 +1219,48 @@ const dictionaries = {
           tryPredictions: "Try Predictions",
         },
       },
-      screenshots: {
-        eyebrow: "Screenshots",
-        title: "Prepared for verified visuals",
-        items: [
-          "Overview page",
-          "EDA dashboard",
-          "Classification page",
-          "Prediction form",
-          "Optional prediction result",
-        ],
-        placeholder: "TODO: ADD VERIFIED SCREENSHOT",
-      },
       results: {
         eyebrow: "Results",
-        title: "Current publishable outcome",
+        title: "Current Application Results",
+        intro:
+          "The deployed Streamlit application currently reports the following results:",
+        cards: [
+          {
+            title: "Classification",
+            value: "Test Accuracy: 69.14%",
+            description:
+              "The classification workflow predicts medical-condition categories based on patient-reported drug-feedback features.",
+          },
+          {
+            title: "Clustering Exploration",
+            value: "Adjusted Rand Index: 1.00",
+            description:
+              "The clustering workflow is included as an additional analytical exploration.",
+          },
+          {
+            title: "Regression Exploration",
+            value: "Mean Absolute Error: 0.0148",
+            description:
+              "The regression workflow is included as an additional analytical exploration.",
+          },
+        ],
+        closing:
+          "Classification is the main portfolio workflow. Clustering and regression are supporting exploratory components of the application.",
         text:
-          "The application supports interactive exploration and live prediction through a deployed Streamlit interface.",
-        metricLabel: "Verified metric",
-        metricValue: "69.14% classification test accuracy",
-      },
-      experimental: {
-        eyebrow: "Experimental workflows",
-        title: "Additional workflows under review",
-        text:
-          "The application also contains clustering and regression explorations. These workflows are being reviewed and refined before their metrics are presented as portfolio results.",
+          "The values below are the current app-reported results. Classification is the main portfolio workflow. Clustering and regression are included as additional analytical explorations.",
+        metricLabel: "Classification",
+        metricValue: "Test accuracy: 69.14%",
       },
       disclaimer: {
         eyebrow: "Disclaimer",
         title: "Important scope note",
         text:
-          "This is an educational machine-learning project based on patient-reported drug feedback. It is not a medical, diagnostic, or clinical decision-support tool.",
-      },
-      reflection: {
-        eyebrow: "Reflection",
-        title: "Future improvements",
-        text:
-          "Future improvements can include stronger pipeline structuring, clearer reproducibility, and further model refinement.",
+          "Educational ML project based on patient-reported feedback. Not a medical, diagnostic, or clinical decision-support tool.",
       },
       links: {
         eyebrow: "Repository",
-        title: "GitHub status",
-        githubTodo: "TODO: CLEAN UP REPOSITORY NAMING BEFORE FINAL POLISH",
+        title: "Links",
+        githubTodo: "",
       },
     },
   },
