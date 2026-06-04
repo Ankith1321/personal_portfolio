@@ -18,28 +18,26 @@ export default async function LocalizedLaneDetectionProjectPage({
   const locale = await resolveLocale(params);
   const dictionary = getDictionary(locale);
   const content = dictionary.laneDetection;
-  const snapshotItems = locale === "de"
+  const technicalOverviewItems = locale === "de"
     ? [
         { label: "Bereich", value: "Computer Vision" },
         { label: "Anwendung", value: "E-Bike Perception" },
         {
-          label: "Workflow",
+          label: "Analyse",
           value:
-            "Kameraeingabe · Bildvorverarbeitung · Deep-Learning-Training · Lane-Detection-Ausgabe",
+            "Kamerabilder vorverarbeitet, analysiert und mit Deep Learning für Lane Detection ausgewertet.",
         },
         { label: "Datensatz", value: "Ungefähr 35.000 Bilder" },
-        { label: "Status", value: "Abgeschlossen" },
       ]
     : [
         { label: "Domain", value: "Computer Vision" },
         { label: "Use case", value: "E-bike perception" },
         {
-          label: "Workflow",
+          label: "Analysis",
           value:
-            "Camera input · Image preprocessing · Deep-learning training · Lane-detection output",
+            "Camera images were preprocessed, analyzed, and evaluated with deep learning for lane detection.",
         },
         { label: "Dataset", value: "Approximately 35,000 images" },
-        { label: "Status", value: "Completed" },
       ];
 
   return (
@@ -52,7 +50,6 @@ export default async function LocalizedLaneDetectionProjectPage({
       />
       <ProjectHero
         category={content.category}
-        status={content.status}
         summary={content.summary}
         title={content.title}
         imageSrc={getProjectAsset("lane-detection-ebike").imageSrc}
@@ -69,7 +66,7 @@ export default async function LocalizedLaneDetectionProjectPage({
         eyebrow={content.workflowHeading}
         title={content.workflowHeading}
       >
-        <ol className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+        <ol className="grid gap-4 md:grid-cols-3">
           {content.workflowSteps.map((point, index) => (
             <li
               key={point}
@@ -87,11 +84,11 @@ export default async function LocalizedLaneDetectionProjectPage({
       </ProjectSection>
 
       <ProjectSection
-        eyebrow={content.snapshotEyebrow}
-        title={content.snapshotTitle}
+        eyebrow={content.technicalOverviewEyebrow}
+        title={content.technicalOverviewTitle}
       >
-        <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-5">
-          {snapshotItems.map((item) => (
+        <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+          {technicalOverviewItems.map((item) => (
             <div
               key={item.label}
               className="rounded-[1.5rem] border border-border bg-background p-5"

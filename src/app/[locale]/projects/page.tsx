@@ -67,11 +67,6 @@ export default async function LocalizedProjectsPage({
           />
         ))}
       </section>
-      <section className="rounded-[1.5rem] border border-dashed border-border bg-background px-6 py-5">
-        <p className="text-sm text-text-muted">
-          {dictionary.projects.verificationNote}
-        </p>
-      </section>
     </Container>
   );
 }

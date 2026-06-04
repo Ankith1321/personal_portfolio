@@ -162,7 +162,6 @@ export type Dictionary = {
     pageTitle: string;
     pageDescription: string;
     pageCards: readonly ProjectCardDictionary[];
-    verificationNote: string;
   };
   experience: {
     heading: string;
@@ -211,7 +210,6 @@ export type Dictionary = {
   laneDetection: {
     backLabel: string;
     category: string;
-    status: string;
     title: string;
     summary: string;
     overviewHeading: string;
@@ -219,14 +217,12 @@ export type Dictionary = {
     workflowHeading: string;
     workflowSteps: readonly string[];
     stepLabel: string;
-    snapshotEyebrow: string;
-    snapshotTitle: string;
+    technicalOverviewEyebrow: string;
+    technicalOverviewTitle: string;
     technologiesTitle: string;
     technologies: string;
     datasetTitle: string;
     datasetSize: string;
-    evaluationTitle: string;
-    evaluationNote: string;
   };
   drugFeedback: DrugFeedbackDictionary;
 };
@@ -352,9 +348,9 @@ const dictionaries = {
           detailsState: "Details folgen bald",
         },
       ],
-      pageTitle: "Projektrichtung und Nachweisstatus",
+      pageTitle: "Ausgewählte Projekte",
       pageDescription:
-        "Diese Projektübersicht nutzt nur geprüfte Aussagen aus dem Master-Dokument. Das Lane-Detection-Projekt und das Drug-Feedback-Projekt haben veröffentlichte Case Studies. Weitere Detailseiten bleiben geschlossen, bis ihre Nachweise geprüft sind.",
+        "Diese Projektübersicht zeigt die wichtigsten öffentlichen Projekte aus Computer Vision, Smart Sensors und interaktiver ML-Anwendungspraxis.",
       pageCards: [
         {
           id: "lane-detection-ebike",
@@ -411,8 +407,6 @@ const dictionaries = {
           detailsState: "Veröffentlichung nach Prüfung",
         },
       ],
-      verificationNote:
-        "Prüfhinweis: Die Zahl von 95 % Accuracy wird hier nicht hervorgehoben, weil ihre genaue Bedeutung und Evaluation noch TODO: VERIFY ist.",
     },
       experience: {
         heading: "Erfahrung",
@@ -578,31 +572,25 @@ const dictionaries = {
     laneDetection: {
       backLabel: "← Zurück zu den Projekten",
       category: "Computer Vision",
-      status: "Abgeschlossen",
       title: "Lane Detection für E-Bike Perception",
       summary:
         "Dieses abgeschlossene Projekt untersucht kamerabasierte Lane Detection für ein E-Bike-Perception-System. Der Workflow umfasst Kamerabilder, Bildvorverarbeitung, Deep-Learning-Training und eine Lane-Detection-Ausgabe.",
       overviewHeading: "Überblick",
       overviewText:
         "Dieses abgeschlossene Projekt untersucht kamerabasierte Lane Detection für ein E-Bike-Perception-System. Der Workflow umfasst Kamerabilder, Bildvorverarbeitung, Deep-Learning-Training und eine Lane-Detection-Ausgabe.",
-      workflowHeading: "Projektablauf und Beitrag",
+      workflowHeading: "Projektablauf und Analyse",
       workflowSteps: [
-        "Situation — Das Projekt behandelte kamerabasierte Lane Detection für ein E-Bike-Perception-System.",
+        "Situation — Kamerabasierte Lane Detection für ein E-Bike-Perception-System.",
         "Aufgabe — Einen Workflow für Kamerabilder, Bildvorverarbeitung und Deep-Learning-Training entwickeln.",
-        "Umsetzung — Bilddaten für den Lane-Detection-Workflow vorbereitet und vorverarbeitet.",
-        "Umsetzung — Mit einem Datensatz von ungefähr 35.000 Bildern gearbeitet und einen Deep-Learning-Ansatz trainiert.",
-        "Ergebnis — Einen funktionierenden Lane-Detection-Workflow abgeschlossen. Die genaue Definition der früher genannten Accuracy muss vor der Veröffentlichung noch geprüft werden.",
+        "Analyse — Bilddaten vorbereitet, vorverarbeitet und mit einem Datensatz von ungefähr 35.000 Bildern einen Deep-Learning-Ansatz trainiert.",
       ],
       stepLabel: "Schritt",
-      snapshotEyebrow: "Snapshot",
-      snapshotTitle: "Technischer Überblick",
+      technicalOverviewEyebrow: "Technische Übersicht",
+      technicalOverviewTitle: "Technische Übersicht",
       technologiesTitle: "Technologien",
       technologies: "Python · OpenCV · Deep Learning",
       datasetTitle: "Datensatz",
       datasetSize: "Ungefähr 35.000 Bilder",
-      evaluationTitle: "Evaluation",
-      evaluationNote:
-        "Die genaue Definition der früher genannten Accuracy muss vor der Veröffentlichung noch geprüft werden.",
     },
     drugFeedback: {
       backLabel: "← Zurück zu den Projekten",
@@ -858,9 +846,9 @@ const dictionaries = {
           detailsState: "Details coming soon",
         },
       ],
-      pageTitle: "Project directions and evidence status",
+      pageTitle: "Selected projects",
       pageDescription:
-        "These project summaries use only verified claims from the master content document. The lane-detection project and the drug-feedback project now have published case studies, while the remaining detail views stay unavailable until their evidence is reviewed.",
+        "These project summaries highlight the main public projects across computer vision, smart sensors, and interactive ML applications.",
       pageCards: [
         {
           id: "lane-detection-ebike",
@@ -917,8 +905,6 @@ const dictionaries = {
           detailsState: "Publication deferred until implementation is verified",
         },
       ],
-      verificationNote:
-        "Verification note: the lane-detection accuracy figure is not promoted here because its evaluation meaning still requires TODO: VERIFY.",
     },
       experience: {
         heading: "Experience",
@@ -1084,31 +1070,25 @@ const dictionaries = {
     laneDetection: {
       backLabel: "← Back to Projects",
       category: "Computer Vision",
-      status: "Completed",
       title: "Lane Detection for E-Bike Perception",
       summary:
         "This completed project explores camera-based lane detection for an e-bike perception use case. The workflow includes camera-image processing, image preprocessing, deep-learning training, and lane-related visual output.",
       overviewHeading: "Overview",
       overviewText:
         "This completed project explores camera-based lane detection for an e-bike perception use case. The workflow includes camera-image processing, image preprocessing, deep-learning training, and lane-related visual output.",
-      workflowHeading: "Project workflow and contribution",
+      workflowHeading: "Project workflow and analysis",
       workflowSteps: [
-        "Situation — The project addressed the need for camera-based lane-related perception in an e-bike use case.",
+        "Situation — Camera-based lane-related perception for an e-bike use case.",
         "Task — Build a workflow that processes camera images and supports lane detection through deep-learning training.",
-        "Action — Prepared and preprocessed image data for the lane-detection workflow.",
-        "Action — Worked with an image dataset of approximately 35,000 images and trained a deep-learning-based approach.",
-        "Result — Completed a working lane-detection workflow. The exact evaluation definition for the previously stated accuracy value remains to be verified before publication.",
+        "Analysis — Prepared and preprocessed image data and trained a deep-learning-based approach on an image dataset of approximately 35,000 images.",
       ],
       stepLabel: "Step",
-      snapshotEyebrow: "Snapshot",
-      snapshotTitle: "Technical snapshot",
+      technicalOverviewEyebrow: "Technical overview",
+      technicalOverviewTitle: "Technical overview",
       technologiesTitle: "Technologies",
       technologies: "Python · OpenCV · Deep Learning",
       datasetTitle: "Dataset",
       datasetSize: "Approximately 35,000 images",
-      evaluationTitle: "Evaluation",
-      evaluationNote:
-        "The exact evaluation definition for the previously stated accuracy value remains to be verified before publication.",
     },
     drugFeedback: {
       backLabel: "← Back to Projects",

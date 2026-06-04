@@ -12,7 +12,7 @@ type ProjectHeroAction = {
 
 type ProjectHeroProps = {
   category: string;
-  status: string;
+  status?: string;
   summary: string;
   title: string;
   actions?: readonly ProjectHeroAction[];
@@ -45,7 +45,7 @@ export function ProjectHero({
                 {summary}
               </p>
             </div>
-            <StatusBadge>{status}</StatusBadge>
+            {status ? <StatusBadge>{status}</StatusBadge> : null}
           </div>
           {actions?.length ? (
             <div className="mt-6 flex flex-wrap gap-3">
