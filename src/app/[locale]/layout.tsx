@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { SiteHeader } from "@/components/layout/site-header";
 import { ScrollDepth } from "@/components/ui/scroll-depth";
@@ -46,25 +47,7 @@ export default async function LocaleLayout({
       suppressHydrationWarning
     >
       <body className="min-h-full bg-background text-text">
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              (() => {
-                try {
-                  const key = "saiankith-portfolio-theme";
-                  const stored = localStorage.getItem(key);
-                  const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-                  const theme = stored === "light" || stored === "dark"
-                    ? stored
-                    : prefersDark
-                      ? "dark"
-                      : "light";
-                  document.documentElement.classList.toggle("dark", theme === "dark");
-                } catch {}
-              })();
-            `,
-          }}
-        />
+        <Script src="/theme-init.js" strategy="beforeInteractive" />
         <a
           href="#main-content"
           className="skip-link sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-full focus:bg-surface focus:px-4 focus:py-2 focus:text-sm focus:font-medium focus:text-text"
