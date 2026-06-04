@@ -19,7 +19,7 @@ export function ProjectCard({
   href,
 }: ProjectCardProps) {
   return (
-    <article className="flex h-full flex-col rounded-[1.75rem] border border-border bg-surface p-6 shadow-[0_14px_36px_rgba(87,62,47,0.06)] hover:border-accent/40 hover:bg-surface-muted/35 motion-safe:hover:-translate-y-0.5 motion-reduce:transform-none">
+    <article className="flex h-full flex-col rounded-[1.75rem] border border-border bg-surface p-6 shadow-[0_14px_36px_rgba(87,62,47,0.07)] hover:border-accent/40 hover:bg-surface-muted/40 hover:shadow-[0_18px_42px_rgba(87,62,47,0.10)] motion-safe:hover:-translate-y-0.5 motion-reduce:transform-none">
       <div className="flex items-start justify-between gap-4">
         <h3 className="max-w-[18rem] text-xl font-semibold tracking-tight text-text">
           {title}

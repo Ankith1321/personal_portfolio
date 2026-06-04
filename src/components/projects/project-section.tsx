@@ -1,7 +1,7 @@
 import type { ReactNode } from "react";
 
 type ProjectSectionProps = {
-  children: ReactNode;
+  children?: ReactNode;
   description?: string;
   eyebrow?: string;
   title: string;
@@ -28,7 +28,7 @@ export function ProjectSection({
           {description}
         </p>
       ) : null}
-      <div className="mt-6">{children}</div>
+      {children ? <div className="mt-6">{children}</div> : null}
     </section>
   );
 }

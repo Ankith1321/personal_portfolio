@@ -55,6 +55,10 @@ html {
 
 body {
   background: var(--background);
+  background-image:
+    radial-gradient(circle at top left, color-mix(in srgb, var(--accent) 12%, transparent) 0, transparent 28rem),
+    radial-gradient(circle at top right, color-mix(in srgb, var(--secondary-accent) 12%, transparent) 0, transparent 24rem),
+    linear-gradient(180deg, color-mix(in srgb, var(--surface) 32%, transparent), transparent 24rem);
   color: var(--text);
   font-family: var(--font-geist-sans), sans-serif;
 }
@@ -93,4 +97,11 @@ summary {
 
 .prose-balanced {
   text-wrap: balance;
+}
+
+.hero-surface {
+  background:
+    radial-gradient(circle at 18% 20%, color-mix(in srgb, var(--accent) 12%, transparent), transparent 20rem),
+    radial-gradient(circle at 84% 22%, color-mix(in srgb, var(--secondary-accent) 12%, transparent), transparent 18rem),
+    linear-gradient(180deg, color-mix(in srgb, var(--surface) 92%, white 8%), var(--surface));
 }

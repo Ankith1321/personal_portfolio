@@ -30,11 +30,9 @@ export default function ContactPage() {
           <p className="mt-4 text-sm leading-7 text-text-muted sm:text-base">
             {siteConfig.location}
           </p>
-          <ul className="mt-4 space-y-2 text-sm leading-7 text-text-muted sm:text-base">
-            {opportunityFocus.map((item) => (
-              <li key={item}>{item}</li>
-            ))}
-          </ul>
+          <p className="mt-4 text-sm leading-7 text-text-muted sm:text-base">
+            {opportunityFocus}
+          </p>
         </article>
         <article className="rounded-[1.75rem] border border-border bg-surface p-6">
           <h2 className="text-xl font-semibold tracking-tight text-text">
@@ -55,8 +53,8 @@ export default function ContactPage() {
       </section>
       <section className="rounded-[1.5rem] border border-dashed border-border bg-background px-6 py-5">
         <p className="text-sm text-text-muted">
-          Verification note: email, LinkedIn, GitHub, and resume download stay
-          in <span className="font-semibold">TODO: VERIFY</span> state until
+          Verification note: professional email and resume download remain in
+          <span className="font-semibold"> TODO: VERIFY</span> state until
           their public values are confirmed.
         </p>
       </section>
