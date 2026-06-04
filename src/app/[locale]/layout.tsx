@@ -43,6 +43,7 @@ export default async function LocaleLayout({
       lang={locale}
       data-scroll-behavior="smooth"
       className={`${fontVariables} h-full antialiased`}
+      suppressHydrationWarning
     >
       <body className="min-h-full bg-background text-text">
         <script
