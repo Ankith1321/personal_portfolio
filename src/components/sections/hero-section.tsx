@@ -11,6 +11,10 @@ type HeroSectionProps = {
 };
 
 export function HeroSection({ locale, dictionary }: HeroSectionProps) {
+  const resumeUrl =
+    siteConfig.social.resumeUrls[locale as keyof typeof siteConfig.social.resumeUrls];
+  const resumeFilename =
+    locale === "de" ? "Saiankith_Lebenslauf.pdf" : "Saiankith_Resume.pdf";
   const externalActions = [
     {
       label: dictionary.hero.actions.linkedin,
@@ -68,10 +72,12 @@ export function HeroSection({ locale, dictionary }: HeroSectionProps) {
             <ButtonLink href={getHomeSectionHref(locale, "contact")} variant="secondary">
               {dictionary.hero.actions.contact}
             </ButtonLink>
-            <ButtonLink href={siteConfig.social.resumeUrl} variant="secondary">
-              {siteConfig.social.resumeUrl
-                ? dictionary.hero.actions.resume
-                : dictionary.hero.disabledResume}
+            <ButtonLink
+              href={resumeUrl}
+              download={resumeFilename}
+              variant="secondary"
+            >
+              {dictionary.hero.actions.resume}
             </ButtonLink>
           </div>
 

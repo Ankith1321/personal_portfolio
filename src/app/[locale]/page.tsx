@@ -27,7 +27,7 @@ export default async function LocalizedHomePage({
       <ProjectsPreview locale={locale} dictionary={dictionary} />
       <ExperiencePreview dictionary={dictionary} />
       <SkillsPreview dictionary={dictionary} />
-      <ContactCta dictionary={dictionary} />
+      <ContactCta dictionary={dictionary} locale={locale} />
     </Container>
   );
 }

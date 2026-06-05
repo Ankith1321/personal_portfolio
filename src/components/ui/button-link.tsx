@@ -7,6 +7,7 @@ type ButtonLinkProps = {
   href: string | null;
   variant?: "primary" | "secondary";
   className?: string;
+  download?: string;
 };
 
 export function ButtonLink({
@@ -14,6 +15,7 @@ export function ButtonLink({
   href,
   variant = "primary",
   className,
+  download,
 }: ButtonLinkProps) {
   const sharedClassName = [
     "inline-flex min-h-11 items-center rounded-full px-5 py-3 text-sm font-medium shadow-[0_12px_24px_rgba(18,23,34,0.10)] motion-safe:hover:-translate-y-0.5 motion-safe:active:translate-y-0 motion-reduce:transform-none",
@@ -42,9 +44,13 @@ export function ButtonLink({
     );
   }
 
-  return (
-    <Link href={href} className={sharedClassName}>
-      {children}
-    </Link>
-  );
+  if (download) {
+    return (
+      <a href={href} download={download} className={sharedClassName}>
+        {children}
+      </a>
+    );
+  }
+
+  return <Link href={href} className={sharedClassName}>{children}</Link>;
 }

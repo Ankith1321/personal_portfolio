@@ -1,4 +1,5 @@
 import { Container } from "@/components/layout/container";
+import { ButtonLink } from "@/components/ui/button-link";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { isVerifiedLink, siteConfig } from "@/lib/site-config";
 import { getDictionary } from "@/lib/dictionaries";
@@ -15,6 +16,10 @@ export default async function LocalizedContactPage({
 }) {
   const locale = await resolveLocale(params);
   const dictionary = getDictionary(locale);
+  const resumeUrl =
+    siteConfig.social.resumeUrls[locale as keyof typeof siteConfig.social.resumeUrls];
+  const resumeFilename =
+    locale === "de" ? "Saiankith_Lebenslauf.pdf" : "Saiankith_Resume.pdf";
   const contactItems = [
     {
       label: dictionary.contact.actions.email,
@@ -32,13 +37,6 @@ export default async function LocalizedContactPage({
       label: dictionary.contact.actions.github,
       href: siteConfig.social.github,
       value: siteConfig.social.github,
-    },
-    {
-      label: dictionary.contact.actions.resume,
-      href: siteConfig.social.resumeUrl,
-      value: isVerifiedLink(siteConfig.social.resumeUrl)
-        ? siteConfig.social.resumeUrl
-        : dictionary.contact.disabledResume,
     },
   ] as const;
 
@@ -90,6 +88,16 @@ export default async function LocalizedContactPage({
               </li>
             ))}
           </ul>
+          <div className="mt-4">
+            <ButtonLink
+              href={resumeUrl}
+              download={resumeFilename}
+              variant="secondary"
+              className="w-full justify-center"
+            >
+              {dictionary.contact.actions.resume}
+            </ButtonLink>
+          </div>
         </article>
       </section>
       <section className="rounded-[1.5rem] border border-dashed border-border bg-background px-6 py-5">

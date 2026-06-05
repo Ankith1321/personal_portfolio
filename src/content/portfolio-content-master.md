@@ -318,7 +318,9 @@ Public email: ankithreddy580@gmail.com
 - Readable typography
 - Minimal animation
 - Mobile-first responsive layout
-- ATS-friendly downloadable resume
+- Verified downloadable resumes:
+  - English resume PDF: `/resume/Saiankith_Resume.pdf`
+  - German resume PDF: `/resume/Saiankith_Lebenslauf.pdf`
 
 Avoid:
 - Neon effects

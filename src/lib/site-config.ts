@@ -1,3 +1,5 @@
+type ResumeLocale = "de" | "en";
+
 export const siteConfig = {
   name: "Saiankith Reddy Kolli",
   headline: "LLM Engineer | AI / ML Engineer",
@@ -15,7 +17,10 @@ export const siteConfig = {
     linkedin: "https://www.linkedin.com/in/saiankithreddyk",
     email: "mailto:ankithreddy580@gmail.com",
     emailAddress: "ankithreddy580@gmail.com",
-    resumeUrl: null,
+    resumeUrls: {
+      en: "/resume/Saiankith_Resume.pdf",
+      de: "/resume/Saiankith_Lebenslauf.pdf",
+    } satisfies Record<ResumeLocale, string>,
   },
 } as const;
 

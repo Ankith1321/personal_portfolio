@@ -1,9 +1,20 @@
 import { ButtonLink } from "@/components/ui/button-link";
 import { SectionHeading } from "@/components/ui/section-heading";
 import type { Dictionary } from "@/lib/dictionaries";
-import { isVerifiedLink, siteConfig } from "@/lib/site-config";
+import type { Locale } from "@/lib/i18n";
+import { siteConfig } from "@/lib/site-config";
 
-export function ContactCta({ dictionary }: { dictionary: Dictionary }) {
+export function ContactCta({
+  dictionary,
+  locale,
+}: {
+  dictionary: Dictionary;
+  locale: Locale;
+}) {
+  const resumeUrl =
+    siteConfig.social.resumeUrls[locale as keyof typeof siteConfig.social.resumeUrls];
+  const resumeFilename =
+    locale === "de" ? "Saiankith_Lebenslauf.pdf" : "Saiankith_Resume.pdf";
   const contactActions = [
     {
       label: dictionary.contact.actions.linkedin,
@@ -51,10 +62,12 @@ export function ContactCta({ dictionary }: { dictionary: Dictionary }) {
             )}
           </a>
         ))}
-        <ButtonLink href={siteConfig.social.resumeUrl} variant="secondary">
-          {isVerifiedLink(siteConfig.social.resumeUrl)
-            ? dictionary.contact.actions.resume
-            : dictionary.contact.disabledResume}
+        <ButtonLink
+          href={resumeUrl}
+          download={resumeFilename}
+          variant="secondary"
+        >
+          {dictionary.contact.actions.resume}
         </ButtonLink>
       </div>
     </section>

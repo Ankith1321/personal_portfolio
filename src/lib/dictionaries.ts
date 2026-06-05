@@ -139,7 +139,6 @@ export type Dictionary = {
       contact: string;
       resume: string;
     };
-    disabledResume: string;
     availability: string;
     portraitAlt: string;
   };
@@ -202,7 +201,6 @@ export type Dictionary = {
       resume: string;
     };
     disabledEmail: string;
-    disabledResume: string;
     pageTitle: string;
     pageDescription: string;
     locationCardTitle: string;
@@ -298,11 +296,10 @@ const dictionaries = {
       actions: {
         projects: "Projekte ansehen",
         linkedin: "LinkedIn",
-        github: "GitHub",
-        contact: "Kontakt",
-        resume: "Lebenslauf",
-      },
-      disabledResume: "Lebenslauf folgt bald",
+      github: "GitHub",
+      contact: "Kontakt",
+      resume: "Lebenslauf herunterladen",
+    },
       availability:
         "Offen für Werkstudentenstellen, Praktika, Forschungsprojekte und Masterarbeitsthemen.",
       portraitAlt: "Porträt von Saiankith Reddy Kolli",
@@ -567,17 +564,16 @@ const dictionaries = {
         linkedin: "LinkedIn",
         github: "GitHub",
         email: "E-Mail",
-        resume: "Lebenslauf",
+        resume: "Lebenslauf herunterladen",
       },
       disabledEmail: "E-Mail",
-      disabledResume: "Lebenslauf folgt bald",
       pageTitle: "Kontaktstatus und Fokus",
       pageDescription:
-        "Öffentliche Kontaktangaben bleiben bewusst konservativ, bis Links und der Lebenslauf-Dateiname geprüft sind.",
+        "Öffentliche Kontaktangaben enthalten die verifizierten Links und den bestätigten Lebenslauf-Download.",
       locationCardTitle: "Ort und Fokus",
       linksCardTitle: "Kontaktlinks",
       verificationNote:
-        "Prüfhinweis: Der Lebenslauf-Download bleibt TODO: VERIFY, bis der öffentliche Dateiname bestätigt ist.",
+        "Prüfhinweis: Der verifizierte Lebenslauf-Download ist jetzt öffentlich verlinkt.",
     },
     footer: {
       location: "Amberg, Deutschland",
@@ -838,7 +834,6 @@ const dictionaries = {
         contact: "Contact",
         resume: "Download Resume",
       },
-      disabledResume: "Resume coming soon",
       availability:
         "Open to working-student, internship, research-assistant, and master's-thesis opportunities.",
       portraitAlt: "Portrait of Saiankith Reddy Kolli",
@@ -1106,14 +1101,13 @@ const dictionaries = {
         resume: "Download Resume",
       },
       disabledEmail: "Email",
-      disabledResume: "Resume coming soon",
       pageTitle: "Opportunity overview and verified contact status",
       pageDescription:
-        "Contact publishing is intentionally conservative until public links and the resume filename are verified.",
+        "Contact publishing includes the verified public links and the confirmed resume download.",
       locationCardTitle: "Location and Opportunity Focus",
       linksCardTitle: "Contact Links",
       verificationNote:
-        "Verification note: the resume download remains in TODO: VERIFY state until its public filename is confirmed.",
+        "Verification note: the verified resume download is now linked publicly.",
     },
     footer: {
       location: "Amberg, Germany",
