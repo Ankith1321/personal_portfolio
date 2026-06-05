@@ -1,35 +1,40 @@
-# Saiankith Reddy Kolli — Professional Portfolio
+# Saiankith Reddy Kolli — Portfolio Website
 
 ## Overview
 
-This repository contains my professional portfolio website for presenting applied AI, machine-learning, computer-vision, robotics, smart-sensor, and industrial-engineering projects.
+This repository contains Saiankith Reddy Kolli's bilingual portfolio website for showcasing current public projects, experience, skills, and contact links.
 
-The website is designed for recruiters, hiring managers, and technical reviewers interested in working-student, internship, research-assistant, and master’s-thesis opportunities.
+## Public Projects
+
+### Academic Projects
+
+- Traffic Sign Detection for E-Bike Safety
+  - Computer-vision project for detecting and classifying German traffic signs relevant to e-bike safety. The implementation uses a custom-trained SSD MobileNetV2 model and compares predictions with YOLOv11n.
+- UV Monitoring and Roller-Blind Control
+  - Academic Raspberry Pi prototype for UV sensing, CSV logging, manual roller-blind control, and structured verification in a master–slave architecture.
+
+### Personal Project
+
+- Drug Feedback Analytics and Condition Classification
+  - Interactive Streamlit application for analysing patient-reported drug feedback and testing classification, clustering, and regression workflows through a deployed browser interface.
+
+## Features
+
+- German-first bilingual routing
+- Static typed dictionaries
+- Dark mode
+- Responsive layout
+- Cursor-reactive background
+- Project cards with images, descriptions, and technology tags
+- Vercel-ready deployment
 
 ## Tech Stack
 
-* Next.js App Router
-* TypeScript
-* Tailwind CSS
-* Static content files
-* Vercel deployment
-
-## Main Sections
-
-* Home
-* About
-* Projects
-* Experience
-* Skills
-* Resume
-* Contact
-
-## Featured Projects
-
-* Road Lane Detection — Computer Vision Case Study
-* Drug Feedback Analytics and Condition Classification
-* Autonomous Line-Tracking Robot
-* Sentinel RAG Assistant — In Progress
+- Next.js App Router
+- TypeScript
+- Tailwind CSS
+- Static typed dictionaries
+- Vercel-ready deployment
 
 ## Local Development
 
@@ -44,18 +49,22 @@ Open:
 http://localhost:3000
 ```
 
-## Production Build
+## Build Verification
 
 ```bash
+npm run lint
 npm run build
 ```
 
+## Public Links
+
+- Portfolio website: TODO: ADD LIVE VERCEL URL AFTER DEPLOYMENT
+- LinkedIn: https://www.linkedin.com/in/saiankithreddyk
+- GitHub: https://github.com/Ankith1321
+- Email: ankithreddy580@gmail.com
+- Drug Analytics Demo: https://drug-performance.streamlit.app/
+- Drug Analytics Repository: https://github.com/Ankith1321/Drug-Preformance-Evaluation
+
 ## Deployment
 
-The website is deployed using Vercel.
-
-`TODO: ADD DEPLOYED WEBSITE URL`
-
-## Author
-
-Saiankith Reddy Kolli
+The site is built for Vercel deployment. Add the live portfolio URL once the current production deployment is available.
