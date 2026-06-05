@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { ProjectActionLink } from "@/components/projects/project-action-link";
+import { ProjectPlaceholder } from "@/components/projects/project-placeholder";
 
 type ProjectCardProps = {
   title: string;
@@ -15,6 +16,7 @@ type ProjectCardProps = {
   githubHref?: string;
   imageSrc?: string;
   imageAlt?: string;
+  imagePlaceholder?: string;
 };
 
 export function ProjectCard({
@@ -31,6 +33,7 @@ export function ProjectCard({
   githubHref,
   imageSrc,
   imageAlt,
+  imagePlaceholder,
 }: ProjectCardProps) {
   return (
     <article className="relative flex h-full flex-col overflow-hidden rounded-[1.75rem] border border-border/90 bg-[linear-gradient(160deg,color-mix(in_srgb,var(--surface)_86%,transparent),color-mix(in_srgb,var(--surface-muted)_80%,transparent))] p-6 shadow-[0_16px_40px_rgba(18,23,34,0.10)] backdrop-blur-sm hover:border-accent/40 hover:shadow-[0_24px_50px_rgba(18,23,34,0.14)] motion-safe:hover:[transform:perspective(1200px)_translateY(-0.25rem)_rotateX(1deg)] motion-reduce:transform-none">
@@ -50,6 +53,11 @@ export function ProjectCard({
             />
           </div>
         </div>
+      ) : imagePlaceholder ? (
+        <ProjectPlaceholder
+          label={imagePlaceholder}
+          className="project-showcase relative z-10 mb-5"
+        />
       ) : null}
       <h3 className="relative z-10 mt-4 max-w-[18rem] text-xl font-semibold tracking-tight text-text">
         {title}

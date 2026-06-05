@@ -89,6 +89,7 @@ export default async function LocalizedProjectsPage({
                   }
                   imageSrc={getProjectAsset(project.id).imageSrc}
                   imageAlt={project.imageAlt}
+                  imagePlaceholder={project.imagePlaceholder}
                 />
               ))}
             </div>

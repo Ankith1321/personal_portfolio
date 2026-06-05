@@ -16,6 +16,7 @@ type ProjectCardDictionary = {
   tags: readonly string[];
   status: string;
   imageAlt: string;
+  imagePlaceholder?: string;
   detailsState?: string;
   slug?: PublishedProjectSlug;
 };
@@ -214,22 +215,25 @@ export type Dictionary = {
     github: string;
     backToTop: string;
   };
-  laneDetection: {
+  trafficSignDetection: {
     backLabel: string;
     category: string;
     title: string;
     summary: string;
+    visualPlaceholder: string;
     overviewHeading: string;
     overviewText: string;
     workflowHeading: string;
     workflowSteps: readonly string[];
+    contribution: {
+      eyebrow: string;
+      title: string;
+      items: readonly string[];
+    };
     stepLabel: string;
     technicalOverviewEyebrow: string;
     technicalOverviewTitle: string;
-    technologiesTitle: string;
-    technologies: string;
-    datasetTitle: string;
-    datasetSize: string;
+    technicalOverviewItems: readonly ProjectSnapshotItem[];
   };
   drugFeedback: DrugFeedbackDictionary;
 };
@@ -328,15 +332,23 @@ const dictionaries = {
       },
       cards: [
         {
-          id: "lane-detection-ebike",
-          title: "Lane Detection für E-Bike Perception",
+          id: "traffic-sign-detection-ebike",
+          title: "Verkehrszeichenerkennung für E-Bike-Sicherheit",
           summary:
-            "Kamerabasierte Lane Detection mit Bildvorverarbeitung und Deep-Learning-Training für ein E-Bike-Perception-Projekt.",
-          tags: ["Computer Vision", "OpenCV", "Deep Learning"],
+            "Computer-Vision-System zur Erkennung und Klassifikation deutscher Verkehrszeichen für E-Bike-Szenarien. Ein SSD-MobileNetV2-Modell wurde implementiert, trainiert und mit YOLOv11n verglichen.",
+          tags: [
+            "Computer Vision",
+            "TensorFlow",
+            "SSD MobileNetV2",
+            "Object Detection",
+            "YOLOv11n",
+          ],
           status: "Abgeschlossen",
           imageAlt:
-            "Cyclist on an urban bike lane representing the e-bike perception use case",
-          slug: "lane-detection-ebike",
+            "Traffic sign detection and classification workflow for e-bike safety",
+          imagePlaceholder:
+            "Verifizierte Projektvisualisierung ist derzeit nicht verfügbar.",
+          slug: "traffic-sign-detection-ebike",
         },
         {
           id: "uv-roller-blind",
@@ -387,15 +399,23 @@ const dictionaries = {
         "Diese Projektübersicht zeigt akademische und persönliche Projekte aus Machine Learning, Computer Vision, Smart Sensors, Robotik, Data Analytics und LLM-Anwendungen.",
       pageCards: [
         {
-          id: "lane-detection-ebike",
-          title: "Lane Detection für E-Bike Perception",
+          id: "traffic-sign-detection-ebike",
+          title: "Verkehrszeichenerkennung für E-Bike-Sicherheit",
           summary:
-            "Kamerabasierte Lane Detection mit Bildvorverarbeitung und Deep-Learning-Training für ein E-Bike-Perception-Projekt.",
-          tags: ["Computer Vision", "OpenCV", "Deep Learning"],
+            "Computer-Vision-System zur Erkennung und Klassifikation deutscher Verkehrszeichen für E-Bike-Szenarien. Ein SSD-MobileNetV2-Modell wurde implementiert, trainiert und mit YOLOv11n verglichen.",
+          tags: [
+            "Computer Vision",
+            "TensorFlow",
+            "SSD MobileNetV2",
+            "Object Detection",
+            "YOLOv11n",
+          ],
           status: "Abgeschlossen",
           imageAlt:
-            "Abstrakte Illustration von Lane Detection, Wahrnehmung und Ausgabefluss",
-          slug: "lane-detection-ebike",
+            "Traffic sign detection and classification workflow for e-bike safety",
+          imagePlaceholder:
+            "Verifizierte Projektvisualisierung ist derzeit nicht verfügbar.",
+          slug: "traffic-sign-detection-ebike",
         },
         {
           id: "uv-roller-blind",
@@ -603,29 +623,57 @@ const dictionaries = {
       github: "GitHub",
       backToTop: "Nach oben",
     },
-    laneDetection: {
+    trafficSignDetection: {
       backLabel: "← Zurück zu den Projekten",
       category: "Computer Vision",
-      title: "Lane Detection für E-Bike Perception",
+      title:
+        "Erkennung und Klassifikation deutscher Verkehrszeichen für E-Bike-Sicherheit",
       summary:
-        "Dieses abgeschlossene Projekt untersucht kamerabasierte Lane Detection für ein E-Bike-Perception-System. Der Workflow umfasst Kamerabilder, Bildvorverarbeitung, Deep-Learning-Training und eine Lane-Detection-Ausgabe.",
+        "Computer-Vision-System zur Erkennung und Klassifikation deutscher Verkehrszeichen für E-Bike-Szenarien. Ein SSD-MobileNetV2-Modell wurde implementiert, trainiert und mit YOLOv11n verglichen.",
+      visualPlaceholder:
+        "Verifizierte Projektvisualisierung ist derzeit nicht verfügbar.",
       overviewHeading: "Überblick",
       overviewText:
-        "Dieses abgeschlossene Projekt untersucht kamerabasierte Lane Detection für ein E-Bike-Perception-System. Der Workflow umfasst Kamerabilder, Bildvorverarbeitung, Deep-Learning-Training und eine Lane-Detection-Ausgabe.",
-      workflowHeading: "Projektablauf und Analyse",
+        "Dieses abgeschlossene akademische Projekt konzentriert sich auf die Erkennung und Klassifikation deutscher Verkehrszeichen für E-Bike-Sicherheit. Ein trainiertes SSD-MobileNetV2-Modell wird mit YOLOv11n verglichen.",
+      workflowHeading: "Projektablauf",
       workflowSteps: [
-        "Situation — Kamerabasierte Lane Detection für ein E-Bike-Perception-System.",
-        "Aufgabe — Einen Workflow für Kamerabilder, Bildvorverarbeitung und Deep-Learning-Training entwickeln.",
-        "Analyse — Bilddaten vorbereitet, vorverarbeitet und mit einem Datensatz von ungefähr 35.000 Bildern einen Deep-Learning-Ansatz trainiert.",
-        "Ergebnis — Einen Lane-Detection-Workflow für das E-Bike-Perception-Use-Case geliefert.",
+        "Datensatz-Vorbereitung",
+        "Annotation und Vorverarbeitung",
+        "SSD-MobileNetV2-Training",
+        "Vergleich mit YOLOv11n",
       ],
+      contribution: {
+        eyebrow: "Beitrag",
+        title: "Was ich entwickelt habe",
+        items: [
+          "Szenen mit deutschen Verkehrszeichen annotiert und für das Training vorbereitet.",
+          "Bounding Boxes, Resizing, Normalisierung, Augmentation, Pascal-VOC-XML und TFRecord vorbereitet.",
+          "Ein SSD-MobileNetV2-320×320-FPN-Lite-Modell implementiert und trainiert.",
+          "Die Vorhersagen mit YOLOv11n auf gemeinsamen Testbildern verglichen.",
+          "Confidence Scores, Confusion Matrices und klassenbezogene Fehler analysiert.",
+        ],
+      },
       stepLabel: "Schritt",
       technicalOverviewEyebrow: "Technische Übersicht",
       technicalOverviewTitle: "Technische Übersicht",
-      technologiesTitle: "Technologien",
-      technologies: "Python · OpenCV · Deep Learning",
-      datasetTitle: "Datensatz",
-      datasetSize: "Ungefähr 35.000 Bilder",
+      technicalOverviewItems: [
+        { label: "Bereich", value: "Computer Vision" },
+        { label: "Anwendung", value: "E-Bike-Sicherheit" },
+        {
+          label: "Aufgabe",
+          value: "Erkennung und Klassifikation deutscher Verkehrszeichen",
+        },
+        {
+          label: "Hauptmodell",
+          value: "SSD MobileNetV2 320×320 FPN-Lite",
+        },
+        { label: "Vergleichsmodell", value: "YOLOv11n" },
+        {
+          label: "Klassen",
+          value: "20 deutsche Verkehrszeichenklassen",
+        },
+        { label: "Framework", value: "TensorFlow" },
+      ],
     },
     drugFeedback: {
       backLabel: "← Zurück zu den Projekten",
@@ -850,15 +898,23 @@ const dictionaries = {
       },
       cards: [
         {
-          id: "lane-detection-ebike",
-          title: "Lane Detection for E-Bike Perception",
+          id: "traffic-sign-detection-ebike",
+          title: "Traffic Sign Detection for E-Bike Safety",
           summary:
-            "Camera-based lane detection using image preprocessing and deep-learning training for an e-bike perception use case.",
-          tags: ["Computer Vision", "OpenCV", "Deep Learning"],
+            "Computer-vision system for detecting and classifying German traffic signs relevant to e-bike scenarios. Implemented and custom-trained an SSD MobileNetV2 model and compared its performance with YOLOv11n.",
+          tags: [
+            "Computer Vision",
+            "TensorFlow",
+            "SSD MobileNetV2",
+            "Object Detection",
+            "YOLOv11n",
+          ],
           status: "Completed",
           imageAlt:
-            "Cyclist on an urban bike lane representing the e-bike perception use case",
-          slug: "lane-detection-ebike",
+            "Traffic sign detection and classification workflow for e-bike safety",
+          imagePlaceholder:
+            "A verified project visual is not available yet.",
+          slug: "traffic-sign-detection-ebike",
         },
         {
           id: "uv-roller-blind",
@@ -909,15 +965,23 @@ const dictionaries = {
         "These project summaries highlight the main public projects across computer vision, smart sensors, robotics, data analytics, and interactive LLM applications.",
       pageCards: [
         {
-          id: "lane-detection-ebike",
-          title: "Lane Detection for E-Bike Perception",
+          id: "traffic-sign-detection-ebike",
+          title: "Traffic Sign Detection for E-Bike Safety",
           summary:
-            "Camera-based lane detection using image preprocessing and deep-learning training for an e-bike perception use case.",
-          tags: ["Computer Vision", "OpenCV", "Deep Learning"],
+            "Computer-vision system for detecting and classifying German traffic signs relevant to e-bike scenarios. Implemented and custom-trained an SSD MobileNetV2 model and compared its performance with YOLOv11n.",
+          tags: [
+            "Computer Vision",
+            "TensorFlow",
+            "SSD MobileNetV2",
+            "Object Detection",
+            "YOLOv11n",
+          ],
           status: "Completed",
           imageAlt:
-            "Cyclist on an urban bike lane representing the e-bike perception use case",
-          slug: "lane-detection-ebike",
+            "Traffic sign detection and classification workflow for e-bike safety",
+          imagePlaceholder:
+            "A verified project visual is not available yet.",
+          slug: "traffic-sign-detection-ebike",
         },
         {
           id: "uv-roller-blind",
@@ -1125,29 +1189,53 @@ const dictionaries = {
       github: "GitHub",
       backToTop: "Back to top",
     },
-    laneDetection: {
+    trafficSignDetection: {
       backLabel: "← Back to Projects",
       category: "Computer Vision",
-      title: "Lane Detection for E-Bike Perception",
+      title:
+        "German Traffic Sign Detection and Classification for E-Bike Safety",
       summary:
-        "This completed project explores camera-based lane detection for an e-bike perception use case. The workflow includes camera-image processing, image preprocessing, deep-learning training, and lane-related visual output.",
+        "Computer-vision system for detecting and classifying German traffic signs relevant to e-bike scenarios. Implemented and custom-trained an SSD MobileNetV2 model and compared its performance with YOLOv11n.",
+      visualPlaceholder: "A verified project visual is not available yet.",
       overviewHeading: "Overview",
       overviewText:
-        "This completed project explores camera-based lane detection for an e-bike perception use case. The workflow includes camera-image processing, image preprocessing, deep-learning training, and lane-related visual output.",
-      workflowHeading: "Project workflow and analysis",
+        "This completed academic project focuses on detecting and classifying German traffic signs relevant to e-bike safety. The implementation uses a custom-trained SSD MobileNetV2 model and compares its predictions with YOLOv11n.",
+      workflowHeading: "Project workflow",
       workflowSteps: [
-        "Situation — Camera-based lane-related perception for an e-bike use case.",
-        "Task — Build a workflow that processes camera images and supports lane detection through deep-learning training.",
-        "Analysis — Prepared and preprocessed image data and trained a deep-learning-based approach on an image dataset of approximately 35,000 images.",
-        "Result — Delivered a lane-detection workflow for the e-bike perception use case.",
+        "Dataset Preparation",
+        "Annotation and Preprocessing",
+        "SSD MobileNetV2 Training",
+        "SSD and YOLOv11n Comparison",
       ],
+      contribution: {
+        eyebrow: "Contribution",
+        title: "What I built",
+        items: [
+          "Annotated German traffic-sign scenes and prepared them for training.",
+          "Prepared bounding boxes, resizing, normalization, augmentation, Pascal VOC XML, and TFRecord conversion.",
+          "Implemented and custom-trained an SSD MobileNetV2 320×320 FPN-Lite model.",
+          "Compared predictions with YOLOv11n on shared test images.",
+          "Reviewed confidence scores, confusion matrices, and class-level error analysis.",
+        ],
+      },
       stepLabel: "Step",
-      technicalOverviewEyebrow: "Technical overview",
-      technicalOverviewTitle: "Technical overview",
-      technologiesTitle: "Technologies",
-      technologies: "Python · OpenCV · Deep Learning",
-      datasetTitle: "Dataset",
-      datasetSize: "Approximately 35,000 images",
+      technicalOverviewEyebrow: "Technical snapshot",
+      technicalOverviewTitle: "Technical snapshot",
+      technicalOverviewItems: [
+        { label: "Domain", value: "Computer Vision" },
+        { label: "Use case", value: "E-bike safety" },
+        {
+          label: "Task",
+          value: "German traffic-sign detection and classification",
+        },
+        {
+          label: "Primary implementation",
+          value: "SSD MobileNetV2 320×320 FPN-Lite",
+        },
+        { label: "Comparison model", value: "YOLOv11n" },
+        { label: "Classes", value: "20 German traffic-sign classes" },
+        { label: "Framework", value: "TensorFlow" },
+      ],
     },
     drugFeedback: {
       backLabel: "← Back to Projects",

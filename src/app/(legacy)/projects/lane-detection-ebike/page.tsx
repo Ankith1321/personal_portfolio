@@ -1,5 +1,5 @@
 import { redirect } from "next/navigation";
 
 export default function LegacyLaneDetectionRedirectPage() {
-  redirect("/de/projects/lane-detection-ebike");
+  redirect("/de/projects/traffic-sign-detection-ebike");
 }

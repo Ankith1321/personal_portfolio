@@ -97,38 +97,27 @@ Verified high-level context:
 
 ## 5. Featured Projects
 
-## 5.1 Lane Detection for E-Bike Perception
+## 5.1 Traffic Sign Detection for E-Bike Safety
 
-**Status:** `TODO: VERIFY completed or in progress`
+**Status:** Completed
 
 ### Summary
-Camera-based lane-detection project for e-bike perception using image preprocessing and deep-learning training.
+Computer-vision system for detecting and classifying German traffic signs relevant to e-bike scenarios. Implemented and custom-trained an SSD MobileNetV2 model and compared its performance with YOLOv11n.
 
 ### Verified claims
-- Camera-based lane detection
-- Image preprocessing
-- Deep-learning training
-- Approximate dataset size: 35,000 images
-- Stated result: 95% accuracy
-- Python
-- OpenCV
-- PyTorch and/or TensorFlow
-
-### Publication rule
-Do not publish the 95% metric prominently until its meaning and evaluation method are documented.
+- German traffic-sign detection and classification
+- SSD MobileNetV2 model
+- TensorFlow
+- YOLOv11n comparison model
+- 20 German traffic-sign classes
+- Bounding boxes
+- Confidence-score comparison
+- Confusion matrices
+- Class-level error analysis
+- E-bike safety use case
 
 ### `TODO: VERIFY`
-- Exact project title
-- Exact framework: PyTorch, TensorFlow, or both
-- Model architecture
-- Dataset source
-- Exact image count
-- Train / validation / test split
-- Definition of 95% accuracy
-- Evaluation method
-- Individual contribution
-- GitHub repository
-- Visuals
+- Verified project visual or screenshot
 - Architecture diagram
 - Demo link
 - Limitations
@@ -287,11 +276,14 @@ Do not feature this project on the first launch unless at least one end-to-end w
 - `/` — Home
 - `/about` — About
 - `/projects` — Projects overview
-- `/projects/lane-detection-ebike` — Lane-detection detail page
+- `/projects/traffic-sign-detection-ebike` — Traffic-sign detection detail page
 - `/projects/uv-roller-blind` — UV roller-blind detail page
 - `/experience` — Industrial experience
 - `/skills` — Skills grouped by evidence level
 - `/contact` — Contact links
+
+### Legacy redirects
+- `/projects/lane-detection-ebike` — redirects to `/projects/traffic-sign-detection-ebike`
 
 ### Optional after evidence review
 - `/projects/turtlebot3-line-following-obstacle-avoidance`
