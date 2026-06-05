@@ -19,28 +19,21 @@ export function ProjectsPreview({ locale, dictionary }: ProjectsPreviewProps) {
     {
       key: "academic",
       heading: dictionary.projects.projectGroups.academic.heading,
-      description: dictionary.projects.projectGroups.academic.description,
-      label: dictionary.projects.projectGroups.academic.label,
       cards: groupedProjects.academic,
     },
     {
       key: "personal",
       heading: dictionary.projects.projectGroups.personal.heading,
-      description: dictionary.projects.projectGroups.personal.description,
-      label: dictionary.projects.projectGroups.personal.label,
       cards: groupedProjects.personal,
     },
   ] as const;
 
   return (
     <section id="projects" className="home-scroll-section tech-divider scroll-mt-24 space-y-5">
-      <div className="max-w-4xl space-y-4">
+      <div className="max-w-4xl">
         <h2 className="text-2xl font-semibold tracking-tight text-text sm:text-3xl">
           {dictionary.projects.title}
         </h2>
-        <p className="text-sm leading-7 text-text-muted sm:text-base">
-          {dictionary.projects.intro}
-        </p>
       </div>
 
       <div className="space-y-8">
@@ -58,19 +51,14 @@ export function ProjectsPreview({ locale, dictionary }: ProjectsPreviewProps) {
               <h3 className="text-lg font-semibold tracking-tight text-text sm:text-xl">
                 {group.heading}
               </h3>
-              <p className="text-sm leading-7 text-text-muted sm:text-base">
-                {group.description}
-              </p>
             </div>
             <div className="section-depth grid gap-4 rounded-[1.75rem] border border-border/80 p-4 sm:p-5 md:grid-cols-2 xl:grid-cols-3">
               {group.cards.map((project) => (
                 <ProjectCard
                   key={project.id}
-                  projectTypeLabel={group.label}
                   title={project.title}
                   summary={project.summary}
                   tags={project.tags}
-                  status={project.status}
                   caseStudyLabel={dictionary.projects.actions.viewCaseStudy}
                   liveDemoLabel={dictionary.projects.actions.tryLiveDemo}
                   githubLabel={dictionary.projects.actions.github}

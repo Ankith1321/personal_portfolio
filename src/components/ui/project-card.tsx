@@ -1,13 +1,10 @@
 import Image from "next/image";
 import { ProjectActionLink } from "@/components/projects/project-action-link";
-import { StatusBadge } from "@/components/ui/status-badge";
 
 type ProjectCardProps = {
-  projectTypeLabel: string;
   title: string;
   summary: string;
   tags: readonly string[];
-  status: string;
   caseStudyLabel: string;
   liveDemoLabel: string;
   githubLabel: string;
@@ -21,11 +18,9 @@ type ProjectCardProps = {
 };
 
 export function ProjectCard({
-  projectTypeLabel,
   title,
   summary,
   tags,
-  status,
   caseStudyLabel,
   liveDemoLabel,
   githubLabel,
@@ -56,12 +51,6 @@ export function ProjectCard({
           </div>
         </div>
       ) : null}
-      <div className="relative z-10 flex items-start justify-between gap-4">
-        <span className="inline-flex rounded-full border border-border/80 bg-background/72 px-2.5 py-1 text-[0.68rem] font-medium uppercase tracking-[0.18em] text-text-muted shadow-[inset_0_1px_0_rgba(255,255,255,0.08)] dark:bg-surface-muted/80 dark:text-panel-text-muted">
-          {projectTypeLabel}
-        </span>
-        <StatusBadge>{status}</StatusBadge>
-      </div>
       <h3 className="relative z-10 mt-4 max-w-[18rem] text-xl font-semibold tracking-tight text-text">
         {title}
       </h3>

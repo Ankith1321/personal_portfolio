@@ -22,8 +22,6 @@ type ProjectCardDictionary = {
 
 type ProjectGroupDictionary = {
   heading: string;
-  description: string;
-  label: string;
 };
 
 type SkillGroup = {
@@ -156,7 +154,6 @@ export type Dictionary = {
   projects: {
     heading: string;
     title: string;
-    intro: string;
     projectGroups: {
       academic: ProjectGroupDictionary;
       personal: ProjectGroupDictionary;
@@ -314,20 +311,12 @@ const dictionaries = {
     projects: {
       heading: "Projekte",
       title: "Projekte",
-      intro:
-        "Ausgewählte akademische und persönliche Projekte aus Machine Learning, Computer Vision, Smart Sensors, Robotik, Data Analytics und LLM-Anwendungen.",
       projectGroups: {
         academic: {
           heading: "Akademische Projekte",
-          description:
-            "Hochschul- und Kursprojekte mit Fokus auf Engineering, Perception, Smart Sensors und Robotik.",
-          label: "Akademisches Projekt",
         },
         personal: {
           heading: "Persönliche Projekte",
-          description:
-            "Eigene Projekte zu praktischer AI, Data Analytics, Deployment und LLM-Anwendungen.",
-          label: "Persönliches Projekt",
         },
       },
       actions: {
@@ -386,7 +375,7 @@ const dictionaries = {
           id: "sentinel-rag-assistant",
           title: "Sentinel Enterprise RAG Assistant",
           summary:
-            "Persönliches Projekt in Arbeit zu Dokumentensuche, Enterprise Knowledge Access und LLM-gestützten Antworten.",
+            "In Arbeit befindliches privates Projekt zu Dokumentensuche, Enterprise Knowledge Access und LLM-gestützten Antworten.",
           tags: ["In Progress", "Enterprise RAG"],
           status: "In Arbeit",
           imageAlt: "Abstrakte Illustration eines Enterprise-RAG-Assistenten",
@@ -445,7 +434,7 @@ const dictionaries = {
           id: "sentinel-rag-assistant",
           title: "Sentinel Enterprise RAG Assistant",
           summary:
-            "Persönliches Projekt in Arbeit zu Dokumentensuche, Enterprise Knowledge Access und LLM-gestützten Antworten.",
+            "In Arbeit befindliches privates Projekt zu Dokumentensuche, Enterprise Knowledge Access und LLM-gestützten Antworten.",
           tags: ["In Progress", "Enterprise RAG"],
           status: "In Arbeit",
           imageAlt: "Abstrakte Illustration eines Enterprise-RAG-Assistenten",
@@ -848,20 +837,12 @@ const dictionaries = {
     projects: {
       heading: "Projects",
       title: "Projects",
-      intro:
-        "Selected academic and personal projects that demonstrate my work in machine learning, computer vision, smart sensors, robotics, data analytics, and LLM applications.",
       projectGroups: {
         academic: {
           heading: "Academic Projects",
-          description:
-            "University and coursework projects focused on applied engineering, perception, smart sensors, and robotics.",
-          label: "Academic Project",
         },
         personal: {
           heading: "Personal Projects",
-          description:
-            "Independent projects developed to explore practical AI, data analytics, deployment, and LLM applications.",
-          label: "Personal Project",
         },
       },
       actions: {
@@ -920,7 +901,7 @@ const dictionaries = {
           id: "sentinel-rag-assistant",
           title: "Sentinel Enterprise RAG Assistant",
           summary:
-            "In-progress personal project exploring document retrieval, enterprise knowledge access, and LLM-assisted responses.",
+            "In-progress private project exploring document retrieval, enterprise knowledge access, and LLM-assisted responses.",
           tags: ["In Progress", "Enterprise RAG"],
           status: "In progress",
           imageAlt: "Abstract illustration of an enterprise RAG assistant concept",

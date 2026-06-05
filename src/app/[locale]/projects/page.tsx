@@ -24,15 +24,11 @@ export default async function LocalizedProjectsPage({
     {
       key: "academic",
       heading: dictionary.projects.projectGroups.academic.heading,
-      description: dictionary.projects.projectGroups.academic.description,
-      label: dictionary.projects.projectGroups.academic.label,
       cards: groupedProjects.academic,
     },
     {
       key: "personal",
       heading: dictionary.projects.projectGroups.personal.heading,
-      description: dictionary.projects.projectGroups.personal.description,
-      label: dictionary.projects.projectGroups.personal.label,
       cards: groupedProjects.personal,
     },
   ] as const;
@@ -43,9 +39,6 @@ export default async function LocalizedProjectsPage({
         <h1 className="mt-3 text-3xl font-semibold tracking-tight text-text sm:text-4xl">
           {dictionary.projects.title}
         </h1>
-        <p className="mt-5 max-w-3xl text-sm leading-7 text-text-muted sm:text-base">
-          {dictionary.projects.intro}
-        </p>
       </section>
       <div className="space-y-8">
         {projectGroups.map((group) => (
@@ -62,19 +55,14 @@ export default async function LocalizedProjectsPage({
               <h2 className="text-xl font-semibold tracking-tight text-text sm:text-2xl">
                 {group.heading}
               </h2>
-              <p className="text-sm leading-7 text-text-muted sm:text-base">
-                {group.description}
-              </p>
             </div>
             <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
               {group.cards.map((project) => (
                 <ProjectCard
                   key={project.id}
-                  projectTypeLabel={group.label}
                   title={project.title}
                   summary={project.summary}
                   tags={project.tags}
-                  status={project.status}
                   caseStudyLabel={dictionary.projects.actions.viewCaseStudy}
                   liveDemoLabel={dictionary.projects.actions.tryLiveDemo}
                   githubLabel={dictionary.projects.actions.github}
