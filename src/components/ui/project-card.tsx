@@ -3,6 +3,7 @@ import { ProjectActionLink } from "@/components/projects/project-action-link";
 import { StatusBadge } from "@/components/ui/status-badge";
 
 type ProjectCardProps = {
+  projectTypeLabel: string;
   title: string;
   summary: string;
   tags: readonly string[];
@@ -20,6 +21,7 @@ type ProjectCardProps = {
 };
 
 export function ProjectCard({
+  projectTypeLabel,
   title,
   summary,
   tags,
@@ -54,12 +56,15 @@ export function ProjectCard({
           </div>
         </div>
       ) : null}
-      <div className="flex items-start justify-between gap-4">
-        <h3 className="relative z-10 max-w-[18rem] text-xl font-semibold tracking-tight text-text">
-          {title}
-        </h3>
+      <div className="relative z-10 flex items-start justify-between gap-4">
+        <span className="inline-flex rounded-full border border-border/80 bg-background/72 px-2.5 py-1 text-[0.68rem] font-medium uppercase tracking-[0.18em] text-text-muted shadow-[inset_0_1px_0_rgba(255,255,255,0.08)] dark:bg-surface-muted/80 dark:text-panel-text-muted">
+          {projectTypeLabel}
+        </span>
         <StatusBadge>{status}</StatusBadge>
       </div>
+      <h3 className="relative z-10 mt-4 max-w-[18rem] text-xl font-semibold tracking-tight text-text">
+        {title}
+      </h3>
       <p className="relative z-10 mt-4 text-sm leading-7 text-text-muted">
         {summary}
       </p>

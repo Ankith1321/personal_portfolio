@@ -20,6 +20,12 @@ type ProjectCardDictionary = {
   slug?: PublishedProjectSlug;
 };
 
+type ProjectGroupDictionary = {
+  heading: string;
+  description: string;
+  label: string;
+};
+
 type SkillGroup = {
   title: string;
   items: readonly string[];
@@ -151,6 +157,10 @@ export type Dictionary = {
     heading: string;
     title: string;
     intro: string;
+    projectGroups: {
+      academic: ProjectGroupDictionary;
+      personal: ProjectGroupDictionary;
+    };
     actions: {
       viewCaseStudy: string;
       tryLiveDemo: string;
@@ -303,9 +313,23 @@ const dictionaries = {
     },
     projects: {
       heading: "Projekte",
-      title:
-        "Ausgewählte Projekte aus Computer Vision, Smart Sensors und intelligenten Systemen.",
-      intro: "Ausgewählte Projekte aus Computer Vision, Smart Sensors und intelligenten Systemen.",
+      title: "Projekte",
+      intro:
+        "Ausgewählte akademische und persönliche Projekte aus Machine Learning, Computer Vision, Smart Sensors, Robotik, Data Analytics und LLM-Anwendungen.",
+      projectGroups: {
+        academic: {
+          heading: "Akademische Projekte",
+          description:
+            "Hochschul- und Kursprojekte mit Fokus auf Engineering, Perception, Smart Sensors und Robotik.",
+          label: "Akademisches Projekt",
+        },
+        personal: {
+          heading: "Persönliche Projekte",
+          description:
+            "Eigene Projekte zu praktischer AI, Data Analytics, Deployment und LLM-Anwendungen.",
+          label: "Persönliches Projekt",
+        },
+      },
       actions: {
         viewCaseStudy: "Projektdetails ansehen",
         tryLiveDemo: "Live-Demo testen",
@@ -324,55 +348,6 @@ const dictionaries = {
           imageAlt:
             "Cyclist on an urban bike lane representing the e-bike perception use case",
           slug: "lane-detection-ebike",
-        },
-        {
-          id: "drug-feedback-analytics",
-          title: "Drug Feedback Analytics und Condition Classification",
-          summary:
-            "Interaktive Streamlit-Anwendung zur Analyse von patientenbasiertem Drug Feedback und zum Testen einer ML-basierten Condition-Classification.",
-          tags: ["Python", "Scikit-learn", "Streamlit"],
-          status: "Abgeschlossen",
-          imageAlt:
-            "Abstrakte Illustration von Pharma-Analytics, Charts und Prediction-Workflow",
-          slug: "drug-feedback-analytics",
-        },
-        {
-          id: "uv-roller-blind",
-          title: "UV-Messung und automatische Rollladensteuerung",
-          summary:
-            "Smart-Sensor-Projekt mit UV-Monitoring, Bluetooth-Kommunikation, Edge-Device-Architektur und automatischer Rollladensteuerung.",
-          tags: ["Smart Sensors", "Bluetooth", "Edge Systems"],
-          status: "Abgeschlossen",
-          imageAlt:
-            "Abstrakte Illustration von UV-Sensorik und automatischer Rollladensteuerung",
-          detailsState: "Details folgen bald",
-        },
-      ],
-      pageTitle: "Ausgewählte Projekte",
-      pageDescription:
-        "Diese Projektübersicht zeigt die wichtigsten öffentlichen Projekte aus Computer Vision, Smart Sensors und interaktiver ML-Anwendungspraxis.",
-      pageCards: [
-        {
-          id: "lane-detection-ebike",
-          title: "Lane Detection für E-Bike Perception",
-          summary:
-            "Kamerabasierte Lane Detection mit Bildvorverarbeitung und Deep-Learning-Training für ein E-Bike-Perception-Projekt.",
-          tags: ["Computer Vision", "OpenCV", "Deep Learning"],
-          status: "Abgeschlossen",
-          imageAlt:
-            "Abstrakte Illustration von Lane Detection, Wahrnehmung und Ausgabefluss",
-          slug: "lane-detection-ebike",
-        },
-        {
-          id: "drug-feedback-analytics",
-          title: "Drug Feedback Analytics und Condition Classification",
-          summary:
-            "Interaktive Streamlit-Anwendung zur Analyse von patientenbasiertem Drug Feedback und zum Testen einer ML-basierten Condition-Classification.",
-          tags: ["Python", "Scikit-learn", "Streamlit"],
-          status: "Abgeschlossen",
-          imageAlt:
-            "Abstrakte Illustration von Pharma-Analytics, Charts und Prediction-Workflow",
-          slug: "drug-feedback-analytics",
         },
         {
           id: "uv-roller-blind",
@@ -397,14 +372,84 @@ const dictionaries = {
           detailsState: "Details folgen bald",
         },
         {
+          id: "drug-feedback-analytics",
+          title: "Drug Feedback Analytics und Condition Classification",
+          summary:
+            "Interaktive Streamlit-Anwendung zur Analyse von patientenbasiertem Drug Feedback und zum Testen einer ML-basierten Condition-Classification.",
+          tags: ["Python", "Scikit-learn", "Streamlit"],
+          status: "Abgeschlossen",
+          imageAlt:
+            "Abstrakte Illustration von Pharma-Analytics, Charts und Prediction-Workflow",
+          slug: "drug-feedback-analytics",
+        },
+        {
           id: "sentinel-rag-assistant",
           title: "Sentinel Enterprise RAG Assistant",
           summary:
-            "Enterprise-RAG-Assistent ist noch in Arbeit. Nur wirklich umgesetzte Teile werden später veröffentlicht. Geplante Funktionen bleiben getrennt.",
+            "Persönliches Projekt in Arbeit zu Dokumentensuche, Enterprise Knowledge Access und LLM-gestützten Antworten.",
           tags: ["In Progress", "Enterprise RAG"],
           status: "In Arbeit",
           imageAlt: "Abstrakte Illustration eines Enterprise-RAG-Assistenten",
-          detailsState: "Veröffentlichung nach Prüfung",
+          detailsState: "Details folgen bald",
+        },
+      ],
+      pageTitle: "Projekte",
+      pageDescription:
+        "Diese Projektübersicht zeigt akademische und persönliche Projekte aus Machine Learning, Computer Vision, Smart Sensors, Robotik, Data Analytics und LLM-Anwendungen.",
+      pageCards: [
+        {
+          id: "lane-detection-ebike",
+          title: "Lane Detection für E-Bike Perception",
+          summary:
+            "Kamerabasierte Lane Detection mit Bildvorverarbeitung und Deep-Learning-Training für ein E-Bike-Perception-Projekt.",
+          tags: ["Computer Vision", "OpenCV", "Deep Learning"],
+          status: "Abgeschlossen",
+          imageAlt:
+            "Abstrakte Illustration von Lane Detection, Wahrnehmung und Ausgabefluss",
+          slug: "lane-detection-ebike",
+        },
+        {
+          id: "uv-roller-blind",
+          title: "UV-Messung und automatische Rollladensteuerung",
+          summary:
+            "Smart-Sensor-Projekt mit UV-Monitoring, Bluetooth-Kommunikation, Edge-Device-Architektur und automatischer Rollladensteuerung.",
+          tags: ["Smart Sensors", "Bluetooth", "Edge Systems"],
+          status: "Abgeschlossen",
+          imageAlt:
+            "Abstrakte Illustration von UV-Sensorik und automatischer Rollladensteuerung",
+          detailsState: "Details folgen bald",
+        },
+        {
+          id: "turtlebot3-line-following",
+          title: "TurtleBot3 Linienverfolgung und Hinderniserkennung",
+          summary:
+            "ROS2-Hochschulprojekt mit kamerabasierter Linienverfolgung, LiDAR-Hinderniserkennung und Steuerlogik.",
+          tags: ["ROS2", "OpenCV", "LiDAR"],
+          status: "In Arbeit",
+          imageAlt:
+            "Abstrakte Illustration von TurtleBot-Linienverfolgung und Hinderniserkennung",
+          detailsState: "Details folgen bald",
+        },
+        {
+          id: "drug-feedback-analytics",
+          title: "Drug Feedback Analytics und Condition Classification",
+          summary:
+            "Interaktive Streamlit-Anwendung zur Analyse von patientenbasiertem Drug Feedback und zum Testen einer ML-basierten Condition-Classification.",
+          tags: ["Python", "Scikit-learn", "Streamlit"],
+          status: "Abgeschlossen",
+          imageAlt:
+            "Abstrakte Illustration von Pharma-Analytics, Charts und Prediction-Workflow",
+          slug: "drug-feedback-analytics",
+        },
+        {
+          id: "sentinel-rag-assistant",
+          title: "Sentinel Enterprise RAG Assistant",
+          summary:
+            "Persönliches Projekt in Arbeit zu Dokumentensuche, Enterprise Knowledge Access und LLM-gestützten Antworten.",
+          tags: ["In Progress", "Enterprise RAG"],
+          status: "In Arbeit",
+          imageAlt: "Abstrakte Illustration eines Enterprise-RAG-Assistenten",
+          detailsState: "Details folgen bald",
         },
       ],
     },
@@ -583,6 +628,7 @@ const dictionaries = {
         "Situation — Kamerabasierte Lane Detection für ein E-Bike-Perception-System.",
         "Aufgabe — Einen Workflow für Kamerabilder, Bildvorverarbeitung und Deep-Learning-Training entwickeln.",
         "Analyse — Bilddaten vorbereitet, vorverarbeitet und mit einem Datensatz von ungefähr 35.000 Bildern einen Deep-Learning-Ansatz trainiert.",
+        "Ergebnis — Einen Lane-Detection-Workflow für das E-Bike-Perception-Use-Case geliefert.",
       ],
       stepLabel: "Schritt",
       technicalOverviewEyebrow: "Technische Übersicht",
@@ -801,9 +847,23 @@ const dictionaries = {
     },
     projects: {
       heading: "Projects",
-      title: "Selected projects at a glance",
+      title: "Projects",
       intro:
-        "Selected projects from computer vision, smart sensors, and intelligent systems.",
+        "Selected academic and personal projects that demonstrate my work in machine learning, computer vision, smart sensors, robotics, data analytics, and LLM applications.",
+      projectGroups: {
+        academic: {
+          heading: "Academic Projects",
+          description:
+            "University and coursework projects focused on applied engineering, perception, smart sensors, and robotics.",
+          label: "Academic Project",
+        },
+        personal: {
+          heading: "Personal Projects",
+          description:
+            "Independent projects developed to explore practical AI, data analytics, deployment, and LLM applications.",
+          label: "Personal Project",
+        },
+      },
       actions: {
         viewCaseStudy: "View Project Details",
         tryLiveDemo: "Try Live Demo",
@@ -822,55 +882,6 @@ const dictionaries = {
           imageAlt:
             "Cyclist on an urban bike lane representing the e-bike perception use case",
           slug: "lane-detection-ebike",
-        },
-        {
-          id: "drug-feedback-analytics",
-          title: "Drug Feedback Analytics and Condition Classification",
-          summary:
-            "Interactive Streamlit application for exploring patient-reported drug feedback and testing an ML-based medical-condition classification workflow.",
-          tags: ["Python", "Scikit-learn", "Streamlit"],
-          status: "Completed",
-          imageAlt:
-            "Abstract illustration of pharma analytics, charts, and prediction workflow",
-          slug: "drug-feedback-analytics",
-        },
-        {
-          id: "uv-roller-blind",
-          title: "UV Measurement and Automated Roller-Blind Steering",
-          summary:
-            "Smart-sensor project involving UV monitoring, Bluetooth communication, edge-device architecture, and automated roller-blind control.",
-          tags: ["Smart Sensors", "Bluetooth", "Edge Systems"],
-          status: "Completed",
-          imageAlt:
-            "Abstract illustration of UV sensing and automated blind control",
-          detailsState: "Details coming soon",
-        },
-      ],
-      pageTitle: "Selected projects",
-      pageDescription:
-        "These project summaries highlight the main public projects across computer vision, smart sensors, and interactive ML applications.",
-      pageCards: [
-        {
-          id: "lane-detection-ebike",
-          title: "Lane Detection for E-Bike Perception",
-          summary:
-            "Camera-based lane detection using image preprocessing and deep-learning training for an e-bike perception use case.",
-          tags: ["Computer Vision", "OpenCV", "Deep Learning"],
-          status: "Completed",
-          imageAlt:
-            "Cyclist on an urban bike lane representing the e-bike perception use case",
-          slug: "lane-detection-ebike",
-        },
-        {
-          id: "drug-feedback-analytics",
-          title: "Drug Feedback Analytics and Condition Classification",
-          summary:
-            "Interactive Streamlit application for exploring patient-reported drug feedback and testing an ML-based medical-condition classification workflow.",
-          tags: ["Python", "Scikit-learn", "Streamlit"],
-          status: "Completed",
-          imageAlt:
-            "Abstract illustration of pharma analytics, charts, and prediction workflow",
-          slug: "drug-feedback-analytics",
         },
         {
           id: "uv-roller-blind",
@@ -895,14 +906,84 @@ const dictionaries = {
           detailsState: "Details coming soon",
         },
         {
+          id: "drug-feedback-analytics",
+          title: "Drug Feedback Analytics and Condition Classification",
+          summary:
+            "Interactive Streamlit application for exploring patient-reported drug feedback and testing an ML-based medical-condition classification workflow.",
+          tags: ["Python", "Scikit-learn", "Streamlit"],
+          status: "Completed",
+          imageAlt:
+            "Abstract illustration of pharma analytics, charts, and prediction workflow",
+          slug: "drug-feedback-analytics",
+        },
+        {
           id: "sentinel-rag-assistant",
           title: "Sentinel Enterprise RAG Assistant",
           summary:
-            "Enterprise RAG assistant concept in progress. Only implemented components will be published later, with planned functionality kept separate.",
+            "In-progress personal project exploring document retrieval, enterprise knowledge access, and LLM-assisted responses.",
           tags: ["In Progress", "Enterprise RAG"],
           status: "In progress",
           imageAlt: "Abstract illustration of an enterprise RAG assistant concept",
-          detailsState: "Publication deferred until implementation is verified",
+          detailsState: "Details coming soon",
+        },
+      ],
+      pageTitle: "Projects",
+      pageDescription:
+        "These project summaries highlight the main public projects across computer vision, smart sensors, robotics, data analytics, and interactive LLM applications.",
+      pageCards: [
+        {
+          id: "lane-detection-ebike",
+          title: "Lane Detection for E-Bike Perception",
+          summary:
+            "Camera-based lane detection using image preprocessing and deep-learning training for an e-bike perception use case.",
+          tags: ["Computer Vision", "OpenCV", "Deep Learning"],
+          status: "Completed",
+          imageAlt:
+            "Cyclist on an urban bike lane representing the e-bike perception use case",
+          slug: "lane-detection-ebike",
+        },
+        {
+          id: "uv-roller-blind",
+          title: "UV Measurement and Automated Roller-Blind Steering",
+          summary:
+            "Smart-sensor project involving UV monitoring, Bluetooth communication, edge-device architecture, and automated roller-blind control.",
+          tags: ["Smart Sensors", "Bluetooth", "Edge Systems"],
+          status: "Completed",
+          imageAlt:
+            "Abstract illustration of UV sensing and automated blind control",
+          detailsState: "Details coming soon",
+        },
+        {
+          id: "turtlebot3-line-following",
+          title: "TurtleBot3 Line Following and Obstacle Avoidance",
+          summary:
+            "ROS2 academic project combining camera-based line tracking with LiDAR-based static-obstacle detection and control logic.",
+          tags: ["ROS2", "OpenCV", "LiDAR"],
+          status: "In progress",
+          imageAlt:
+            "Abstract illustration of TurtleBot line following and obstacle avoidance",
+          detailsState: "Details coming soon",
+        },
+        {
+          id: "drug-feedback-analytics",
+          title: "Drug Feedback Analytics and Condition Classification",
+          summary:
+            "Interactive Streamlit application for exploring patient-reported drug feedback and testing an ML-based medical-condition classification workflow.",
+          tags: ["Python", "Scikit-learn", "Streamlit"],
+          status: "Completed",
+          imageAlt:
+            "Abstract illustration of pharma analytics, charts, and prediction workflow",
+          slug: "drug-feedback-analytics",
+        },
+        {
+          id: "sentinel-rag-assistant",
+          title: "Sentinel Enterprise RAG Assistant",
+          summary:
+            "In-progress personal project exploring document retrieval, enterprise knowledge access, and LLM-assisted responses.",
+          tags: ["In Progress", "Enterprise RAG"],
+          status: "In progress",
+          imageAlt: "Abstract illustration of an enterprise RAG assistant concept",
+          detailsState: "Details coming soon",
         },
       ],
     },
@@ -1081,6 +1162,7 @@ const dictionaries = {
         "Situation — Camera-based lane-related perception for an e-bike use case.",
         "Task — Build a workflow that processes camera images and supports lane detection through deep-learning training.",
         "Analysis — Prepared and preprocessed image data and trained a deep-learning-based approach on an image dataset of approximately 35,000 images.",
+        "Result — Delivered a lane-detection workflow for the e-bike perception use case.",
       ],
       stepLabel: "Step",
       technicalOverviewEyebrow: "Technical overview",
@@ -1117,10 +1199,6 @@ const dictionaries = {
             value: "Personal applied-ML project",
           },
           {
-            label: "Interface",
-            value: "Streamlit web application",
-          },
-          {
             label: "Core ML Task",
             value: "Condition classification",
           },
@@ -1136,10 +1214,6 @@ const dictionaries = {
           {
             label: "Deployment",
             value: "Streamlit",
-          },
-          {
-            label: "Status",
-            value: "Completed",
           },
         ],
       },

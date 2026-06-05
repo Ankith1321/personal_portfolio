@@ -66,7 +66,7 @@ export default async function LocalizedLaneDetectionProjectPage({
         eyebrow={content.workflowHeading}
         title={content.workflowHeading}
       >
-        <ol className="grid gap-4 md:grid-cols-3">
+        <ol className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
           {content.workflowSteps.map((point, index) => (
             <li
               key={point}

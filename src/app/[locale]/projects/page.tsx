@@ -1,11 +1,11 @@
 import { Container } from "@/components/layout/container";
 import { ProjectCard } from "@/components/ui/project-card";
-import { SectionHeading } from "@/components/ui/section-heading";
 import { getDictionary } from "@/lib/dictionaries";
 import { getLocaleStaticParams, getLocalizedPath, resolveLocale } from "@/lib/i18n";
 import {
   getProjectAsset,
   getPublishedProjectLinks,
+  partitionProjectsByType,
 } from "@/lib/portfolio-data";
 
 export function generateStaticParams() {
@@ -19,54 +19,94 @@ export default async function LocalizedProjectsPage({
 }) {
   const locale = await resolveLocale(params);
   const dictionary = getDictionary(locale);
+  const groupedProjects = partitionProjectsByType(dictionary.projects.pageCards);
+  const projectGroups = [
+    {
+      key: "academic",
+      heading: dictionary.projects.projectGroups.academic.heading,
+      description: dictionary.projects.projectGroups.academic.description,
+      label: dictionary.projects.projectGroups.academic.label,
+      cards: groupedProjects.academic,
+    },
+    {
+      key: "personal",
+      heading: dictionary.projects.projectGroups.personal.heading,
+      description: dictionary.projects.projectGroups.personal.description,
+      label: dictionary.projects.projectGroups.personal.label,
+      cards: groupedProjects.personal,
+    },
+  ] as const;
 
   return (
     <Container className="space-y-8 py-16 sm:py-20">
       <section className="rounded-[1.75rem] border border-border bg-surface px-6 py-8 sm:px-8">
-        <SectionHeading eyebrow={dictionary.projects.heading}>
-          {dictionary.projects.pageTitle}
-        </SectionHeading>
+        <h1 className="mt-3 text-3xl font-semibold tracking-tight text-text sm:text-4xl">
+          {dictionary.projects.title}
+        </h1>
         <p className="mt-5 max-w-3xl text-sm leading-7 text-text-muted sm:text-base">
-          {dictionary.projects.pageDescription}
+          {dictionary.projects.intro}
         </p>
       </section>
-      <section className="grid gap-5 lg:grid-cols-2">
-        {dictionary.projects.pageCards.map((project) => (
-          <ProjectCard
-            key={project.title}
-            title={project.title}
-            summary={project.summary}
-            tags={project.tags}
-            status={project.status}
-            caseStudyLabel={dictionary.projects.actions.viewCaseStudy}
-            liveDemoLabel={dictionary.projects.actions.tryLiveDemo}
-            githubLabel={dictionary.projects.actions.github}
-            disabledGithubReason={
-              project.slug
-                ? getPublishedProjectLinks(project.slug).githubTodo
-                : undefined
-            }
-            detailsState={project.detailsState}
-            href={
-              project.slug
-                ? getLocalizedPath(locale, `/projects/${project.slug}`)
-                : undefined
-            }
-            liveDemoHref={
-              project.slug
-                ? getPublishedProjectLinks(project.slug).demoHref
-                : undefined
-            }
-            githubHref={
-              project.slug
-                ? getPublishedProjectLinks(project.slug).githubHref
-                : undefined
-            }
-            imageSrc={getProjectAsset(project.id).imageSrc}
-            imageAlt={project.imageAlt}
-          />
+      <div className="space-y-8">
+        {projectGroups.map((group) => (
+          <section
+            key={group.key}
+            className={[
+              "space-y-4",
+              group.key === "personal" ? "border-t border-border/70 pt-7" : "",
+            ]
+              .filter(Boolean)
+              .join(" ")}
+          >
+            <div className="max-w-3xl space-y-2">
+              <h2 className="text-xl font-semibold tracking-tight text-text sm:text-2xl">
+                {group.heading}
+              </h2>
+              <p className="text-sm leading-7 text-text-muted sm:text-base">
+                {group.description}
+              </p>
+            </div>
+            <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+              {group.cards.map((project) => (
+                <ProjectCard
+                  key={project.id}
+                  projectTypeLabel={group.label}
+                  title={project.title}
+                  summary={project.summary}
+                  tags={project.tags}
+                  status={project.status}
+                  caseStudyLabel={dictionary.projects.actions.viewCaseStudy}
+                  liveDemoLabel={dictionary.projects.actions.tryLiveDemo}
+                  githubLabel={dictionary.projects.actions.github}
+                  disabledGithubReason={
+                    project.slug
+                      ? getPublishedProjectLinks(project.slug).githubTodo
+                      : undefined
+                  }
+                  detailsState={project.detailsState}
+                  href={
+                    project.slug
+                      ? getLocalizedPath(locale, `/projects/${project.slug}`)
+                      : undefined
+                  }
+                  liveDemoHref={
+                    project.slug
+                      ? getPublishedProjectLinks(project.slug).demoHref
+                      : undefined
+                  }
+                  githubHref={
+                    project.slug
+                      ? getPublishedProjectLinks(project.slug).githubHref
+                      : undefined
+                  }
+                  imageSrc={getProjectAsset(project.id).imageSrc}
+                  imageAlt={project.imageAlt}
+                />
+              ))}
+            </div>
+          </section>
         ))}
-      </section>
+      </div>
     </Container>
   );
 }

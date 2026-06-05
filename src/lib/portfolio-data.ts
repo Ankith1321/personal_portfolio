@@ -5,11 +5,14 @@ export type ProjectCardId =
   | "turtlebot3-line-following"
   | "sentinel-rag-assistant";
 
+export type ProjectType = "academic" | "personal";
+
 export type PublishedProjectSlug =
   | "lane-detection-ebike"
   | "drug-feedback-analytics";
 
 type ProjectAsset = {
+  projectType: ProjectType;
   imageSrc?: string;
 };
 
@@ -21,18 +24,24 @@ type PublishedProjectLinkConfig = {
 
 const projectAssets: Record<ProjectCardId, ProjectAsset> = {
   "lane-detection-ebike": {
+    projectType: "academic",
     imageSrc: "/images/projects/lane-detection-ebike/hero.png",
   },
   "drug-feedback-analytics": {
+    projectType: "personal",
     imageSrc: "/images/projects/drug-feedback-analytics-hero.svg",
   },
   "uv-roller-blind": {
+    projectType: "academic",
     imageSrc: "/images/projects/uv-roller-blind-visual.svg",
   },
   "turtlebot3-line-following": {
+    projectType: "academic",
     imageSrc: "/images/projects/turtlebot-visual.svg",
   },
-  "sentinel-rag-assistant": {},
+  "sentinel-rag-assistant": {
+    projectType: "personal",
+  },
 };
 
 const publishedProjectLinks: Record<
@@ -49,6 +58,19 @@ const publishedProjectLinks: Record<
 
 export function getProjectAsset(id: ProjectCardId) {
   return projectAssets[id];
+}
+
+export function getProjectType(id: ProjectCardId) {
+  return projectAssets[id].projectType;
+}
+
+export function partitionProjectsByType<T extends { id: ProjectCardId }>(
+  projects: readonly T[],
+) {
+  return {
+    academic: projects.filter((project) => getProjectType(project.id) === "academic"),
+    personal: projects.filter((project) => getProjectType(project.id) === "personal"),
+  };
 }
 
 export function getPublishedProjectLinks(slug: PublishedProjectSlug) {
