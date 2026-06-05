@@ -72,6 +72,8 @@ export function LanguageSwitcher({
             href={href}
             aria-label={option.ariaLabel}
             aria-current={isActive ? "page" : undefined}
+            data-umami-event="language-switch"
+            data-umami-event-locale={option.code}
             className={[
               "inline-flex h-8 min-w-9 items-center justify-center rounded-full px-2 text-xs font-semibold tracking-[0.08em] transition-colors",
               isActive

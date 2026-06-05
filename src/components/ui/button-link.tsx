@@ -8,6 +8,7 @@ type ButtonLinkProps = {
   variant?: "primary" | "secondary";
   className?: string;
   download?: string;
+  analyticsAttrs?: Record<string, string | undefined>;
 };
 
 export function ButtonLink({
@@ -16,6 +17,7 @@ export function ButtonLink({
   variant = "primary",
   className,
   download,
+  analyticsAttrs,
 }: ButtonLinkProps) {
   const sharedClassName = [
     "inline-flex min-h-11 items-center rounded-full px-5 py-3 text-sm font-medium shadow-[0_12px_24px_rgba(18,23,34,0.10)] motion-safe:hover:-translate-y-0.5 motion-safe:active:translate-y-0 motion-reduce:transform-none",
@@ -31,6 +33,7 @@ export function ButtonLink({
     return (
       <span
         aria-disabled="true"
+        {...analyticsAttrs}
         className={[
           sharedClassName,
           "cursor-not-allowed opacity-100 hover:border-border hover:text-text",
@@ -46,11 +49,15 @@ export function ButtonLink({
 
   if (download) {
     return (
-      <a href={href} download={download} className={sharedClassName}>
+      <a href={href} download={download} className={sharedClassName} {...analyticsAttrs}>
         {children}
       </a>
     );
   }
 
-  return <Link href={href} className={sharedClassName}>{children}</Link>;
+  return (
+    <Link href={href} className={sharedClassName} {...analyticsAttrs}>
+      {children}
+    </Link>
+  );
 }

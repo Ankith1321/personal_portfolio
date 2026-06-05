@@ -27,16 +27,25 @@ export default async function LocalizedContactPage({
       value: isVerifiedLink(siteConfig.social.email)
         ? siteConfig.social.emailAddress
         : dictionary.contact.disabledEmail,
+      analyticsAttrs: {
+        "data-umami-event": "email-click",
+      },
     },
     {
       label: dictionary.contact.actions.linkedin,
       href: siteConfig.social.linkedin,
       value: siteConfig.social.linkedin,
+      analyticsAttrs: {
+        "data-umami-event": "linkedin-click",
+      },
     },
     {
       label: dictionary.contact.actions.github,
       href: siteConfig.social.github,
       value: siteConfig.social.github,
+      analyticsAttrs: {
+        "data-umami-event": "github-profile-click",
+      },
     },
   ] as const;
 
@@ -78,6 +87,7 @@ export default async function LocalizedContactPage({
                     href={item.href}
                     target={item.href.startsWith("mailto:") ? undefined : "_blank"}
                     rel={item.href.startsWith("mailto:") ? undefined : "noreferrer noopener"}
+                    {...item.analyticsAttrs}
                     className="text-text-muted underline decoration-border underline-offset-4 hover:text-accent"
                   >
                     {item.value}
@@ -94,6 +104,11 @@ export default async function LocalizedContactPage({
               download={resumeFilename}
               variant="secondary"
               className="w-full justify-center"
+              analyticsAttrs={{
+                "data-umami-event": "resume-download",
+                "data-umami-event-locale": locale,
+                "data-umami-event-file": resumeFilename,
+              }}
             >
               {dictionary.contact.actions.resume}
             </ButtonLink>

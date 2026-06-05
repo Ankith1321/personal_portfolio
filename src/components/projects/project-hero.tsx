@@ -7,6 +7,7 @@ type ProjectHeroAction = {
   disabledReason?: string;
   external?: boolean;
   variant?: "primary" | "secondary" | "ghost";
+  analyticsAttrs?: Record<string, string | undefined>;
 };
 
 type ProjectHeroProps = {
@@ -55,6 +56,7 @@ export function ProjectHero({
                   disabledReason={action.disabledReason}
                   external={action.external}
                   variant={action.variant}
+                  analyticsAttrs={action.analyticsAttrs}
                 />
               ))}
             </div>

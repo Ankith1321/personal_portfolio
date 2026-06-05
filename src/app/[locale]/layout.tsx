@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { UmamiAnalytics } from "@/components/analytics/umami-analytics";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { SiteHeader } from "@/components/layout/site-header";
 import { CursorSensorField } from "@/components/ui/cursor-sensor-field";
@@ -47,6 +48,7 @@ export default async function LocaleLayout({
     >
       <body className="min-h-full bg-background text-text">
         <CursorSensorField />
+        <UmamiAnalytics />
         <a
           href="#main-content"
           className="skip-link sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-full focus:bg-surface focus:px-4 focus:py-2 focus:text-sm focus:font-medium focus:text-text"

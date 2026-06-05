@@ -67,6 +67,30 @@ export function ProjectsPreview({ locale, dictionary }: ProjectsPreviewProps) {
                       ? getPublishedProjectLinks(project.slug).githubTodo
                       : undefined
                   }
+                  caseStudyAnalyticsAttrs={
+                    project.slug
+                      ? {
+                          "data-umami-event": "project-details-click",
+                          "data-umami-event-project": project.slug,
+                        }
+                      : undefined
+                  }
+                  liveDemoAnalyticsAttrs={
+                    project.slug
+                      ? {
+                          "data-umami-event": "live-demo-click",
+                          "data-umami-event-project": project.slug,
+                        }
+                      : undefined
+                  }
+                  githubAnalyticsAttrs={
+                    project.slug
+                      ? {
+                          "data-umami-event": "project-github-click",
+                          "data-umami-event-project": project.slug,
+                        }
+                      : undefined
+                  }
                   detailsState={project.detailsState}
                   href={
                     project.slug

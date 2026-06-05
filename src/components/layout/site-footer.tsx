@@ -2,7 +2,7 @@ import Link from "next/link";
 import { Container } from "@/components/layout/container";
 import type { Dictionary } from "@/lib/dictionaries";
 import type { Locale } from "@/lib/i18n";
-import { getHomeSectionHref } from "@/lib/i18n";
+import { getHomeSectionHref, getLocalizedPath } from "@/lib/i18n";
 import { isVerifiedLink, siteConfig } from "@/lib/site-config";
 
 type SiteFooterProps = {
@@ -12,11 +12,30 @@ type SiteFooterProps = {
 
 export function SiteFooter({ locale, dictionary }: SiteFooterProps) {
   const socialLinks = [
-    { label: dictionary.footer.linkedin, href: siteConfig.social.linkedin },
-    { label: dictionary.footer.github, href: siteConfig.social.github },
-    { label: dictionary.contact.actions.email, href: siteConfig.social.email },
+    {
+      label: dictionary.footer.linkedin,
+      href: siteConfig.social.linkedin,
+      analyticsAttrs: {
+        "data-umami-event": "linkedin-click",
+      },
+    },
+    {
+      label: dictionary.footer.github,
+      href: siteConfig.social.github,
+      analyticsAttrs: {
+        "data-umami-event": "github-profile-click",
+      },
+    },
+    {
+      label: dictionary.contact.actions.email,
+      href: siteConfig.social.email,
+      analyticsAttrs: {
+        "data-umami-event": "email-click",
+      },
+    },
   ];
   const verifiedLinks = socialLinks.filter((item) => isVerifiedLink(item.href));
+  const privacyLabel = locale === "de" ? "Datenschutz" : "Privacy";
 
   return (
     <footer className="border-t border-border bg-surface/70">
@@ -37,10 +56,17 @@ export function SiteFooter({ locale, dictionary }: SiteFooterProps) {
                 target={item.href.startsWith("mailto:") ? undefined : "_blank"}
                 rel={item.href.startsWith("mailto:") ? undefined : "noreferrer noopener"}
                 className="text-text-muted hover:text-accent"
+                {...item.analyticsAttrs}
               >
                 {item.label}
               </a>
             ))}
+            <Link
+              href={getLocalizedPath(locale, "/privacy")}
+              className="text-text-muted hover:text-accent"
+            >
+              {privacyLabel}
+            </Link>
             <Link
               href={getHomeSectionHref(locale, "home")}
               className="text-text-muted hover:text-accent"

@@ -11,6 +11,9 @@ type ProjectCardProps = {
   githubLabel: string;
   disabledGithubReason?: string;
   detailsState?: string;
+  caseStudyAnalyticsAttrs?: Record<string, string | undefined>;
+  liveDemoAnalyticsAttrs?: Record<string, string | undefined>;
+  githubAnalyticsAttrs?: Record<string, string | undefined>;
   href?: string;
   liveDemoHref?: string;
   githubHref?: string;
@@ -29,6 +32,9 @@ export function ProjectCard({
   githubLabel,
   disabledGithubReason,
   detailsState,
+  caseStudyAnalyticsAttrs,
+  liveDemoAnalyticsAttrs,
+  githubAnalyticsAttrs,
   href,
   liveDemoHref,
   githubHref,
@@ -85,6 +91,7 @@ export function ProjectCard({
               label={caseStudyLabel}
               variant="secondary"
               className="backdrop-blur-sm"
+              analyticsAttrs={caseStudyAnalyticsAttrs}
             />
           ) : detailsState ? (
             <span className="inline-flex rounded-full border border-dashed border-border px-3 py-2 text-sm text-text-muted">
@@ -97,6 +104,7 @@ export function ProjectCard({
               label={liveDemoLabel}
               external
               variant="primary"
+              analyticsAttrs={liveDemoAnalyticsAttrs}
             />
           ) : null}
           {githubHref ? (
@@ -105,6 +113,7 @@ export function ProjectCard({
               label={githubLabel}
               external
               variant="ghost"
+              analyticsAttrs={githubAnalyticsAttrs}
             />
           ) : disabledGithubReason ? (
             <ProjectActionLink

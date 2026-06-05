@@ -48,12 +48,20 @@ export default async function LocalizedDrugFeedbackProjectPage({
             href: projectLinks.demoHref,
             external: true,
             variant: "primary",
+            analyticsAttrs: {
+              "data-umami-event": "live-demo-click",
+              "data-umami-event-project": "drug-feedback-analytics",
+            },
           },
           {
             label: content.actions.tryPredictions,
             href: projectLinks.demoHref,
             external: true,
             variant: "secondary",
+            analyticsAttrs: {
+              "data-umami-event": "live-demo-click",
+              "data-umami-event-project": "drug-feedback-analytics",
+            },
           },
         ]}
       />
@@ -145,12 +153,20 @@ export default async function LocalizedDrugFeedbackProjectPage({
                 href={projectLinks.demoHref}
                 external
                 variant="primary"
+                analyticsAttrs={{
+                  "data-umami-event": "live-demo-click",
+                  "data-umami-event-project": "drug-feedback-analytics",
+                }}
               />
               <ProjectActionLink
                 label={content.demo.actions.tryPredictions}
                 href={projectLinks.demoHref}
                 external
                 variant="secondary"
+                analyticsAttrs={{
+                  "data-umami-event": "live-demo-click",
+                  "data-umami-event-project": "drug-feedback-analytics",
+                }}
               />
             </div>
           </div>
