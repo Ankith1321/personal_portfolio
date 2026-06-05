@@ -1,6 +1,5 @@
 import Image from "next/image";
 import { ProjectActionLink } from "@/components/projects/project-action-link";
-import { StatusBadge } from "@/components/ui/status-badge";
 
 type ProjectHeroAction = {
   label: string;
@@ -12,7 +11,6 @@ type ProjectHeroAction = {
 
 type ProjectHeroProps = {
   category: string;
-  status?: string;
   summary: string;
   title: string;
   actions?: readonly ProjectHeroAction[];
@@ -22,7 +20,6 @@ type ProjectHeroProps = {
 
 export function ProjectHero({
   category,
-  status,
   summary,
   title,
   actions,
@@ -45,7 +42,6 @@ export function ProjectHero({
                 {summary}
               </p>
             </div>
-            {status ? <StatusBadge>{status}</StatusBadge> : null}
           </div>
           {actions?.length ? (
             <div className="mt-6 flex flex-wrap gap-3">

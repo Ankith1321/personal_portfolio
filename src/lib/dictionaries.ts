@@ -674,10 +674,6 @@ const dictionaries = {
             label: "Deployment",
             value: "Streamlit",
           },
-          {
-            label: "Status",
-            value: "Abgeschlossen",
-          },
         ],
       },
       problem: {

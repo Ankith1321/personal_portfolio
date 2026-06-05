@@ -38,7 +38,6 @@ export default async function LocalizedDrugFeedbackProjectPage({
       />
       <ProjectHero
         category={content.snapshot.items[0]?.value ?? ""}
-        status={content.status}
         summary={content.summary}
         title={content.title}
         imageSrc={projectAsset.imageSrc}
