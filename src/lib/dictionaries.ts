@@ -129,7 +129,7 @@ export type Dictionary = {
   hero: {
     title: string;
     summaryLines: readonly [string, string];
-    metadataRow: string;
+    metadataLines: readonly [string, string, string];
     location: string;
     chips: readonly string[];
     actions: {
@@ -220,7 +220,7 @@ export type Dictionary = {
     category: string;
     title: string;
     summary: string;
-    visualPlaceholder: string;
+    imageAlt: string;
     overviewHeading: string;
     overviewText: string;
     workflowHeading: string;
@@ -244,12 +244,8 @@ export type Dictionary = {
     overviewText: string;
     contributionHeading: string;
     contributionItems: readonly string[];
-    demonstratedHeading: string;
-    demonstratedItems: readonly string[];
-    limitationHeading: string;
-    limitationText: string;
-    technicalConceptsHeading: string;
-    technicalConcepts: readonly string[];
+    resultsHeading: string;
+    resultsText: string;
   };
   drugFeedback: DrugFeedbackDictionary;
 };
@@ -289,17 +285,16 @@ const dictionaries = {
     hero: {
       title: "LLM Engineer | AI / ML Engineer",
       summaryLines: [
-        "M.Eng.-Student mit Projekten in Machine Learning, Computer Vision, Data Analytics und LLM-Anwendungen.",
-        "Ich entwickle intelligente Software für reale Anwendungen.",
+        "Ich bin M.Eng.-Student und entwickle praktische AI-Systeme mit LLM-Anwendungen, Machine Learning, Computer Vision und Data Analytics.",
+        "Mein Fokus liegt auf funktionierenden Projekten für reale Probleme und auf praktischen technischen Kenntnissen.",
       ],
-      metadataRow:
-        "Amberg, Deutschland · M.Eng. AI für Smart Sensors and Actuators · Deggendorf Institute of Technology",
+      metadataLines: [
+        "M.Eng. AI für Smart Sensors and Actuators",
+        "Deggendorf Institute of Technology",
+        "Amberg, Deutschland",
+      ],
       location: "Amberg, Deutschland",
-      chips: [
-        "Computer Vision",
-        "Machine Learning",
-        "LLM Applications",
-      ],
+      chips: ["Computer Vision", "Machine Learning", "LLM Applications"],
       actions: {
         projects: "Projekte ansehen",
         linkedin: "LinkedIn",
@@ -361,9 +356,7 @@ const dictionaries = {
           ],
           status: "Abgeschlossen",
           imageAlt:
-            "Traffic sign detection and classification workflow for e-bike safety",
-          imagePlaceholder:
-            "Verifizierte Projektvisualisierung ist derzeit nicht verfügbar.",
+            "Repräsentative E-Bike-Straßenszene für die Verkehrszeichenerkennung",
           slug: "traffic-sign-detection-ebike",
         },
         {
@@ -428,9 +421,7 @@ const dictionaries = {
           ],
           status: "Abgeschlossen",
           imageAlt:
-            "Traffic sign detection and classification workflow for e-bike safety",
-          imagePlaceholder:
-            "Verifizierte Projektvisualisierung ist derzeit nicht verfügbar.",
+            "Repräsentative E-Bike-Straßenszene für die Verkehrszeichenerkennung",
           slug: "traffic-sign-detection-ebike",
         },
         {
@@ -646,8 +637,8 @@ const dictionaries = {
         "Erkennung und Klassifikation deutscher Verkehrszeichen für E-Bike-Sicherheit",
       summary:
         "Computer-Vision-System zur Erkennung und Klassifikation deutscher Verkehrszeichen für E-Bike-Szenarien. Ein SSD-MobileNetV2-Modell wurde implementiert, trainiert und mit YOLOv11n verglichen.",
-      visualPlaceholder:
-        "Verifizierte Projektvisualisierung ist derzeit nicht verfügbar.",
+      imageAlt:
+        "Repräsentative E-Bike-Straßenszene für die Verkehrszeichenerkennung",
       overviewHeading: "Überblick",
       overviewText:
         "Dieses abgeschlossene akademische Projekt konzentriert sich auf die Erkennung und Klassifikation deutscher Verkehrszeichen für E-Bike-Sicherheit. Ein trainiertes SSD-MobileNetV2-Modell wird mit YOLOv11n verglichen.",
@@ -699,7 +690,7 @@ const dictionaries = {
         "Akademisches Teamprojekt mit Fokus auf UV-Messung, Logging, manuelle Rollladensteuerung und Prototyp-Verifikation mit Raspberry-Pi-Geräten.",
       overviewHeading: "Überblick",
       overviewText:
-        "Das Projekt untersuchte einen dezentralen Raspberry-Pi-Prototyp für UV-Monitoring und Rollladensteuerung. Mein Beitrag lag bei Architektur, Master-Logik, Software-Ablauf und Verifikation.",
+        "Dieses akademische Teamprojekt untersuchte einen dezentralen Raspberry-Pi-Prototyp für UV-Monitoring und Rollladensteuerung. Mein Beitrag lag bei Architektur, Master-Logik, Software-Ablauf und Prototyp-Verifikation.",
       contributionHeading: "Mein Beitrag",
       contributionItems: [
         "An der Hardware-Architektur für den Master-Slave-Prototyp mitgearbeitet.",
@@ -707,32 +698,9 @@ const dictionaries = {
         "An der Master-Logik für manuelle Rollladensteuerung und Systemfunktionen gearbeitet.",
         "Funktionierende und nicht funktionierende Prototyp-Funktionen mit Testfällen geprüft.",
       ],
-      demonstratedHeading: "Nachgewiesene Funktionen",
-      demonstratedItems: [
-        "Raspberry-Pi-Start und Initialisierung",
-        "Verbindung zum UV-Sensor",
-        "UV-Datenerfassung",
-        "CSV-Logging",
-        "Fehler- und Ereignislogging",
-        "Manuelle Rollladensteuerung",
-        "Automatischer Start beim Einschalten",
-      ],
-      limitationHeading: "Einschränkung",
-      limitationText:
-        "Die BLE-Verbindung konnte hergestellt werden, aber eine zuverlässige UV-Datenübertragung vom Slave zum Master wurde nicht abgeschlossen. Deshalb blieb die vollautomatische Rollladensteuerung unvollständig.",
-      technicalConceptsHeading: "Technische Konzepte",
-      technicalConcepts: [
-        "Raspberry Pi",
-        "UV Sensor",
-        "ADC Interfacing",
-        "I²C",
-        "Bluetooth Low Energy",
-        "CSV Logging",
-        "Fault Logging",
-        "Master-Slave Architecture",
-        "Manual Motor Control",
-        "Prototype Verification",
-      ],
+      resultsHeading: "Ergebnis",
+      resultsText:
+        "UV-Datenerfassung, CSV-Logging, manuelle Rollladensteuerung, Fehlerlogging und Auto-Start wurden nachgewiesen. BLE-Einschränkungen verhinderten die vollständige Automatisierung.",
     },
     drugFeedback: {
       backLabel: "← Zurück zu den Projekten",
@@ -898,17 +866,16 @@ const dictionaries = {
     hero: {
       title: "LLM Engineer | AI / ML Engineer",
       summaryLines: [
-        "M.Eng. student building practical AI systems through machine learning, computer vision, data analytics, and LLM applications.",
-        "Developing projects that connect intelligent software with real-world use cases.",
+        "I am an M.Eng. student building practical AI systems through LLM applications, machine learning, computer vision, and data analytics.",
+        "My focus is on developing working projects that solve real-world problems and demonstrate applied technical skills.",
       ],
-      metadataRow:
-        "Amberg, Germany · M.Eng. AI for Smart Sensors and Actuators · Deggendorf Institute of Technology",
+      metadataLines: [
+        "M.Eng. in AI for Smart Sensors and Actuators",
+        "Deggendorf Institute of Technology",
+        "Amberg, Germany",
+      ],
       location: "Amberg, Germany",
-      chips: [
-        "Computer Vision",
-        "Machine Learning",
-        "LLM Applications",
-      ],
+      chips: ["Computer Vision", "Machine Learning", "LLM Applications"],
       actions: {
         projects: "View Projects",
         linkedin: "LinkedIn",
@@ -970,9 +937,7 @@ const dictionaries = {
           ],
           status: "Completed",
           imageAlt:
-            "Traffic sign detection and classification workflow for e-bike safety",
-          imagePlaceholder:
-            "A verified project visual is not available yet.",
+            "Representative urban e-bike road scene for the traffic-sign detection use case",
           slug: "traffic-sign-detection-ebike",
         },
         {
@@ -1037,9 +1002,7 @@ const dictionaries = {
           ],
           status: "Completed",
           imageAlt:
-            "Traffic sign detection and classification workflow for e-bike safety",
-          imagePlaceholder:
-            "A verified project visual is not available yet.",
+            "Representative urban e-bike road scene for the traffic-sign detection use case",
           slug: "traffic-sign-detection-ebike",
         },
         {
@@ -1255,7 +1218,8 @@ const dictionaries = {
         "German Traffic Sign Detection and Classification for E-Bike Safety",
       summary:
         "Computer-vision system for detecting and classifying German traffic signs relevant to e-bike scenarios. Implemented and custom-trained an SSD MobileNetV2 model and compared its performance with YOLOv11n.",
-      visualPlaceholder: "A verified project visual is not available yet.",
+      imageAlt:
+        "Representative urban e-bike road scene for the traffic-sign detection use case",
       overviewHeading: "Overview",
       overviewText:
         "This completed academic project focuses on detecting and classifying German traffic signs relevant to e-bike safety. The implementation uses a custom-trained SSD MobileNetV2 model and compares its predictions with YOLOv11n.",
@@ -1304,7 +1268,7 @@ const dictionaries = {
         "Academic team project focused on UV sensing, logging, manual blind control, and prototype verification using Raspberry Pi devices.",
       overviewHeading: "Overview",
       overviewText:
-        "The project explored a decentralized Raspberry Pi prototype for UV monitoring and roller-blind control. My work focused on architecture design, master-side logic, software flow, and verification.",
+        "This academic team project explored a decentralized Raspberry Pi prototype for UV monitoring and roller-blind control. My work focused on architecture design, master-side logic, software flow, and prototype verification.",
       contributionHeading: "My Contribution",
       contributionItems: [
         "Contributed to the hardware architecture for the master-slave prototype.",
@@ -1312,32 +1276,9 @@ const dictionaries = {
         "Worked on master-side control logic for manual blind operation and system handling.",
         "Verified working and non-working prototype functions through structured test cases.",
       ],
-      demonstratedHeading: "Demonstrated Functions",
-      demonstratedItems: [
-        "Raspberry Pi startup and initialization",
-        "UV-sensor connection",
-        "UV-data acquisition",
-        "CSV logging",
-        "Fault-event logging",
-        "Manual blind control",
-        "Auto-start on power-on",
-      ],
-      limitationHeading: "Limitation Note",
-      limitationText:
-        "BLE pairing could be established, but reliable Slave-to-Master UV-data transmission was not completed. Therefore, fully automatic blind control remained incomplete.",
-      technicalConceptsHeading: "Technical Concepts",
-      technicalConcepts: [
-        "Raspberry Pi",
-        "UV Sensor",
-        "ADC Interfacing",
-        "I²C",
-        "Bluetooth Low Energy",
-        "CSV Logging",
-        "Fault Logging",
-        "Master-Slave Architecture",
-        "Manual Motor Control",
-        "Prototype Verification",
-      ],
+      resultsHeading: "Results",
+      resultsText:
+        "Demonstrated UV-data acquisition, CSV logging, manual blind control, fault-event logging, and auto-start while documenting BLE limitations affecting full automation.",
     },
     drugFeedback: {
       backLabel: "← Back to Projects",

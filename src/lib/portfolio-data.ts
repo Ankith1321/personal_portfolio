@@ -26,6 +26,7 @@ type PublishedProjectLinkConfig = {
 const projectAssets: Record<ProjectCardId, ProjectAsset> = {
   "traffic-sign-detection-ebike": {
     projectType: "academic",
+    imageSrc: "/images/projects/lane-detection-ebike/hero.png",
   },
   "drug-feedback-analytics": {
     projectType: "personal",

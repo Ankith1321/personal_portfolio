@@ -33,13 +33,11 @@ export default async function LocalizedUvMonitoringRollerBlindPage({
       />
 
       <ProjectSection
-        eyebrow={content.overviewHeading}
         title={content.overviewHeading}
         description={content.overviewText}
       />
 
       <ProjectSection
-        eyebrow={content.contributionHeading}
         title={content.contributionHeading}
       >
         <ul className="grid gap-3 md:grid-cols-2">
@@ -55,44 +53,11 @@ export default async function LocalizedUvMonitoringRollerBlindPage({
       </ProjectSection>
 
       <ProjectSection
-        eyebrow={content.demonstratedHeading}
-        title={content.demonstratedHeading}
+        title={content.resultsHeading}
       >
-        <ul className="grid gap-3 md:grid-cols-2 xl:grid-cols-3">
-          {content.demonstratedItems.map((item) => (
-            <li
-              key={item}
-              className="rounded-full border border-border bg-surface px-4 py-3 text-sm text-text-muted"
-            >
-              {item}
-            </li>
-          ))}
-        </ul>
-      </ProjectSection>
-
-      <ProjectSection
-        eyebrow={content.limitationHeading}
-        title={content.limitationHeading}
-      >
-        <div className="max-w-3xl rounded-[1.35rem] border border-border bg-surface/80 px-5 py-4 text-sm leading-7 text-text-muted">
-          {content.limitationText}
-        </div>
-      </ProjectSection>
-
-      <ProjectSection
-        eyebrow={content.technicalConceptsHeading}
-        title={content.technicalConceptsHeading}
-      >
-        <ul className="flex flex-wrap gap-2">
-          {content.technicalConcepts.map((item) => (
-            <li
-              key={item}
-              className="rounded-full border border-border/80 bg-background/72 px-3 py-1 text-xs text-text-muted shadow-[inset_0_1px_0_rgba(255,255,255,0.08)] dark:bg-surface-muted/80 dark:text-panel-text-muted"
-            >
-              {item}
-            </li>
-          ))}
-        </ul>
+        <p className="max-w-3xl text-sm leading-7 text-text-muted sm:text-base">
+          {content.resultsText}
+        </p>
       </ProjectSection>
     </Container>
   );

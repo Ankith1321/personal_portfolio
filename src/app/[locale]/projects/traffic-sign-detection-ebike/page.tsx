@@ -1,10 +1,10 @@
 import { Container } from "@/components/layout/container";
 import { ProjectActionLink } from "@/components/projects/project-action-link";
 import { ProjectHero } from "@/components/projects/project-hero";
-import { ProjectPlaceholder } from "@/components/projects/project-placeholder";
 import { ProjectSection } from "@/components/projects/project-section";
 import { getDictionary } from "@/lib/dictionaries";
 import { getLocaleStaticParams, getLocalizedPath, resolveLocale } from "@/lib/i18n";
+import { getProjectAsset } from "@/lib/portfolio-data";
 
 export function generateStaticParams() {
   return getLocaleStaticParams();
@@ -18,6 +18,7 @@ export default async function LocalizedTrafficSignDetectionProjectPage({
   const locale = await resolveLocale(params);
   const dictionary = getDictionary(locale);
   const content = dictionary.trafficSignDetection;
+  const imageSrc = getProjectAsset("traffic-sign-detection-ebike").imageSrc;
 
   return (
     <Container className="space-y-6 py-10 sm:space-y-8 sm:py-14">
@@ -29,20 +30,18 @@ export default async function LocalizedTrafficSignDetectionProjectPage({
       />
       <ProjectHero
         category={content.category}
+        imageAlt={content.imageAlt}
+        imageSrc={imageSrc}
         summary={content.summary}
         title={content.title}
       />
 
-      <ProjectPlaceholder label={content.visualPlaceholder} />
-
       <ProjectSection
-        eyebrow={content.overviewHeading}
         title={content.overviewHeading}
         description={content.overviewText}
       />
 
       <ProjectSection
-        eyebrow={content.workflowHeading}
         title={content.workflowHeading}
       >
         <ol className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
@@ -63,7 +62,6 @@ export default async function LocalizedTrafficSignDetectionProjectPage({
       </ProjectSection>
 
       <ProjectSection
-        eyebrow={content.contribution.eyebrow}
         title={content.contribution.title}
       >
         <ul className="grid gap-3 md:grid-cols-2">
@@ -79,7 +77,6 @@ export default async function LocalizedTrafficSignDetectionProjectPage({
       </ProjectSection>
 
       <ProjectSection
-        eyebrow={content.technicalOverviewEyebrow}
         title={content.technicalOverviewTitle}
       >
         <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">

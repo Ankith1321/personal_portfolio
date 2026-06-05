@@ -44,17 +44,8 @@ export function HeroSection({ locale, dictionary }: HeroSectionProps) {
           </div>
 
           <div className="grid gap-1 text-sm leading-6 text-text-muted sm:text-base">
-            <p>{dictionary.hero.metadataRow}</p>
-          </div>
-
-          <div className="flex flex-wrap gap-2">
-            {dictionary.hero.chips.map((chip) => (
-              <span
-                key={chip}
-                className="rounded-full border border-border bg-background/88 px-3 py-1.5 text-sm text-text-muted"
-              >
-                {chip}
-              </span>
+            {dictionary.hero.metadataLines.map((line) => (
+              <p key={line}>{line}</p>
             ))}
           </div>
 
