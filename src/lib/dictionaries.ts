@@ -235,6 +235,22 @@ export type Dictionary = {
     technicalOverviewTitle: string;
     technicalOverviewItems: readonly ProjectSnapshotItem[];
   };
+  uvMonitoringRollerBlind: {
+    backLabel: string;
+    category: string;
+    title: string;
+    summary: string;
+    overviewHeading: string;
+    overviewText: string;
+    contributionHeading: string;
+    contributionItems: readonly string[];
+    demonstratedHeading: string;
+    demonstratedItems: readonly string[];
+    limitationHeading: string;
+    limitationText: string;
+    technicalConceptsHeading: string;
+    technicalConcepts: readonly string[];
+  };
   drugFeedback: DrugFeedbackDictionary;
 };
 
@@ -351,15 +367,15 @@ const dictionaries = {
           slug: "traffic-sign-detection-ebike",
         },
         {
-          id: "uv-roller-blind",
-          title: "UV-Messung und automatische Rollladensteuerung",
+          id: "uv-monitoring-roller-blind",
+          title: "UV-Monitoring und Rollladensteuerung",
           summary:
-            "Smart-Sensor-Projekt mit UV-Monitoring, Bluetooth-Kommunikation, Edge-Device-Architektur und automatischer Rollladensteuerung.",
-          tags: ["Smart Sensors", "Bluetooth", "Edge Systems"],
+            "Raspberry-Pi-basiertes Hochschulprojekt für UV-Messung, CSV-Logging, manuelle Rollladensteuerung und Systemprüfung in einer Master-Slave-Architektur.",
+          tags: ["Raspberry Pi", "I²C", "BLE", "ADC Interfacing", "CSV Logging"],
           status: "Abgeschlossen",
           imageAlt:
             "Abstrakte Illustration von UV-Sensorik und automatischer Rollladensteuerung",
-          detailsState: "Details folgen bald",
+          slug: "uv-monitoring-roller-blind",
         },
         {
           id: "turtlebot3-line-following",
@@ -418,15 +434,15 @@ const dictionaries = {
           slug: "traffic-sign-detection-ebike",
         },
         {
-          id: "uv-roller-blind",
-          title: "UV-Messung und automatische Rollladensteuerung",
+          id: "uv-monitoring-roller-blind",
+          title: "UV-Monitoring und Rollladensteuerung",
           summary:
-            "Smart-Sensor-Projekt mit UV-Monitoring, Bluetooth-Kommunikation, Edge-Device-Architektur und automatischer Rollladensteuerung.",
-          tags: ["Smart Sensors", "Bluetooth", "Edge Systems"],
+            "Raspberry-Pi-basiertes Hochschulprojekt für UV-Messung, CSV-Logging, manuelle Rollladensteuerung und Systemprüfung in einer Master-Slave-Architektur.",
+          tags: ["Raspberry Pi", "I²C", "BLE", "ADC Interfacing", "CSV Logging"],
           status: "Abgeschlossen",
           imageAlt:
             "Abstrakte Illustration von UV-Sensorik und automatischer Rollladensteuerung",
-          detailsState: "Details folgen bald",
+          slug: "uv-monitoring-roller-blind",
         },
         {
           id: "turtlebot3-line-following",
@@ -675,6 +691,49 @@ const dictionaries = {
         { label: "Framework", value: "TensorFlow" },
       ],
     },
+    uvMonitoringRollerBlind: {
+      backLabel: "← Zurück zu den Projekten",
+      category: "Eingebettete Systeme",
+      title: "Dezentrales UV-Monitoring und Rollladensteuerungs-Prototyp",
+      summary:
+        "Akademisches Teamprojekt mit Fokus auf UV-Messung, Logging, manuelle Rollladensteuerung und Prototyp-Verifikation mit Raspberry-Pi-Geräten.",
+      overviewHeading: "Überblick",
+      overviewText:
+        "Das Projekt untersuchte einen dezentralen Raspberry-Pi-Prototyp für UV-Monitoring und Rollladensteuerung. Mein Beitrag lag bei Architektur, Master-Logik, Software-Ablauf und Verifikation.",
+      contributionHeading: "Mein Beitrag",
+      contributionItems: [
+        "An der Hardware-Architektur für den Master-Slave-Prototyp mitgearbeitet.",
+        "Den Software-Ablauf für Messung, Steuerung und Logging entwickelt.",
+        "An der Master-Logik für manuelle Rollladensteuerung und Systemfunktionen gearbeitet.",
+        "Funktionierende und nicht funktionierende Prototyp-Funktionen mit Testfällen geprüft.",
+      ],
+      demonstratedHeading: "Nachgewiesene Funktionen",
+      demonstratedItems: [
+        "Raspberry-Pi-Start und Initialisierung",
+        "Verbindung zum UV-Sensor",
+        "UV-Datenerfassung",
+        "CSV-Logging",
+        "Fehler- und Ereignislogging",
+        "Manuelle Rollladensteuerung",
+        "Automatischer Start beim Einschalten",
+      ],
+      limitationHeading: "Einschränkung",
+      limitationText:
+        "Die BLE-Verbindung konnte hergestellt werden, aber eine zuverlässige UV-Datenübertragung vom Slave zum Master wurde nicht abgeschlossen. Deshalb blieb die vollautomatische Rollladensteuerung unvollständig.",
+      technicalConceptsHeading: "Technische Konzepte",
+      technicalConcepts: [
+        "Raspberry Pi",
+        "UV Sensor",
+        "ADC Interfacing",
+        "I²C",
+        "Bluetooth Low Energy",
+        "CSV Logging",
+        "Fault Logging",
+        "Master-Slave Architecture",
+        "Manual Motor Control",
+        "Prototype Verification",
+      ],
+    },
     drugFeedback: {
       backLabel: "← Zurück zu den Projekten",
       status: "Abgeschlossen",
@@ -917,15 +976,15 @@ const dictionaries = {
           slug: "traffic-sign-detection-ebike",
         },
         {
-          id: "uv-roller-blind",
-          title: "UV Measurement and Automated Roller-Blind Steering",
+          id: "uv-monitoring-roller-blind",
+          title: "UV Monitoring and Roller-Blind Control",
           summary:
-            "Smart-sensor project involving UV monitoring, Bluetooth communication, edge-device architecture, and automated roller-blind control.",
-          tags: ["Smart Sensors", "Bluetooth", "Edge Systems"],
+            "Raspberry Pi-based academic prototype for UV sensing, CSV logging, manual roller-blind control, and system verification in a master-slave architecture.",
+          tags: ["Raspberry Pi", "I²C", "BLE", "ADC Interfacing", "CSV Logging"],
           status: "Completed",
           imageAlt:
-            "Abstract illustration of UV sensing and automated blind control",
-          detailsState: "Details coming soon",
+            "Abstract illustration of UV sensing and roller-blind control",
+          slug: "uv-monitoring-roller-blind",
         },
         {
           id: "turtlebot3-line-following",
@@ -984,15 +1043,15 @@ const dictionaries = {
           slug: "traffic-sign-detection-ebike",
         },
         {
-          id: "uv-roller-blind",
-          title: "UV Measurement and Automated Roller-Blind Steering",
+          id: "uv-monitoring-roller-blind",
+          title: "UV Monitoring and Roller-Blind Control",
           summary:
-            "Smart-sensor project involving UV monitoring, Bluetooth communication, edge-device architecture, and automated roller-blind control.",
-          tags: ["Smart Sensors", "Bluetooth", "Edge Systems"],
+            "Raspberry Pi-based academic prototype for UV sensing, CSV logging, manual roller-blind control, and system verification in a master-slave architecture.",
+          tags: ["Raspberry Pi", "I²C", "BLE", "ADC Interfacing", "CSV Logging"],
           status: "Completed",
           imageAlt:
-            "Abstract illustration of UV sensing and automated blind control",
-          detailsState: "Details coming soon",
+            "Abstract illustration of UV sensing and roller-blind control",
+          slug: "uv-monitoring-roller-blind",
         },
         {
           id: "turtlebot3-line-following",
@@ -1237,6 +1296,49 @@ const dictionaries = {
         { label: "Framework", value: "TensorFlow" },
       ],
     },
+    uvMonitoringRollerBlind: {
+      backLabel: "← Back to Projects",
+      category: "Embedded Systems",
+      title: "Decentralized UV Monitoring and Roller-Blind Control Prototype",
+      summary:
+        "Academic team project focused on UV sensing, logging, manual blind control, and prototype verification using Raspberry Pi devices.",
+      overviewHeading: "Overview",
+      overviewText:
+        "The project explored a decentralized Raspberry Pi prototype for UV monitoring and roller-blind control. My work focused on architecture design, master-side logic, software flow, and verification.",
+      contributionHeading: "My Contribution",
+      contributionItems: [
+        "Contributed to the hardware architecture for the master-slave prototype.",
+        "Designed the software-flow structure for sensing, control, and logging.",
+        "Worked on master-side control logic for manual blind operation and system handling.",
+        "Verified working and non-working prototype functions through structured test cases.",
+      ],
+      demonstratedHeading: "Demonstrated Functions",
+      demonstratedItems: [
+        "Raspberry Pi startup and initialization",
+        "UV-sensor connection",
+        "UV-data acquisition",
+        "CSV logging",
+        "Fault-event logging",
+        "Manual blind control",
+        "Auto-start on power-on",
+      ],
+      limitationHeading: "Limitation Note",
+      limitationText:
+        "BLE pairing could be established, but reliable Slave-to-Master UV-data transmission was not completed. Therefore, fully automatic blind control remained incomplete.",
+      technicalConceptsHeading: "Technical Concepts",
+      technicalConcepts: [
+        "Raspberry Pi",
+        "UV Sensor",
+        "ADC Interfacing",
+        "I²C",
+        "Bluetooth Low Energy",
+        "CSV Logging",
+        "Fault Logging",
+        "Master-Slave Architecture",
+        "Manual Motor Control",
+        "Prototype Verification",
+      ],
+    },
     drugFeedback: {
       backLabel: "← Back to Projects",
       status: "Completed",
@@ -1365,6 +1467,6 @@ const dictionaries = {
   },
 } satisfies Record<Locale, Dictionary>;
 
-export function getDictionary(locale: Locale) {
+export function getDictionary(locale: Locale): Dictionary {
   return dictionaries[locale];
 }

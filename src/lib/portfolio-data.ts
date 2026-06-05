@@ -1,7 +1,7 @@
 export type ProjectCardId =
   | "traffic-sign-detection-ebike"
   | "drug-feedback-analytics"
-  | "uv-roller-blind"
+  | "uv-monitoring-roller-blind"
   | "turtlebot3-line-following"
   | "sentinel-rag-assistant";
 
@@ -9,6 +9,7 @@ export type ProjectType = "academic" | "personal";
 
 export type PublishedProjectSlug =
   | "traffic-sign-detection-ebike"
+  | "uv-monitoring-roller-blind"
   | "drug-feedback-analytics";
 
 type ProjectAsset = {
@@ -30,7 +31,7 @@ const projectAssets: Record<ProjectCardId, ProjectAsset> = {
     projectType: "personal",
     imageSrc: "/images/projects/drug-feedback-analytics-hero.svg",
   },
-  "uv-roller-blind": {
+  "uv-monitoring-roller-blind": {
     projectType: "academic",
     imageSrc: "/images/projects/uv-roller-blind-visual.svg",
   },
@@ -48,6 +49,7 @@ const publishedProjectLinks: Record<
   PublishedProjectLinkConfig
 > = {
   "traffic-sign-detection-ebike": {},
+  "uv-monitoring-roller-blind": {},
   "drug-feedback-analytics": {
     demoHref: "https://drug-performance.streamlit.app/",
     githubHref: "https://github.com/Ankith1321/Drug-Preformance-Evaluation",

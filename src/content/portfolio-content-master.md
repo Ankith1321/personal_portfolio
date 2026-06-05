@@ -125,35 +125,31 @@ Computer-vision system for detecting and classifying German traffic signs releva
 
 ---
 
-## 5.2 UV Measurement and Automated Roller-Blind Steering
+## 5.2 UV Monitoring and Roller-Blind Control
 
-**Status:** `TODO: VERIFY completed or in progress`
+**Status:** Completed
 
 ### Summary
-Smart-sensor and edge-system project involving UV monitoring, Bluetooth communication, and automated roller-blind control.
+Raspberry Pi-based academic prototype for UV sensing, CSV logging, manual roller-blind control, and system verification in a master–slave architecture.
 
 ### Verified claims
-- UV monitoring
-- Bluetooth communication
-- Edge-device architecture
-- Automated roller-blind control
+- Raspberry Pi-based academic prototype
+- UV sensing
+- CSV logging
+- Manual roller-blind control
+- Master-slave architecture
+- BLE pairing established
+- Fault-event logging
+- Auto-start on power-on
+
+### Limitation
+- Reliable Slave-to-Master UV-data transmission was not completed, so fully automatic blind control remained incomplete.
 
 ### `TODO: VERIFY`
-- Exact project title
-- UV sensor model
-- Microcontroller or edge device
-- Programming language
-- Bluetooth protocol or library
-- Control logic
-- Physical actuation versus simulation
-- Individual contribution
-- Hardware list
-- System architecture diagram
-- Wiring diagram
-- Prototype photos
-- GitHub repository
-- Measured results
-- Lessons learned
+- Exact Raspberry Pi model
+- Exact UV-sensor model
+- Exact ADC model
+- Any additional verified results from the report
 
 ---
 
@@ -277,13 +273,14 @@ Do not feature this project on the first launch unless at least one end-to-end w
 - `/about` — About
 - `/projects` — Projects overview
 - `/projects/traffic-sign-detection-ebike` — Traffic-sign detection detail page
-- `/projects/uv-roller-blind` — UV roller-blind detail page
+- `/projects/uv-monitoring-roller-blind` — UV monitoring detail page
 - `/experience` — Industrial experience
 - `/skills` — Skills grouped by evidence level
 - `/contact` — Contact links
 
 ### Legacy redirects
 - `/projects/lane-detection-ebike` — redirects to `/projects/traffic-sign-detection-ebike`
+- `/projects/uv-roller-blind` — redirects to `/projects/uv-monitoring-roller-blind`
 
 ### Optional after evidence review
 - `/projects/turtlebot3-line-following-obstacle-avoidance`
