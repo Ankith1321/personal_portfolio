@@ -86,6 +86,7 @@ export function ProjectsPreview({ locale, dictionary }: ProjectsPreviewProps) {
                   imageSrc={getProjectAsset(project.id).imageSrc}
                   imageAlt={project.imageAlt}
                   imagePlaceholder={project.imagePlaceholder}
+                  imageFit={getProjectAsset(project.id).imageFit}
                 />
               ))}
             </div>

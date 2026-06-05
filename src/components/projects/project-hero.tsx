@@ -13,9 +13,10 @@ type ProjectHeroProps = {
   category: string;
   summary: string;
   title: string;
-  actions?: readonly ProjectHeroAction[];
+  actions?: readonly ProjectHeroAction[]; 
   imageSrc?: string;
   imageAlt?: string;
+  imageFit?: "cover" | "contain";
 };
 
 export function ProjectHero({
@@ -25,6 +26,7 @@ export function ProjectHero({
   actions,
   imageSrc,
   imageAlt,
+  imageFit = "cover",
 }: ProjectHeroProps) {
   return (
     <section className="panel-surface overflow-hidden rounded-[2rem] border bg-[linear-gradient(145deg,rgba(184,110,83,0.10),rgba(255,250,242,0.96)_45%,rgba(128,147,124,0.10))] px-6 py-8 shadow-[0_20px_60px_rgba(87,62,47,0.08)] sm:px-8 sm:py-10 dark:bg-[linear-gradient(145deg,rgba(111,117,180,0.18),rgba(23,33,47,0.95)_45%,rgba(127,151,136,0.12))]">
@@ -66,7 +68,7 @@ export function ProjectHero({
                 alt={imageAlt ?? ""}
                 fill
                 sizes="(max-width: 1279px) 100vw, 40vw"
-                className="object-cover"
+                className={imageFit === "contain" ? "object-contain p-2" : "object-cover"}
               />
             </div>
           </div>

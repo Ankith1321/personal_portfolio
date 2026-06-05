@@ -371,17 +371,6 @@ const dictionaries = {
           slug: "uv-monitoring-roller-blind",
         },
         {
-          id: "turtlebot3-line-following",
-          title: "TurtleBot3 Linienverfolgung und Hinderniserkennung",
-          summary:
-            "ROS2-Hochschulprojekt mit kamerabasierter Linienverfolgung, LiDAR-Hinderniserkennung und Steuerlogik.",
-          tags: ["ROS2", "OpenCV", "LiDAR"],
-          status: "In Arbeit",
-          imageAlt:
-            "Abstrakte Illustration von TurtleBot-Linienverfolgung und Hinderniserkennung",
-          detailsState: "Details folgen bald",
-        },
-        {
           id: "drug-feedback-analytics",
           title: "Drug Feedback Analytics und Condition Classification",
           summary:
@@ -391,16 +380,6 @@ const dictionaries = {
           imageAlt:
             "Abstrakte Illustration von Pharma-Analytics, Charts und Prediction-Workflow",
           slug: "drug-feedback-analytics",
-        },
-        {
-          id: "sentinel-rag-assistant",
-          title: "Sentinel Enterprise RAG Assistant",
-          summary:
-            "In Arbeit befindliches privates Projekt zu Dokumentensuche, Enterprise Knowledge Access und LLM-gestützten Antworten.",
-          tags: ["In Progress", "Enterprise RAG"],
-          status: "In Arbeit",
-          imageAlt: "Abstrakte Illustration eines Enterprise-RAG-Assistenten",
-          detailsState: "Details folgen bald",
         },
       ],
       pageTitle: "Projekte",
@@ -436,17 +415,6 @@ const dictionaries = {
           slug: "uv-monitoring-roller-blind",
         },
         {
-          id: "turtlebot3-line-following",
-          title: "TurtleBot3 Linienverfolgung und Hinderniserkennung",
-          summary:
-            "ROS2-Hochschulprojekt mit kamerabasierter Linienverfolgung, LiDAR-Hinderniserkennung und Steuerlogik.",
-          tags: ["ROS2", "OpenCV", "LiDAR"],
-          status: "In Arbeit",
-          imageAlt:
-            "Abstrakte Illustration von TurtleBot-Linienverfolgung und Hinderniserkennung",
-          detailsState: "Details folgen bald",
-        },
-        {
           id: "drug-feedback-analytics",
           title: "Drug Feedback Analytics und Condition Classification",
           summary:
@@ -456,16 +424,6 @@ const dictionaries = {
           imageAlt:
             "Abstrakte Illustration von Pharma-Analytics, Charts und Prediction-Workflow",
           slug: "drug-feedback-analytics",
-        },
-        {
-          id: "sentinel-rag-assistant",
-          title: "Sentinel Enterprise RAG Assistant",
-          summary:
-            "In Arbeit befindliches privates Projekt zu Dokumentensuche, Enterprise Knowledge Access und LLM-gestützten Antworten.",
-          tags: ["In Progress", "Enterprise RAG"],
-          status: "In Arbeit",
-          imageAlt: "Abstrakte Illustration eines Enterprise-RAG-Assistenten",
-          detailsState: "Details folgen bald",
         },
       ],
     },
@@ -530,10 +488,7 @@ const dictionaries = {
         },
         {
           title: "LLM Applications",
-          items: [
-            "LLM Applications",
-            "RAG Assistant — In Progress",
-          ],
+          items: ["LLM Applications"],
         },
         {
           title: "Frontend and Web",
@@ -952,17 +907,6 @@ const dictionaries = {
           slug: "uv-monitoring-roller-blind",
         },
         {
-          id: "turtlebot3-line-following",
-          title: "TurtleBot3 Line Following and Obstacle Avoidance",
-          summary:
-            "ROS2 academic project combining camera-based line tracking with LiDAR-based static-obstacle detection and control logic.",
-          tags: ["ROS2", "OpenCV", "LiDAR"],
-          status: "In progress",
-          imageAlt:
-            "Abstract illustration of TurtleBot line following and obstacle avoidance",
-          detailsState: "Details coming soon",
-        },
-        {
           id: "drug-feedback-analytics",
           title: "Drug Feedback Analytics and Condition Classification",
           summary:
@@ -972,16 +916,6 @@ const dictionaries = {
           imageAlt:
             "Abstract illustration of pharma analytics, charts, and prediction workflow",
           slug: "drug-feedback-analytics",
-        },
-        {
-          id: "sentinel-rag-assistant",
-          title: "Sentinel Enterprise RAG Assistant",
-          summary:
-            "In-progress private project exploring document retrieval, enterprise knowledge access, and LLM-assisted responses.",
-          tags: ["In Progress", "Enterprise RAG"],
-          status: "In progress",
-          imageAlt: "Abstract illustration of an enterprise RAG assistant concept",
-          detailsState: "Details coming soon",
         },
       ],
       pageTitle: "Projects",
@@ -1017,17 +951,6 @@ const dictionaries = {
           slug: "uv-monitoring-roller-blind",
         },
         {
-          id: "turtlebot3-line-following",
-          title: "TurtleBot3 Line Following and Obstacle Avoidance",
-          summary:
-            "ROS2 academic project combining camera-based line tracking with LiDAR-based static-obstacle detection and control logic.",
-          tags: ["ROS2", "OpenCV", "LiDAR"],
-          status: "In progress",
-          imageAlt:
-            "Abstract illustration of TurtleBot line following and obstacle avoidance",
-          detailsState: "Details coming soon",
-        },
-        {
           id: "drug-feedback-analytics",
           title: "Drug Feedback Analytics and Condition Classification",
           summary:
@@ -1037,16 +960,6 @@ const dictionaries = {
           imageAlt:
             "Abstract illustration of pharma analytics, charts, and prediction workflow",
           slug: "drug-feedback-analytics",
-        },
-        {
-          id: "sentinel-rag-assistant",
-          title: "Sentinel Enterprise RAG Assistant",
-          summary:
-            "In-progress personal project exploring document retrieval, enterprise knowledge access, and LLM-assisted responses.",
-          tags: ["In Progress", "Enterprise RAG"],
-          status: "In progress",
-          imageAlt: "Abstract illustration of an enterprise RAG assistant concept",
-          detailsState: "Details coming soon",
         },
       ],
     },
@@ -1111,10 +1024,7 @@ const dictionaries = {
         },
         {
           title: "LLM Applications",
-          items: [
-            "LLM Applications",
-            "RAG Assistant — In Progress",
-          ],
+          items: ["LLM Applications"],
         },
         {
           title: "Frontend and Web",

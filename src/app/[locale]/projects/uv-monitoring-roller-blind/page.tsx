@@ -4,6 +4,7 @@ import { ProjectHero } from "@/components/projects/project-hero";
 import { ProjectSection } from "@/components/projects/project-section";
 import { getDictionary } from "@/lib/dictionaries";
 import { getLocaleStaticParams, getLocalizedPath, resolveLocale } from "@/lib/i18n";
+import { getProjectAsset } from "@/lib/portfolio-data";
 
 export function generateStaticParams() {
   return getLocaleStaticParams();
@@ -17,6 +18,10 @@ export default async function LocalizedUvMonitoringRollerBlindPage({
   const locale = await resolveLocale(params);
   const dictionary = getDictionary(locale);
   const content = dictionary.uvMonitoringRollerBlind;
+  const imageSrc = getProjectAsset("uv-monitoring-roller-blind").imageSrc;
+  const imageAlt = locale === "de"
+    ? "Illustration für UV-Messung und Rollladensteuerung mit einem Raspberry-Pi-basierten Prototyp"
+    : "Illustration of UV sensing and roller-blind control using a Raspberry Pi-based prototype";
 
   return (
     <Container className="space-y-6 py-10 sm:space-y-8 sm:py-14">
@@ -28,6 +33,9 @@ export default async function LocalizedUvMonitoringRollerBlindPage({
       />
       <ProjectHero
         category={content.category}
+        imageAlt={imageAlt}
+        imageFit="contain"
+        imageSrc={imageSrc}
         summary={content.summary}
         title={content.title}
       />

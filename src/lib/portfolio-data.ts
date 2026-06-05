@@ -1,9 +1,7 @@
 export type ProjectCardId =
   | "traffic-sign-detection-ebike"
   | "drug-feedback-analytics"
-  | "uv-monitoring-roller-blind"
-  | "turtlebot3-line-following"
-  | "sentinel-rag-assistant";
+  | "uv-monitoring-roller-blind";
 
 export type ProjectType = "academic" | "personal";
 
@@ -15,6 +13,7 @@ export type PublishedProjectSlug =
 type ProjectAsset = {
   projectType: ProjectType;
   imageSrc?: string;
+  imageFit?: "cover" | "contain";
 };
 
 type PublishedProjectLinkConfig = {
@@ -34,14 +33,8 @@ const projectAssets: Record<ProjectCardId, ProjectAsset> = {
   },
   "uv-monitoring-roller-blind": {
     projectType: "academic",
-    imageSrc: "/images/projects/uv-roller-blind-visual.svg",
-  },
-  "turtlebot3-line-following": {
-    projectType: "academic",
-    imageSrc: "/images/projects/turtlebot-visual.svg",
-  },
-  "sentinel-rag-assistant": {
-    projectType: "personal",
+    imageSrc: "/images/projects/uv-monitoring-roller-blind/uv-monitoring-roller-blind.svg",
+    imageFit: "contain",
   },
 };
 

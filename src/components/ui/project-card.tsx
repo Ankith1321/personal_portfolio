@@ -5,7 +5,7 @@ import { ProjectPlaceholder } from "@/components/projects/project-placeholder";
 type ProjectCardProps = {
   title: string;
   summary: string;
-  tags: readonly string[];
+  tags: readonly string[]; 
   caseStudyLabel: string;
   liveDemoLabel: string;
   githubLabel: string;
@@ -17,6 +17,7 @@ type ProjectCardProps = {
   imageSrc?: string;
   imageAlt?: string;
   imagePlaceholder?: string;
+  imageFit?: "cover" | "contain";
 };
 
 export function ProjectCard({
@@ -34,6 +35,7 @@ export function ProjectCard({
   imageSrc,
   imageAlt,
   imagePlaceholder,
+  imageFit = "cover",
 }: ProjectCardProps) {
   return (
     <article className="relative flex h-full flex-col overflow-hidden rounded-[1.75rem] border border-border/90 bg-[linear-gradient(160deg,color-mix(in_srgb,var(--surface)_86%,transparent),color-mix(in_srgb,var(--surface-muted)_80%,transparent))] p-6 shadow-[0_16px_40px_rgba(18,23,34,0.10)] backdrop-blur-sm hover:border-accent/40 hover:shadow-[0_24px_50px_rgba(18,23,34,0.14)] motion-safe:hover:[transform:perspective(1200px)_translateY(-0.25rem)_rotateX(1deg)] motion-reduce:transform-none">
@@ -49,7 +51,7 @@ export function ProjectCard({
               alt={imageAlt ?? ""}
               fill
               sizes="(max-width: 767px) 100vw, (max-width: 1279px) 50vw, 33vw"
-              className="object-cover"
+              className={imageFit === "contain" ? "object-contain p-4" : "object-cover"}
             />
           </div>
         </div>
